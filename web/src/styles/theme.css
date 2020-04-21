@@ -1,4 +1,37 @@
+.Navbar-container {
+    width: 100%;
+    height: 136px;
+    background-color: #000000;
+    display: inline-block;
+}
+
 .BandLogo {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
+    padding-left: 56px;
+    padding-top: 28px;
+    fill: #ffffff;
+}
+
+.Navbar-content {
+    text-align: right;
+    margin-right: 84px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+}
+
+.Navbar-content-item {
+    font-size: 20px;
+    font-family: 'Gotham';
+    font-weight: bold;
+    display: inline-block;
+    padding-top: 58px;
+    padding-bottom: 58px;
+    padding-left: 42px;
+    padding-right: 42px;
+    color: #ffffff;
 }

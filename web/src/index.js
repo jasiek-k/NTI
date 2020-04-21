@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Navbar from './components/Navbar';
-//import App from './App';
 import * as serviceWorker from './serviceWorker';
+import PageDisplay from './components/PageDisplay';
 
-ReactDOM.render(<Navbar />, document.getElementById('root'));
-
+ReactDOM.render(<PageDisplay />, document.getElementById('root'));
+//console.log(pageContent)
 
 serviceWorker.unregister();
