@@ -1,0 +1,62 @@
+.Post-container {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+
+.Post-header {
+    padding-left: 56px;
+    padding-right: 56px;
+    padding-top: 42px;
+    width: 488px;
+    height: 40px;
+    margin: 0; 
+}
+
+.PostLogo {
+    fill: #000000;
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+    float: left;
+}
+
+.Post-date {
+    color: #858585;
+    font-size: 10px;
+    font-weight: normal;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px;
+    padding-left: 14px;
+    height: 12px;
+}
+
+.Post-tags {
+    color: #858585;
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+    height: 17px;
+    width: 300px;
+    padding-top: 5px;
+    position: relative;
+    left: 14px;
+    margin: 0;
+}
+
+.Post-tags p {
+    display: inline;
+    margin: 0;
+    padding-right: 7px;
+}
+
+.Post-content {
+    font-size: 16px;
+    padding-left: 110px;
+    padding-right: 110px;
+    padding-top: 21px;
+    padding-bottom: 42px;
+    width: 380px;
+}
