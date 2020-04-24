@@ -21,8 +21,10 @@ export default class PageDisplay extends React.Component {
     }
 
     render() {
-       var {date, tags, hearts, content} = data;
-       
+        var {post, comments} = data;
+        var {date, tags, hearts, content} = post;
+        console.log(post, comments);
+        
         return(
             <div className="Page-content">
                 <Navbar navbarContent={pageContent.navbarContent} />
@@ -30,7 +32,8 @@ export default class PageDisplay extends React.Component {
                 <div className="Subpage-content">
                     <NewsPost   postDate={date}
                                 postTags={tags}
-                                postContent={content}/>
+                                postContent={content}
+                                addedComments={comments}/>
                 </div>
             </div>
         );

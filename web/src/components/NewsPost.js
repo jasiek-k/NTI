@@ -1,8 +1,23 @@
-import React from 'react';
-import './../styles/subpageTheme.css';
-import { PostLogo } from './../utils/icons';
+import React from 'react'
+import './../styles/subpageTheme.css'
+import { PostLogo, PersonIcon } from './../utils/icons'
 
 export default class NewsPost extends React.Component {
+
+    ifCommentsDisplayed = false
+
+    displayComments = e => {
+        this.ifCommentsDisplayed = this.ifCommentsDisplayed ? false : true
+        this.forceUpdate()
+    }
+
+    handleCommentSubmit = e => {
+        e.preventDefault()
+    }
+
+    handleInputChange = e => {
+
+    } 
 
     render() {
         return(
@@ -10,11 +25,47 @@ export default class NewsPost extends React.Component {
                 <div className="Post-header">
                     <PostLogo />
                     <p className="Post-date">{this.props.postDate}</p>
-                    <p className="Post-tags">{this.props.postTags.map((item) => {
-                        return <p>#{item}</p>
+                    <p className="Post-tags-container">{this.props.postTags.map((item, index) => {
+                        return <span className="Post-tag" key={index}>#{item}</span>
                     })}</p>
                 </div>
                 <div className="Post-content">{this.props.postContent}</div>
+                <hr className="Divider-line"/>
+                <div className="Comments-section">
+                    {this.ifCommentsDisplayed ? (
+                        <ul className="Comments-list">
+                            {this.props.addedComments.map((item, index) => {
+                                const [author, date, content] = item;
+                                return <React.Fragment key={index}>
+                                    <li className="Post-comment" >
+                                        <PersonIcon className="Comment-icon" />
+                                        <div className="Comment-header">    
+                                            <span className="Comment-author">{author}</span>
+                                            <span className="Comment-date">{date}</span>
+                                        </div>
+                                        <p className="Comment-content">{content}</p>
+                                    </li>
+                                    <hr className="Divider-line"/>
+                                </React.Fragment>
+                            })}
+                            <form className="Comment-form" onSubmit={this.handleCommentSubmit}>
+                                <textarea  onChange={this.handleInputChange} 
+                                        type="text" 
+                                        placeholder="Comment here..."
+                                        className="Comment-input"/>
+                                <button type="submit" 
+                                        value="Comment"
+                                        className="Comment-button">Comment</button>
+                            </form>
+                            <hr className="Divider-line"/>
+                        </ul>
+                    ) : (<React.Fragment></React.Fragment>)}
+                </div>                    
+                <button onClick={this.displayComments} className="Comments-display-button">
+                    <p className="Comments-display-caption">
+                        {this.ifCommentsDisplayed ? "Hide comments section" : "Show comments section"}
+                    </p>
+                </button>
             </div>
         );
     }

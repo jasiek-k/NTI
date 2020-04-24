@@ -12,7 +12,6 @@ body {
 .Navbar-container {
     width: 100%;
     min-width: 800px;
-    height: 126px;
     background-color: #000000;
     display: inline-block;
     z-index: 1;
@@ -43,10 +42,10 @@ body {
     font-size: 18px;
     font-weight: bold;
     display: inline-block;
-    padding-top: 51px;
-    padding-bottom: 51px;
-    padding-left: 34px;
-    padding-right: 34px;
+    padding-top: 49px;
+    padding-bottom: 49px;
+    padding-left: 35px;
+    padding-right: 35px;
     color: #ffffff;
 }
 
@@ -54,14 +53,14 @@ body {
     font-size: 12px;
     background-color: #000000;
     position: fixed;
-    bottom: 36px;
+    bottom: 35px;
     right: 112px;
 }
 
 .LangSwitch-caption {
     color: #939393;
     display: inline-block;
-    padding-right: 16px;
+    padding-right: 12px;
 }  
 
 .LangSwitch-caption:hover {
@@ -79,13 +78,13 @@ body {
 .LangSwitch-item {
     color: #ffffff;
     display: inline-block;
-    padding-right: 16px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 24px;
+    padding-right: 14px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 21px;
 }
 
 .Subpage-content {
     z-index: -1;
-    padding-top: 150px;
+    padding-top: 147px;
 }

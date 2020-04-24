@@ -1,9 +1,33 @@
 {
-    "date": "25/10/2019 16:20",
-    "tags": [
-        "chad", 
-        "events"
-    ],
-    "hearts": 420,
-    "content": "HAPPY BIRTHDAY CHAD!!!"
+    "post": {
+        "date": "25/10/2019 16:20",
+        "tags": [
+            "chad", 
+            "events"
+        ],
+        "hearts": 420,
+        "content": "HAPPY BIRTHDAY CHAD!!!"
+    },
+    "comments": [
+        [
+            "John Doe",
+            "25/10/2019 16:20",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+        ],
+        [
+            "Johny Depp",
+            "25/10/2019 17:20",
+            "That's great!!! Happy bday!"
+        ],
+        [
+            "Paris Platynov",
+            "25/10/2019 17:37",
+            "Best wishes for You Chad"
+        ],
+        [
+            "Stary Pijany",
+            "25/10/2019 21:37",
+            "Młody mam dla ciebie bojowe zadanie"
+        ]
+    ]
 }

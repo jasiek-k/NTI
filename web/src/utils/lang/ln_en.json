@@ -1,6 +1,5 @@
 { 
-    "navbarContent": ["HOME", "NEWS", "HISTORY", "MEDIA", "PROFILE"],
-    "chuj": ["chuj", "dupa"]
+    "navbarContent": ["HOME", "NEWS", "HISTORY", "MEDIA", "PROFILE"]
 }
 
 
