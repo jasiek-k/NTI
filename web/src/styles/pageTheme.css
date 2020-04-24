@@ -16,6 +16,7 @@ body {
     display: inline-block;
     z-index: 1;
     position: fixed;
+    height: 120px;
 }
  
 .NavbarLogo {

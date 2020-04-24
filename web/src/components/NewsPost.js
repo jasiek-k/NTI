@@ -1,10 +1,17 @@
 import React from 'react'
 import './../styles/subpageTheme.css'
-import { PostLogo, PersonIcon } from './../utils/icons'
+import { PostLogo, PersonIcon, FavouriteOutline, FavouriteFilled } from './../utils/icons'
 
 export default class NewsPost extends React.Component {
 
+    constructor(props) {
+        super(props)
+        this.counterRef = React.createRef()
+
+    }
+
     ifCommentsDisplayed = false
+    ifPostHearted = false
 
     displayComments = e => {
         this.ifCommentsDisplayed = this.ifCommentsDisplayed ? false : true
@@ -13,6 +20,13 @@ export default class NewsPost extends React.Component {
 
     handleCommentSubmit = e => {
         e.preventDefault()
+    }
+
+    handlePostHeart = e => {
+        //this.ifCommentsDisplayed = this.ifCommentsDisplayed ? false : true
+        //this.forceUpdate()
+        const counterValue = this.refs.counterRef;
+        console.log(counterValue)
     }
 
     handleInputChange = e => {
@@ -25,9 +39,14 @@ export default class NewsPost extends React.Component {
                 <div className="Post-header">
                     <PostLogo />
                     <p className="Post-date">{this.props.postDate}</p>
+                    <div className="Favourites-clicker">
+                        <span className="Hearts-counter" ref={this.counterRef}>{this.props.postHearts}</span>
+                        <FavouriteOutline onClick={this.handlePostHeart} className="Favourites-icon"/>
+                    </div>
                     <p className="Post-tags-container">{this.props.postTags.map((item, index) => {
-                        return <span className="Post-tag" key={index}>#{item}</span>
+                        return <span className="Post-tag" key={index}>{`#${item}`}</span>
                     })}</p>
+                     
                 </div>
                 <div className="Post-content">{this.props.postContent}</div>
                 <hr className="Divider-line"/>

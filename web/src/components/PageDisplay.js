@@ -33,6 +33,17 @@ export default class PageDisplay extends React.Component {
                     <NewsPost   postDate={date}
                                 postTags={tags}
                                 postContent={content}
+                                postHearts = {hearts}
+                                addedComments={comments}/>
+                    <NewsPost   postDate={date}
+                                postTags={tags}
+                                postContent={content}
+                                postHearts = {hearts}
+                                addedComments={comments}/>
+                    <NewsPost   postDate={date}
+                                postTags={tags}
+                                postContent={content}
+                                postHearts = {hearts}
                                 addedComments={comments}/>
                 </div>
             </div>
