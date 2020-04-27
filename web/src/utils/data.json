@@ -1,34 +1,70 @@
 {
-    "post": {
-        "id": "123456789",
-        "date": "25/10/2019 16:20",
-        "tags": [
-            "chad", 
-            "events"
-        ],
-        "hearts": 420,
-        "content": "HAPPY BIRTHDAY CHAD!!!"
-    },
-    "comments": [
-        [
-            "John Doe",
-            "25/10/2019 16:20",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-        ],
-        [
-            "Johny Depp",
-            "25/10/2019 17:20",
-            "That's great!!! Happy bday!"
-        ],
-        [
-            "Paris Platynov",
-            "25/10/2019 17:37",
-            "Best wishes for You Chad"
-        ],
-        [
-            "Stary Pijany",
-            "25/10/2019 21:37",
-            "Młody mam dla ciebie bojowe zadanie"
-        ]
+    "posts": [
+        {
+            "id": "123456789",
+            "date": "25/10/2019 16:20",
+            "tags": [
+                "chad", 
+                "events"
+            ],
+            "hearts": 420,
+            "content": "HAPPY BIRTHDAY CHAD!!!",
+            "photo": "./pic3.jpeg",
+            "comments": [
+            [
+                "John Doe",
+                "25/10/2019 16:20",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+            ],
+            [
+                "Johny Depp",
+                "25/10/2019 17:20",
+                "That's great!!! Happy bday!"
+            ],
+            [
+                "Paris Platynov",
+                "25/10/2019 17:37",
+                "Best wishes for You Chad"
+            ],
+            [
+                "Stary Pijany",
+                "25/10/2019 21:37",
+                "Młody mam dla ciebie bojowe zadanie"
+            ]]
+        }, {
+            "id": "987654321",
+            "date": "25/09/2019 16:20",
+            "tags": [
+                "concert", 
+                "online",
+                "stream"
+            ],
+            "hearts": 117,
+            "content": "TONIGHT: Tune in to the live stream from Rock in Rio at 8:15pm PDT! www.livexlive.com/live-events/festival/rock-in-rio",
+            "photo": "./pic16.jpg",
+            "comments": [
+            [
+                "John Doe",
+                "25/10/2019 16:20",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+            ],
+            [
+                "Johny Depp",
+                "25/10/2019 17:20",
+                "That's great!!! Happy bday!"
+            ],
+            [
+                "Paris Platynov",
+                "25/10/2019 17:37",
+                "Best wishes for You Chad"
+            ],
+            [
+                "Stary Pijany",
+                "25/10/2019 21:37",
+                "Młody mam dla ciebie bojowe zadanie"
+            ]]
+        }
+    
+
     ]
 }

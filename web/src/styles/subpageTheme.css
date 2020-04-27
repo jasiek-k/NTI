@@ -59,7 +59,6 @@
     float: right;
     margin: 0;
     height: 24px;
-    
 }
 
 .Hearts-counter { 
@@ -67,18 +66,29 @@
     padding-right: 14px;
     position: relative;
     top: -7px;
-
 }
 
-.FavouriteOutline {
-    !display: inline;
-     
-}
+.FavouriteOutline {} 
 
 .Post-content {
+    padding: 0;
+    width: 600px;
+}
+
+.Post-paragraph {
     font-size: 16px;
-    padding: 21px 110px 42px 110px;
+    padding: 21px 110px 14px 110px;
     width: 380px;
+    margin: 0;
+}
+
+.Post-photo {
+    width: 600px;
+    margin: 0;
+}
+
+.Post-photo img {
+    margin: 0;
 }
 
 .Divider-line {

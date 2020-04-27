@@ -7,7 +7,6 @@ export default class NewsPost extends React.Component {
     constructor(props) {
         super(props)
         this.counterRef = React.createRef()
-
     }
 
     ifCommentsDisplayed = false
@@ -29,11 +28,17 @@ export default class NewsPost extends React.Component {
         console.log(counterValue)
     }
 
-    handleInputChange = e => {
+    handleInputChange = e => {} 
 
-    } 
+    render() { 
+        let imagesDir = ""
+        let postPic = ""
 
-    render() {
+        if (this.props.postPhoto !== "null") {
+            imagesDir = require.context("./../utils/img", false)
+            postPic = imagesDir(this.props.postPhoto)
+        }  
+
         return(
             <div className="Post-container">
                 <div className="Post-header">
@@ -48,7 +53,12 @@ export default class NewsPost extends React.Component {
                     })}</p>
                      
                 </div>
-                <div className="Post-content">{this.props.postContent}</div>
+                <div className="Post-content">
+                    <p className="Post-paragraph">{this.props.postContent}</p>
+                    {this.props.postPhoto === "null" ? (
+                    <React.Fragment></React.Fragment>
+                    ) : (<img className="Post-photo" src={postPic}/>)}
+                </div>
                 <hr className="Divider-line"/>
                 <div className="Comments-section">
                     {this.ifCommentsDisplayed ? (

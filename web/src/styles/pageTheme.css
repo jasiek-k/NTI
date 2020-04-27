@@ -72,7 +72,7 @@ body {
     cursor: pointer;
 } 
 
-.LangSwitch-item .selected {
+.selected {
     color: #C51130;
 }
 

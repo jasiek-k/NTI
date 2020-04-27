@@ -2,10 +2,8 @@ import React from 'react';
 import './../styles/pageTheme.css';
 export default class LangSwitch extends React.Component {
 
-    chooseLang = (e) => {
-        console.log(e);
-        this.props.langSwitchHandling();
-
+    chooseLang = e => {
+        this.props.langSwitchHandling(e)    
     };
 
     render() {
