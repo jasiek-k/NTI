@@ -1,11 +1,14 @@
-import React from 'react';
-import Navbar from './Navbar';
-import LangSwitch from './LangSwitch';
-import './../styles/pageTheme.css';
-import ln_en from './../utils/lang/ln_en.json';
-import ln_pl from './../utils/lang/ln_pl.json';
-import NewsPost from './NewsPost';
-import data from './../utils/data.json';
+import React from 'react'
+import Navbar from './Navbar'
+import LangSwitch from './LangSwitch'
+import HomeSlider from './HomeSlider'
+import './../styles/pageTheme.css'
+import ln_en from './../utils/lang/ln_en.json'
+import ln_pl from './../utils/lang/ln_pl.json'
+import NewsPost from './NewsPost'
+import data from './../utils/data.json'
+import Home from './../subpages/home'
+
 
 export default class PageDisplay extends React.Component {
 
@@ -37,7 +40,7 @@ export default class PageDisplay extends React.Component {
         let displayedSubpage = e.target.innerText
         let index = 0
         for (let i = 0; i < this.pageContent.navbarContent.length; i++) {
-            if (this.pageContent.navbarContent[i] == displayedSubpage) index = i
+            if (this.pageContent.navbarContent[i] === displayedSubpage) index = i
         }
         console.log(this.state)
         this.setState({
@@ -72,6 +75,7 @@ export default class PageDisplay extends React.Component {
     }
 
     render() {
+        /*
         const subpageContent = data.posts
         let contentToDisplay = []
 
@@ -85,10 +89,14 @@ export default class PageDisplay extends React.Component {
                                             postPhoto = {photo}
                                             addedComments={comments}/>)
         }
-        
+        */
+        const contentToDisplay = <Home />
+        console.log(this.pageContent)
         return( 
             <div className="Page-content">
-                <Navbar subpageChangeHandling={this.subpageChangeHandling} navbarContent={this.pageContent.navbarContent} />
+                <Navbar subpageChangeHandling={this.subpageChangeHandling} 
+                        navbarContent={this.pageContent} />
+                
                 <LangSwitch langSwitchHandling={this.langSwitchHandling} />
                 <div className="Subpage-content">
                     {contentToDisplay}

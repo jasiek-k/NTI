@@ -2,6 +2,7 @@ body {
     margin: 0;
     background-color: #000000;
     font-family: 'Gotham';
+    height: 100%;
 }
 
 .Page-content {
@@ -48,7 +49,54 @@ body {
     padding-left: 35px;
     padding-right: 35px;
     color: #ffffff;
+    float: left;
+
 }
+
+.Media-dropdown {
+    float: left;
+    overflow: hidden;
+    
+    
+}
+
+.Media-dropdown .Navbar-content-item {
+    font-size: 18px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 49px 35px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+
+  .Media-dropdown-content a {
+    float: none;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+    padding-top: 10.5px;
+    padding-bottom: 10.5px;
+    padding-right: 35px;
+    padding-left: 35px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .Media-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 132px;
+    top: 82px;
+    z-index: 1;
+  }
+
+  .Media-dropdown:hover .Media-dropdown-content {
+    display: block;
+  }
 
 .LangSwitch-container {
     font-size: 12px;
@@ -56,6 +104,7 @@ body {
     position: fixed;
     bottom: 35px;
     right: 112px;
+    z-index: 15;
 }
 
 .LangSwitch-caption {
@@ -87,5 +136,8 @@ body {
 
 .Subpage-content {
     z-index: -1;
-    padding-top: 147px;
+    !padding-top: 147px;
+    !text-align: center;
+    !position: absolute;
+    !bottom: 0;
 }

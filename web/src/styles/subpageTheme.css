@@ -196,3 +196,66 @@
 .Comment-button:hover {
     cursor: pointer;
 }
+/*========================= HOME SUBPAGE =========================*/
+.Home-subpage {
+    width: 100%;
+
+}
+
+.Slider-container {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Slider-caption {
+    !position: relative;
+    margin-left: 330px; 
+    display: inline-block;
+    margin-bottom: 120px;
+    z-index: 10;
+}
+
+.BandCaption {
+    width: 700px;
+   
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+     
+}
+
+
+.Photos-container {
+    z-index: -2;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+}
+
+.Photo {
+    width: 450px;
+    
+    margin: 0;
+}
+
+.Slider-names-container {
+    text-align: left;
+    color: #ffffff;
+    font-size: 35px;
+    margin: 0;
+}
+
+.Slider-name {
+    
+    
+}
+

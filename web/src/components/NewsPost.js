@@ -64,7 +64,7 @@ export default class NewsPost extends React.Component {
                     {this.ifCommentsDisplayed ? (
                         <ul className="Comments-list">
                             {this.props.addedComments.map((item, index) => {
-                                const [author, date, content] = item;
+                                const [author, date, content] = item
                                 return <React.Fragment key={index}>
                                     <li className="Post-comment" >
                                         <PersonIcon className="Comment-icon" />
