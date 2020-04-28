@@ -1,7 +1,16 @@
-{ 
-    "navbarContent": ["HOME", "NEWS", "HISTORY", "MEDIA", "PROFILE"],
-    "mediaLinks": ["Facebook", "Instagram", "YouTube", "Twitter"],
-    "linksContent": ["www.facebook.com/ChiliPeppers", "www.instagram.com/chilipeppers", "www.youtube.com/channel/UCEuOwB9vSL1oPKGNdONB4ig", "twitter.com/chilipeppers"]
+{
+    "navbar": { 
+        "navbarContent": ["HOME", "NEWS", "HISTORY", "MEDIA", "PROFILE"],
+        "mediaLinks": ["Facebook", "Instagram", "YouTube", "Twitter"],
+        "linksContent": ["www.facebook.com/ChiliPeppers", "www.instagram.com/chilipeppers", "www.youtube.com/channel/UCEuOwB9vSL1oPKGNdONB4ig", "twitter.com/chilipeppers"]
+    }, 
+    "newsSubpage": {
+        "postContent": [ "Show comments section", "Hide comments section", "Comment", "Comment here..." ]
+    },
+    "profileSubpage": {
+        "loginSection": ["Already have an account?", "Log in", "email", "password", "Log in"],
+        "signupSection": ["Are you new here?", "Sign up", "name", "surname", "email", "password", "Sign up"]
+    }
 }
 
 

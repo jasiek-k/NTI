@@ -1,5 +1,7 @@
 import React from 'react';
 import './../styles/pageTheme.css';
+
+
 export default class LangSwitch extends React.Component {
 
     chooseLang = e => {

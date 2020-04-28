@@ -9,7 +9,7 @@ export default class Navbar extends React.Component {
     };
 
     render() {
-        let { navbarContent, mediaLinks, linksContent } = this.props.navbarContent 
+        let { navbarContent, mediaLinks, linksContent } = this.props.navbarContent.navbar 
     
         return (
             <div className="Navbar-container">

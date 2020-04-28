@@ -196,7 +196,13 @@
 .Comment-button:hover {
     cursor: pointer;
 }
+
+.News-subpage {
+    margin-top: 141px;
+}
+
 /*========================= HOME SUBPAGE =========================*/
+
 .Home-subpage {
     width: 100%;
 
@@ -214,7 +220,6 @@
 }
 
 .Slider-caption {
-    !position: relative;
     margin-left: 330px; 
     display: inline-block;
     margin-bottom: 120px;
@@ -222,16 +227,13 @@
 }
 
 .BandCaption {
-    width: 700px;
-   
+    width: 700px
 }
 
 .content {
     margin-left: auto;
     margin-right: auto;
-     
 }
-
 
 .Photos-container {
     z-index: -2;
@@ -243,7 +245,6 @@
 
 .Photo {
     width: 450px;
-    
     margin: 0;
 }
 
@@ -254,8 +255,136 @@
     margin: 0;
 }
 
-.Slider-name {
-    
-    
+.Slider-name {}
+
+/*========================= PROFILE SUBPAGE =========================*/
+
+.Profile-background-pic {
+    height: 100%;
 }
 
+.Profile-subpage {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Background-image {
+    z-index: -10;
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+}
+
+.Background-image img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;
+}
+
+.Profile-form-container {
+    background-color: #ffffff;
+    width: 880px;
+    margin-top: 182px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Profile-login-container, .Profile-signup-container {
+    text-align: left;
+    height: 100%;
+}
+
+.Profile-signup-container {
+    padding: 49px 49px 50px 49px;
+    margin-left: 50%;
+    height: 100%;
+}
+
+.Profile-login-container {
+    padding: 49px 49px 97px 49px;
+    float: left;
+    width: 342px;
+}
+
+.Profile-form-header {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    width: 342px;
+}
+
+.Profile-login-form {
+    padding-top: 35px;
+    width: 342px;
+    text-align: right;
+}
+
+.Profile-login-input {
+    width: 342px;
+    padding: 0;
+    height: 40px;
+    margin-bottom: 7px;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+}
+
+.Profile-signup-input {
+    width: 342px;
+    padding: 0;
+    height: 40px;
+    margin-bottom: 7px;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+}
+
+.Profile-signup-input-short {
+    width: 167.5px;
+    padding: 0;
+    height: 40px;
+    margin-bottom: 7px;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+}
+
+.Profile-signup-input-short:first-of-type {
+    margin-right: 7px;
+}
+
+.Profile-login-button, .Profile-signup-button {
+    width: 171px;
+    height: 40px;
+    background-color: #C51130;
+    margin-top: 21px;
+    color: #ffffff;
+    font-family: 'Gotham';
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+}
+
+.Profile-login-button:hover, .Profile-signup-button:hover {
+    cursor: pointer;
+}
+
+input::placeholder {
+    font-size: 16px;
+    color: #858585;
+    font-family: 'Gotham';
+    font-weight: normal;
+}
+
+input[type=text], input[type=password] {
+    padding-left: 14px;
+    font-size: 16px;
+    color: #858585;
+    font-family: 'Gotham';
+    font-weight: normal;
+}

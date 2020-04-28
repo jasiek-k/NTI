@@ -2,6 +2,7 @@ import React from 'react'
 import './../styles/subpageTheme.css'
 import { PostLogo, PersonIcon, FavouriteOutline, FavouriteFilled } from './../utils/icons'
 
+
 export default class NewsPost extends React.Component {
 
     constructor(props) {
@@ -33,13 +34,15 @@ export default class NewsPost extends React.Component {
     render() { 
         let imagesDir = ""
         let postPic = ""
+        const { postContent } = this.props.newsPostContent 
+        const [ showCaption, hideCaption, buttonCaption, placeholderCaption ] = postContent
 
         if (this.props.postPhoto !== "null") {
             imagesDir = require.context("./../utils/img", false)
             postPic = imagesDir(this.props.postPhoto)
         }  
 
-        return(
+        return (
             <div className="Post-container">
                 <div className="Post-header">
                     <PostLogo />
@@ -51,7 +54,6 @@ export default class NewsPost extends React.Component {
                     <p className="Post-tags-container">{this.props.postTags.map((item, index) => {
                         return <span className="Post-tag" key={index}>{`#${item}`}</span>
                     })}</p>
-                     
                 </div>
                 <div className="Post-content">
                     <p className="Post-paragraph">{this.props.postContent}</p>
@@ -80,11 +82,10 @@ export default class NewsPost extends React.Component {
                             <form className="Comment-form" onSubmit={this.handleCommentSubmit}>
                                 <textarea  onChange={this.handleInputChange} 
                                         type="text" 
-                                        placeholder="Comment here..."
+                                        placeholder={placeholderCaption}
                                         className="Comment-input"/>
-                                <button type="submit" 
-                                        value="Comment"
-                                        className="Comment-button">Comment</button>
+                                <button type="submit"
+                                        className="Comment-button">{buttonCaption}</button>
                             </form>
                             <hr className="Divider-line"/>
                         </ul>
@@ -92,7 +93,7 @@ export default class NewsPost extends React.Component {
                 </div>                    
                 <button onClick={this.displayComments} className="Comments-display-button">
                     <p className="Comments-display-caption">
-                        {this.ifCommentsDisplayed ? "Hide comments section" : "Show comments section"}
+                        {this.ifCommentsDisplayed ? hideCaption : showCaption}
                     </p>
                 </button>
             </div>

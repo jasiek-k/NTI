@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from './Navbar'
 import LangSwitch from './LangSwitch'
-import HomeSlider from './HomeSlider'
 import './../styles/pageTheme.css'
 import ln_en from './../utils/lang/ln_en.json'
 import ln_pl from './../utils/lang/ln_pl.json'
-import NewsPost from './NewsPost'
 import data from './../utils/data.json'
 import Home from './../subpages/home'
+import News from './../subpages/news'
+import Profile from './../subpages/profile'
 
 
 export default class PageDisplay extends React.Component {
@@ -28,15 +28,16 @@ export default class PageDisplay extends React.Component {
         this.setState({
             currentLang: lang
         });
-        if (lang == "Polski") {
+        if (lang === "Polski") {
             this.pageContent = ln_pl
-        } else if (lang == "English") {
+        } else if (lang === "English") {
             this.pageContent = ln_en
         }
         this.setLangColor(e)
     }
 
     subpageChangeHandling = e => {
+        /*
         let displayedSubpage = e.target.innerText
         let index = 0
         for (let i = 0; i < this.pageContent.navbarContent.length; i++) {
@@ -46,6 +47,7 @@ export default class PageDisplay extends React.Component {
         this.setState({
             currentSubpage: index
         }) 
+        */
     }
 
     setLangColor = e => {
@@ -73,30 +75,20 @@ export default class PageDisplay extends React.Component {
     componentDidMount() {
         this.initLangSwitch()
     }
-
+    
     render() {
         /*
-        const subpageContent = data.posts
-        let contentToDisplay = []
-
-        for (let i = 0; i < subpageContent.length; i++) {
-            var {comments, content, date, hearts, id, photo, tags} = subpageContent[i]
-            contentToDisplay.push(<NewsPost key={id}
-                                            postDate={date}
-                                            postTags={tags}
-                                            postContent={content}
-                                            postHearts = {hearts}
-                                            postPhoto = {photo}
-                                            addedComments={comments}/>)
-        }
-        */
         const contentToDisplay = <Home />
-        console.log(this.pageContent)
-        return( 
+        
+        const contentToDisplay = <News  newsContent={this.pageContent.newsSubpage}
+                                        subpageContent={data.posts} />
+       */
+        const contentToDisplay = <Profile profileContent={this.pageContent}/>
+
+        return ( 
             <div className="Page-content">
                 <Navbar subpageChangeHandling={this.subpageChangeHandling} 
                         navbarContent={this.pageContent} />
-                
                 <LangSwitch langSwitchHandling={this.langSwitchHandling} />
                 <div className="Subpage-content">
                     {contentToDisplay}
