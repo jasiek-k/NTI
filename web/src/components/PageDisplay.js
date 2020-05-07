@@ -6,6 +6,7 @@ import ln_en from './../utils/lang/ln_en.json'
 import ln_pl from './../utils/lang/ln_pl.json'
 import data from './../utils/data.json'
 import Home from './../subpages/home'
+import History from './../subpages/history'
 import News from './../subpages/news'
 import Profile from './../subpages/profile'
 
@@ -83,7 +84,9 @@ export default class PageDisplay extends React.Component {
         const contentToDisplay = <News  newsContent={this.pageContent.newsSubpage}
                                         subpageContent={data.posts} />
        */
-        const contentToDisplay = <Profile profileContent={this.pageContent}/>
+        //const contentToDisplay = <Profile profileContent={this.pageContent}/>
+        const contentToDisplay = <History   historyContent={this.pageContent.historySubpage}
+                                            currentLang={this.state.currentLang} />
 
         return ( 
             <div className="Page-content">

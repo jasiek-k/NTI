@@ -8,7 +8,7 @@ export default class News extends React.Component {
     render() {
         const subpageContent = this.props.subpageContent
         let displayedNews = []
-
+        ///do zmiany - 1 props do zawartości postu, dekonstrukcja w NewsPost
         for (let i = 0; i < subpageContent.length; i++) {
             var {comments, content, date, hearts, id, photo, tags} = subpageContent[i]
             displayedNews.push(<NewsPost    newsPostContent={this.props.newsContent}

@@ -388,3 +388,101 @@ input[type=text], input[type=password] {
     font-family: 'Gotham';
     font-weight: normal;
 }
+
+/*========================= HISTORY SUBPAGE =========================*/
+
+.History-subpage {
+    margin-top: 77px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 812px;
+}
+
+.History-background-pic {
+    position: relative;
+    bottom: -70px;
+}
+
+.HistoryCaptionEn , .HistoryCaptionPl {
+    right: 0;
+     
+    position: relative;
+    margin-left: auto;
+}
+
+.HistoryCaptionEn {
+    width: 537px;  
+}
+
+.HistoryCaptionPl {
+    width: 416px;
+}
+
+.History-intro-section {
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 56px;
+    text-align: justify;
+    color: #ffffff;
+}
+
+.History-photo-container {
+    width: 100%;
+    text-align: right;
+}
+
+.History-section-header {   
+    font-size: 42px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #C51130;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.Album-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.Album-container {
+    margin-bottom: 49px;
+}
+
+.Album-container:first-of-type {
+    margin-top: 21px;
+}
+
+.Album-info {
+    float: left;
+    width: 524px;
+    margin-left: 28px;
+}
+
+.Album-cover {
+    width: 260px;
+    height: 260px;
+    float: left;
+}
+
+.Album-title {
+    font-size: 42px;
+    color: #C51130;
+    margin: 0;
+    font-weight: bold;
+}
+
+.Album-date {
+    font-size: 42px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    margin: 0;
+}
+
+.Album-story {
+    color: #ffffff;
+    margin: 0;
+    margin-top: 7px;
+    font-size: 16px;
+    
+}
