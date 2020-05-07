@@ -7,6 +7,37 @@ import MemberDisplay from './../components/MemberDisplay'
 
 export default class History extends React.Component {
    
+    slideIndex = 1
+    intervalValue = 8000
+
+    componentDidMount = () => {
+        this.slideShow(1)
+        this.handleSliding()
+    }
+
+    slideShow = index => {
+        let slides = document.getElementsByClassName("Member-container")
+        let namesSpanes = document.getElementsByClassName("History-name")
+
+        if (index > slides.length) index = 1
+        if (index < 1) index = slides.length
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none"
+            namesSpanes[i].style.color = "#ffffff"
+        }
+        slides[index - 1].style.display = "block"
+        namesSpanes[index - 1].style.color = "#C51130"
+        this.slideIndex = index
+    }
+
+    handleSliding = () => {
+        setTimeout(() => {
+            this.slideIndex = (this.slideIndex + 1) % 4
+            this.slideShow(this.slideIndex)
+            this.handleSliding()
+        }, this.intervalValue)
+    }
+
     render() {
         const [membersHeader, albumsHeader] = this.props.historyContent.sectionsHeaders
 
@@ -23,6 +54,19 @@ export default class History extends React.Component {
                 <p className="History-intro-section">{this.props.historyContent.introSection}</p>
                 <div className="History-members-section">
                     <h1 className="History-section-header">{membersHeader}</h1>
+                    <p className="History-names-container">
+                        <span   className="History-name"
+                                onClick={() => this.slideShow(1)}>Anthony</span>
+                        <span> - </span>
+                        <span   className="History-name"
+                                onClick={() => this.slideShow(2)}>Josh</span>
+                        <span> - </span>
+                        <span   className="History-name"
+                                onClick={() => this.slideShow(3)}>Flea</span>
+                        <span> - </span>
+                        <span   className="History-name"
+                                onClick={() => this.slideShow(4)}>Chad</span>
+                    </p>
                     {this.props.historyContent.membersContent.map(item => {
                         return <MemberDisplay memberContent={item} />
                     })}

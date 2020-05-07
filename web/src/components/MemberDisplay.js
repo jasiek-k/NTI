@@ -1,4 +1,5 @@
 import React from 'react'
+import './../styles/subpageTheme.css'
 
 
 export default class MemberDisplay extends React.Component {

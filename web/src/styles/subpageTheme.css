@@ -395,17 +395,17 @@ input[type=text], input[type=password] {
     margin-top: 77px;
     margin-left: auto;
     margin-right: auto;
-    width: 812px;
+    width: 720px;
 }
 
 .History-background-pic {
     position: relative;
+    width: 100%;
     bottom: -70px;
 }
 
 .HistoryCaptionEn , .HistoryCaptionPl {
-    right: 0;
-     
+    right: 0; 
     position: relative;
     margin-left: auto;
 }
@@ -455,25 +455,25 @@ input[type=text], input[type=password] {
 
 .Album-info {
     float: left;
-    width: 524px;
+    width: 442px;
     margin-left: 28px;
 }
 
 .Album-cover {
-    width: 260px;
-    height: 260px;
+    width: 250px;
+    height: 250px;
     float: left;
 }
 
 .Album-title {
-    font-size: 42px;
+    font-size: 40px;
     color: #C51130;
     margin: 0;
     font-weight: bold;
 }
 
 .Album-date {
-    font-size: 42px;
+    font-size: 40px;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
     margin: 0;
@@ -484,5 +484,60 @@ input[type=text], input[type=password] {
     margin: 0;
     margin-top: 7px;
     font-size: 16px;
-    
+}
+
+.Member-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.Member-container {}
+
+.Member-info {
+    margin-left: 28px;
+    float: left;
+    width: 442px;
+    text-align: left;
+}
+
+.Member-photo {
+    width: 250px;
+    height: 250px;
+    float: left;
+}   
+
+.Member-name {
+    font-size: 40px;
+    color: #C51130;
+    font-weight: bold;
+    margin: 0;
+}
+
+.Member-bio {
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 7px;
+    margin-bottom: 0px;
+}
+
+.History-names-container {
+    text-align: left;
+    color: #ffffff;
+    font-size: 35px;
+    margin-top: 0px;
+    margin-bottom: 21px;
+}
+
+.History-name:hover {
+    cursor: pointer;
+}
+
+.History-members-section {
+    margin-top: 0px;
+    margin-bottom: 56px;
+}
+
+.currentlyDisplayed {
+    color: #C51130;
 }

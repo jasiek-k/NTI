@@ -9,6 +9,7 @@ import Home from './../subpages/home'
 import History from './../subpages/history'
 import News from './../subpages/news'
 import Profile from './../subpages/profile'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 export default class PageDisplay extends React.Component {
@@ -79,14 +80,16 @@ export default class PageDisplay extends React.Component {
     
     render() {
         /*
-        const contentToDisplay = <Home />
-        
         const contentToDisplay = <News  newsContent={this.pageContent.newsSubpage}
                                         subpageContent={data.posts} />
-       */
-        //const contentToDisplay = <Profile profileContent={this.pageContent}/>
+                    
         const contentToDisplay = <History   historyContent={this.pageContent.historySubpage}
                                             currentLang={this.state.currentLang} />
+
+        const contentToDisplay = <Profile profileContent={this.pageContent}/>
+
+       */
+        const contentToDisplay = <Home />
 
         return ( 
             <div className="Page-content">
@@ -95,7 +98,7 @@ export default class PageDisplay extends React.Component {
                 <LangSwitch langSwitchHandling={this.langSwitchHandling} />
                 <div className="Subpage-content">
                     {contentToDisplay}
-                </div>
+                </div> 
             </div>
         );
     }
