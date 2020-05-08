@@ -20,10 +20,13 @@ export default class PageDisplay extends React.Component {
             currentLang: "English",
             currentSubpage: 0,
         }
-        this.subpageChangeHandling = this.subpageChangeHandling.bind(this)
     }
 
-    pageContent = ln_en    
+    pageContent = ln_en   
+    
+    componentDidMount() {
+        this.initLangSwitch()
+    }
 
     langSwitchHandling = e => {
         let lang = e.target.innerText
@@ -36,20 +39,6 @@ export default class PageDisplay extends React.Component {
             this.pageContent = ln_en
         }
         this.setLangColor(e)
-    }
-
-    subpageChangeHandling = e => {
-        /*
-        let displayedSubpage = e.target.innerText
-        let index = 0
-        for (let i = 0; i < this.pageContent.navbarContent.length; i++) {
-            if (this.pageContent.navbarContent[i] === displayedSubpage) index = i
-        }
-        console.log(this.state)
-        this.setState({
-            currentSubpage: index
-        }) 
-        */
     }
 
     setLangColor = e => {
@@ -73,33 +62,33 @@ export default class PageDisplay extends React.Component {
         itemsArray[enLangIndex].style.color = "#C51130"
         itemsArray[enLangIndex].classList.add("selected")  
     }
-
-    componentDidMount() {
-        this.initLangSwitch()
-    }
     
     render() {
-        /*
-        const contentToDisplay = <News  newsContent={this.pageContent.newsSubpage}
-                                        subpageContent={data.posts} />
-                    
-        const contentToDisplay = <History   historyContent={this.pageContent.historySubpage}
-                                            currentLang={this.state.currentLang} />
-
-        const contentToDisplay = <Profile profileContent={this.pageContent}/>
-
-       */
-        const contentToDisplay = <Home />
-
         return ( 
-            <div className="Page-content">
-                <Navbar subpageChangeHandling={this.subpageChangeHandling} 
-                        navbarContent={this.pageContent} />
-                <LangSwitch langSwitchHandling={this.langSwitchHandling} />
-                <div className="Subpage-content">
-                    {contentToDisplay}
-                </div> 
-            </div>
+            <Router>
+                <div className="Page-content">
+                    <Navbar subpageChangeHandling={this.subpageChangeHandling} 
+                            navbarContent={this.pageContent} />
+                    <LangSwitch langSwitchHandling={this.langSwitchHandling} />
+                    <Switch>
+                        <Route  path="/" exact component={Home}/>
+                        <Route  path="/news"
+                                render={(props) => <News    newsContent={this.pageContent.newsSubpage} 
+                                                            subpageContent={data.posts} />}/>
+                        <Route  path="/history"
+                                render={(props) => <History historyContent={this.pageContent.historySubpage}
+                                                            currentLang={this.state.currentLang} />}/>
+                        <Route  path="/profile"
+                                render={(props) => <Profile profileContent={this.pageContent}/>}/>
+                        {this.pageContent.navbar.linksContent.map((item, index) => {
+                            return <Route  path={`/${this.pageContent.navbar.mediaLinks[index]}`} component={() => {
+                                global.window && (global.window.location.href = `https://${item}`); 
+                                return null
+                            }}/>
+                        })}
+                    </Switch>
+                </div>
+            </Router>
         );
     }
 }

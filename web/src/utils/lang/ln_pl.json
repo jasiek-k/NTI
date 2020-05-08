@@ -1,6 +1,7 @@
 {
     "navbar": { 
         "navbarContent": ["HOME", "NEWSY", "HISTORIA", "MEDIA", "PROFIL"],
+        "navbarLinks": ["/", "/news", "/history", "", "/profile"],
         "mediaLinks": ["Facebook", "Instagram", "YouTube", "Twitter"],
         "linksContent": ["www.facebook.com/ChiliPeppers", "www.instagram.com/chilipeppers", "www.youtube.com/channel/UCEuOwB9vSL1oPKGNdONB4ig", "twitter.com/chilipeppers"]
     }, 

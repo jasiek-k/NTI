@@ -1,15 +1,12 @@
 import React from 'react';
 import { NavbarLogo } from './../utils/icons'
 import './../styles/pageTheme.css';
+import { Link } from 'react-router-dom'
 
 export default class Navbar extends React.Component {
    
-    chooseSubpage = e => {
-        this.props.subpageChangeHandling(e)
-    };
-
     render() {
-        let { navbarContent, mediaLinks, linksContent } = this.props.navbarContent.navbar 
+        let { navbarContent, navbarLinks, mediaLinks, linksContent } = this.props.navbarContent.navbar 
     
         return (
             <div className="Navbar-container">
@@ -17,24 +14,25 @@ export default class Navbar extends React.Component {
                 <ul className="Navbar-content">
                     {navbarContent.map(function(item, index) {
                         if (item !== "MEDIA") {
-                            return <li onClick={this.chooseSubpage} 
-                            className="Navbar-content-item" 
-                            key={index}>
-                            {item}
-                        </li>
+                            return <Link to={navbarLinks[index]}>
+                                <li className="Navbar-content-item" 
+                                    key={index}>
+                                    {item}
+                                </li>
+                            </Link>
                         } else return <div className="Media-dropdown">
-                         <li className="Navbar-content-item" key={index}>{item}</li>
-                         <div className="Media-dropdown-content">
-                             {
-                                 mediaLinks.map(function(mediaItem, index) {
-                                     return <a   href="#" 
-                                                 key={index}>
-                                                 {mediaItem}
-                                             </a>
-                                 })
-                             }
-                         </div>
-                     </div>
+                        <li className="Navbar-content-item" key={index}>{item}</li>
+                        <div className="Media-dropdown-content">
+                            {mediaLinks.map(function(mediaItem, index) {
+                                    return <a onClick={() => {
+                                        global.window && (global.window.location.href = `https://${linksContent[index]}`);
+                                        return null;
+                                    }} key={index}>
+                                        {mediaItem}
+                                    </a>
+                                })}
+                        </div>
+                    </div>
                     }, this)}
                 </ul>
             </div>
