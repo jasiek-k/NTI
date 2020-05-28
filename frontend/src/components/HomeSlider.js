@@ -6,12 +6,16 @@ import fleaPic from './../utils/img/flea.png'
 import joshPic from './../utils/img/josh.png'
 
 export default class HomeSlider extends React.Component {
-
     photoIndex = 1
+    intervalId = 0
 
     componentDidMount = () => {
         this.photosTransition(1)
-        this.handleTransition()
+        this.intervalId = this.handleTransition()
+    }
+
+    componentWillUnmount = () => {
+        clearInterval(this.intervalId)
     }
 
     photosTransition = index => {
@@ -29,11 +33,10 @@ export default class HomeSlider extends React.Component {
         this.photoIndex = index
     }
 
-    handleTransition = () => {
-        setTimeout(() => {
+    handleTransition() {
+        return setInterval(() => {
             this.photoIndex = (this.photoIndex + 1) % 4
             this.photosTransition(this.photoIndex)
-            this.handleTransition()
         }, 3000)
     }
 
@@ -50,21 +53,20 @@ export default class HomeSlider extends React.Component {
                 <div className="Slider-caption">
                     <BandCaption />
                     <p className="Slider-names-container">
-                        <span   className="Slider-name"
-                                onClick={() => this.photosTransition(1)}>Anthony</span>
+                        <span className="Slider-name"
+                            onClick={() => this.photosTransition(1)}>Anthony</span>
                         <span> - </span>
-                        <span   className="Slider-name"
-                                onClick={() => this.photosTransition(2)}>Josh</span>
+                        <span className="Slider-name"
+                            onClick={() => this.photosTransition(2)}>Josh</span>
                         <span> - </span>
-                        <span   className="Slider-name"
-                                onClick={() => this.photosTransition(3)}>Flea</span>
+                        <span className="Slider-name"
+                            onClick={() => this.photosTransition(3)}>Flea</span>
                         <span> - </span>
-                        <span   className="Slider-name"
-                                onClick={() => this.photosTransition(4)}>Chad</span>
+                        <span className="Slider-name"
+                            onClick={() => this.photosTransition(4)}>Chad</span>
                     </p>
                 </div>
                 </div>
-                
             </div>
         )
     }

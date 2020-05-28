@@ -6,13 +6,17 @@ import AlbumDisplay from './../components/AlbumDisplay'
 import MemberDisplay from './../components/MemberDisplay'
 
 export default class History extends React.Component {
-   
     slideIndex = 1
-    intervalValue = 8000
+    intervalValue = 5000
+    intervalId = 0
 
     componentDidMount = () => {
         this.slideShow(1)
-        this.handleSliding()
+        this.intervalId = this.handleSliding()
+    }
+
+    componentWillUnmount = () => {
+        clearInterval(this.intervalId)
     }
 
     slideShow = index => {
@@ -31,10 +35,9 @@ export default class History extends React.Component {
     }
 
     handleSliding = () => {
-        setTimeout(() => {
+        return setInterval(() => {
             this.slideIndex = (this.slideIndex + 1) % 4
             this.slideShow(this.slideIndex)
-            this.handleSliding()
         }, this.intervalValue)
     }
 
@@ -46,9 +49,9 @@ export default class History extends React.Component {
                 <img className="History-background-pic" src={backPic}></img>
                 <div className="History-photo-container">
                     {this.props.currentLang === "English" ? (
-                        <HistoryCaptionEn />
+                        <HistoryCaptionEn/>
                     ) : (
-                        <HistoryCaptionPl />
+                        <HistoryCaptionPl/>
                     )}
                 </div>
                 <p className="History-intro-section">{this.props.historyContent.introSection}</p>
@@ -67,14 +70,14 @@ export default class History extends React.Component {
                         <span   className="History-name"
                                 onClick={() => this.slideShow(4)}>Chad</span>
                     </p>
-                    {this.props.historyContent.membersContent.map(item => {
-                        return <MemberDisplay memberContent={item} />
+                    {this.props.historyContent.membersContent.map((item, index) => {
+                        return <MemberDisplay key={index} memberContent={item}/>
                     })}
                 </div>
                 <div className="History-albums-section">
                     <h1 className="History-section-header">{albumsHeader}</h1>
-                    {this.props.historyContent.albumsContent.map(item => {
-                        return <AlbumDisplay albumContent={item} />
+                    {this.props.historyContent.albumsContent.map((item, index) => {
+                        return <AlbumDisplay key={index} albumContent={item}/>
                     })}
                 </div>
             </div>

@@ -10,22 +10,34 @@ import History from './../subpages/history'
 import News from './../subpages/news'
 import Profile from './../subpages/profile'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import axios from 'axios'
 
 
 export default class PageDisplay extends React.Component {
-
     constructor(props) {
         super(props)
         this.state = {
             currentLang: "English",
-            currentSubpage: 0,
+            displayedData: []
         }
     }
 
     pageContent = ln_en   
     
     componentDidMount() {
+        this.getPosts()
         this.initLangSwitch()
+    }
+
+    getPosts = () => {
+        axios
+            .get("http://127.0.0.1:5000/news")
+            .then(res => {
+                this.setState({
+                    displayedData: res.data.posts
+                })
+            })
+            .catch(err => console.log(err))
     }
 
     langSwitchHandling = e => {
@@ -73,15 +85,15 @@ export default class PageDisplay extends React.Component {
                     <Switch>
                         <Route  path="/" exact component={Home}/>
                         <Route  path="/news"
-                                render={(props) => <News    newsContent={this.pageContent.newsSubpage} 
-                                                            subpageContent={data.posts} />}/>
+                                render={(props) => <News newsContent={this.pageContent.newsSubpage} 
+                                                        subpageContent={this.state.displayedData}/>}/>
                         <Route  path="/history"
                                 render={(props) => <History historyContent={this.pageContent.historySubpage}
-                                                            currentLang={this.state.currentLang} />}/>
+                                                        currentLang={this.state.currentLang}/>}/>
                         <Route  path="/profile"
                                 render={(props) => <Profile profileContent={this.pageContent}/>}/>
                         {this.pageContent.navbar.linksContent.map((item, index) => {
-                            return <Route  path={`/${this.pageContent.navbar.mediaLinks[index]}`} component={() => {
+                            return <Route key={index} path={`/${this.pageContent.navbar.mediaLinks[index]}`} component={() => {
                                 global.window && (global.window.location.href = `https://${item}`); 
                                 return null
                             }}/>
