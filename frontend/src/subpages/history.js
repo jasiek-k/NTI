@@ -46,7 +46,9 @@ export default class History extends React.Component {
 
         return(
             <div className="History-subpage">
-                <img className="History-background-pic" src={backPic}></img>
+                <img className="History-background-pic" 
+                    src={backPic}
+                    alt=""></img>
                 <div className="History-photo-container">
                     {this.props.currentLang === "English" ? (
                         <HistoryCaptionEn/>

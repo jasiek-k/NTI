@@ -4,7 +4,11 @@ import './../styles/subpageTheme.css'
 import ProfileForm from './../components/ProfileForm'
 
 
-export default class Profile extends React.Component {              
+export default class Profile extends React.Component {        
+    
+    hashData = () => {
+        
+    }
 
     render() {
         return (
@@ -12,7 +16,7 @@ export default class Profile extends React.Component {
                 <div className="Background-image">
                     <img className="Profile-background-pic" src={joshPic}></img>
                 </div>   
-                <ProfileForm formContent={this.props.profileContent} /> 
+                <ProfileForm formContent={this.props.profileContent}/> 
             </div>
         )
     }

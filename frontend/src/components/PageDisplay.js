@@ -4,7 +4,7 @@ import LangSwitch from './LangSwitch'
 import './../styles/pageTheme.css'
 import ln_en from './../utils/lang/ln_en.json'
 import ln_pl from './../utils/lang/ln_pl.json'
-import data from './../utils/data.json'
+//import data from './../utils/data.json'
 import Home from './../subpages/home'
 import History from './../subpages/history'
 import News from './../subpages/news'
@@ -38,6 +38,18 @@ export default class PageDisplay extends React.Component {
                 })
             })
             .catch(err => console.log(err))
+    }
+
+    sendResponse = () => {
+        axios.post('http://127.0.0.1:5000/query', {
+            firstName: 'Finn',
+            lastName: 'Williams'
+          })
+          .then((response) => {
+            console.log(response);
+          }, (error) => {
+            console.log(error);
+          });
     }
 
     langSwitchHandling = e => {
@@ -82,6 +94,7 @@ export default class PageDisplay extends React.Component {
                     <Navbar subpageChangeHandling={this.subpageChangeHandling} 
                             navbarContent={this.pageContent} />
                     <LangSwitch langSwitchHandling={this.langSwitchHandling} />
+                    <button onClick={this.sendResponse()}></button>
                     <Switch>
                         <Route  path="/" exact component={Home}/>
                         <Route  path="/news"

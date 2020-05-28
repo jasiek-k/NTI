@@ -45,10 +45,14 @@ export default class HomeSlider extends React.Component {
             <div className="Slider-container">
                 <div className="content"> 
                 <div className="Photos-container">
-                    <img className="Photo" src={anthonyPic}></img>
-                    <img className="Photo" src={joshPic}></img>
-                    <img className="Photo" src={fleaPic}></img>
-                    <img className="Photo" src={chadPic}></img>
+                    {
+                        [anthonyPic, joshPic, fleaPic, chadPic].map((item, index) => {
+                            return <img className="Photo" 
+                                src={item}
+                                key={index}
+                                alt=""></img>
+                        })
+                    }
                 </div>
                 <div className="Slider-caption">
                     <BandCaption />

@@ -1,6 +1,6 @@
 import React from 'react'
 import './../styles/subpageTheme.css'
-import { PostLogo, PersonIcon, FavouriteOutline, FavouriteFilled } from './../utils/icons'
+import { PostLogo, PersonIcon, FavouriteOutline, /*FavouriteFilled*/ } from './../utils/icons'
 
 
 export default class NewsPost extends React.Component {
@@ -59,7 +59,10 @@ export default class NewsPost extends React.Component {
                     <p className="Post-paragraph">{this.props.postContent}</p>
                     {this.props.postPhoto === "null" ? (
                     <React.Fragment></React.Fragment>
-                    ) : (<img className="Post-photo" src={postPic}/>)}
+                    ) : (
+                    <img className="Post-photo" 
+                        src={postPic}
+                        alt=""/>)}
                 </div>
                 <hr className="Divider-line"/>
                 <div className="Comments-section">

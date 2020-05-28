@@ -14,7 +14,9 @@ export default class MemberDisplay extends React.Component {
 
         return (
             <div className="Member-container">
-                <img className="Member-photo" src={memberPhoto}></img>
+                <img className="Member-photo" 
+                    src={memberPhoto}
+                    alt=""></img>
                 <div className="Member-info">
                     <p className="Member-name">{memberName}</p>
                     <p className="Member-bio">{memberBio}</p>

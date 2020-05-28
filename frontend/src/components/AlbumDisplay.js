@@ -13,7 +13,9 @@ export default class AlbumPresentation extends React.Component {
 
         return (
             <div className="Album-container">
-                <img className="Album-cover" src={albumPhoto}></img>
+                <img className="Album-cover" 
+                    src={albumPhoto}
+                    alt=""></img>
                 <div className="Album-info">
                     <p className="Album-title">{albumTitle}</p>
                     <p className="Album-date">{albumDate}</p>
