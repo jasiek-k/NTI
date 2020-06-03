@@ -10,7 +10,6 @@ import History from './../subpages/history'
 import News from './../subpages/news'
 import Profile from './../subpages/profile'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import axios from 'axios'
 
 
 export default class PageDisplay extends React.Component {
@@ -18,28 +17,18 @@ export default class PageDisplay extends React.Component {
         super(props)
         this.state = {
             currentLang: "English",
-            displayedData: []
         }
     }
 
     pageContent = ln_en   
     
     componentDidMount() {
-        this.getPosts()
+        //this.getPosts()
         this.initLangSwitch()
     }
 
-    getPosts = () => {
-        axios
-            .get("http://127.0.0.1:5000/news")
-            .then(res => {
-                this.setState({
-                    displayedData: res.data.posts
-                })
-            })
-            .catch(err => console.log(err))
-    }
-
+    
+    /*
     sendResponse = () => {
         axios.post('http://127.0.0.1:5000/query', {
             firstName: 'Finn',
@@ -51,7 +40,7 @@ export default class PageDisplay extends React.Component {
             console.log(error);
           });
     }
-
+    */
     langSwitchHandling = e => {
         let lang = e.target.innerText
         this.setState({
@@ -91,15 +80,12 @@ export default class PageDisplay extends React.Component {
         return ( 
             <Router>
                 <div className="Page-content">
-                    <Navbar subpageChangeHandling={this.subpageChangeHandling} 
-                            navbarContent={this.pageContent} />
-                    <LangSwitch langSwitchHandling={this.langSwitchHandling} />
-                    <button onClick={this.sendResponse()}></button>
+                    <Navbar navbarContent={this.pageContent}/>
+                    <LangSwitch langSwitchHandling={this.langSwitchHandling}/>
                     <Switch>
                         <Route  path="/" exact component={Home}/>
                         <Route  path="/news"
-                                render={(props) => <News newsContent={this.pageContent.newsSubpage} 
-                                                        subpageContent={this.state.displayedData}/>}/>
+                                render={(props) => <News newsContent={this.pageContent.newsSubpage}/>}/>
                         <Route  path="/history"
                                 render={(props) => <History historyContent={this.pageContent.historySubpage}
                                                         currentLang={this.state.currentLang}/>}/>

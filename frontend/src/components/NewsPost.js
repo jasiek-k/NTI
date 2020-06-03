@@ -1,17 +1,11 @@
 import React from 'react'
 import './../styles/subpageTheme.css'
-import { PostLogo, PersonIcon, FavouriteOutline, /*FavouriteFilled*/ } from './../utils/icons'
+import { PostLogo, PersonIcon } from './../utils/icons'
 
 
-export default class NewsPost extends React.Component {
-
-    constructor(props) {
-        super(props)
-        this.counterRef = React.createRef()
-    }
-
+export default class NewsPost extends React.Component {  
     ifCommentsDisplayed = false
-    ifPostHearted = false
+    postId = 0
 
     displayComments = e => {
         this.ifCommentsDisplayed = this.ifCommentsDisplayed ? false : true
@@ -20,44 +14,39 @@ export default class NewsPost extends React.Component {
 
     handleCommentSubmit = e => {
         e.preventDefault()
+        const commentData = {
+            post_id: this.postId, 
+            comment: `${document.getElementById("Comment-input").value}`
+        }
+        this.props.addComment(commentData)
+        document.getElementById("Comment-input").value = ""
     }
-
-    handlePostHeart = e => {
-        //this.ifCommentsDisplayed = this.ifCommentsDisplayed ? false : true
-        //this.forceUpdate()
-        const counterValue = this.refs.counterRef;
-        console.log(counterValue)
-    }
-
-    handleInputChange = e => {} 
 
     render() { 
         let imagesDir = ""
         let postPic = ""
         const { postContent } = this.props.newsPostContent 
+        var {comments, content, date, id, photo, tags} = this.props.content
         const [ showCaption, hideCaption, buttonCaption, placeholderCaption ] = postContent
+        this.postId = id
 
-        if (this.props.postPhoto !== "null") {
+        if (photo !== "null") {
             imagesDir = require.context("./../utils/img", false)
-            postPic = imagesDir(this.props.postPhoto)
+            postPic = imagesDir(photo)
         }  
 
         return (
             <div className="Post-container">
                 <div className="Post-header">
                     <PostLogo />
-                    <p className="Post-date">{this.props.postDate}</p>
-                    <div className="Favourites-clicker">
-                        <span className="Hearts-counter" ref={this.counterRef}>{this.props.postHearts}</span>
-                        <FavouriteOutline onClick={this.handlePostHeart} className="Favourites-icon"/>
-                    </div>
-                    <p className="Post-tags-container">{this.props.postTags.map((item, index) => {
+                    <p className="Post-date">{date}</p>
+                    <p className="Post-tags-container">{tags.map((item, index) => {
                         return <span className="Post-tag" key={index}>{`#${item}`}</span>
                     })}</p>
                 </div>
                 <div className="Post-content">
-                    <p className="Post-paragraph">{this.props.postContent}</p>
-                    {this.props.postPhoto === "null" ? (
+                    <p className="Post-paragraph">{content}</p>
+                    {photo === "null" ? (
                     <React.Fragment></React.Fragment>
                     ) : (
                     <img className="Post-photo" 
@@ -68,7 +57,7 @@ export default class NewsPost extends React.Component {
                 <div className="Comments-section">
                     {this.ifCommentsDisplayed ? (
                         <ul className="Comments-list">
-                            {this.props.addedComments.map((item, index) => {
+                            {comments.map((item, index) => {
                                 const [author, date, content] = item
                                 return <React.Fragment key={index}>
                                     <li className="Post-comment" >
@@ -83,7 +72,7 @@ export default class NewsPost extends React.Component {
                                 </React.Fragment>
                             })}
                             <form className="Comment-form" onSubmit={this.handleCommentSubmit}>
-                                <textarea  onChange={this.handleInputChange} 
+                                <textarea id="Comment-input"
                                         type="text" 
                                         placeholder={placeholderCaption}
                                         className="Comment-input"/>
