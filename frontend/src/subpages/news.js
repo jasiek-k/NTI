@@ -2,13 +2,15 @@ import React from 'react'
 import NewsPost from './../components/NewsPost'
 import './../styles/subpageTheme.css'
 import axios from 'axios'
+import { CloseIcon, SearchIcon } from './../utils/icons'
 
 
 export default class News extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            displayedData: []
+            displayedData: [],
+            allPosts: []
         }
     }
 
@@ -21,15 +23,14 @@ export default class News extends React.Component {
             .get("http://127.0.0.1:5000/news")
             .then(res => {
                 this.setState({
-                    displayedData: res.data.posts
+                    displayedData: res.data.posts,
+                    allPosts: res.data.posts
                 })
             })
             .catch(err => console.log(err))
     }
 
     addComment = value => {
-        //console.log(value["comment"])
-        //console.log(value["post_id"])
         this.sendResponse(value)
         this.getPosts()
     }
@@ -43,22 +44,66 @@ export default class News extends React.Component {
             } ,
             {
                 "Access-Control-Allow-Origin": "*",
-                //"Content-Type": "text/html; charset=utf-8",
-                //"Accept": "application/json",
+                "Content-Type": "text/html; charset=utf-8",
+                "Accept": "application/json",
                 "Access-Control-Request-Method": "POST"
             }
         )
         .then((response) => {
-            console.log(response.data)
+            console.log(response)
         }, (error) => {
             console.log(error)
         })
     }
 
+    searchPost = e => {
+        e.preventDefault()
+        const allPosts = [...this.state.allPosts]
+        const postsToDisplay = []
+        for(let i = 0; i < allPosts.length; i++) {
+            if (allPosts[i].content.toLowerCase()
+            .includes(document.getElementById("News-search-input")
+            .value.toLowerCase()) || document.getElementById("News-search-input")
+            .value.toLowerCase().includes(allPosts[i].content.toLowerCase())) {
+                postsToDisplay.push(allPosts[i])
+            }
+        }
+        this.setState({
+            displayedData: postsToDisplay
+        })
+    }
+
+    refreshSearch = () => {
+        this.setState({
+            displayedData: [...this.state.allPosts]
+        })
+        document.getElementById("News-search-input").value = ''
+    }
+
     render() {
+        const [searchCaption] = this.props.newsContent.subpageContent
+
         return (
             <div className="News-subpage">
-                {[...this.state.displayedData].map((item, index) => {
+                <form className="News-search-post"
+                    onSubmit={this.searchPost}>
+                    <button className="News-search-button"
+                        onClick={this.searchPost}
+                        type="submit">
+                            <SearchIcon/>
+                        </button>
+                    <input className="News-search-input"
+                        id="News-search-input"
+                        type="test"
+                        placeholder={searchCaption}></input>
+                    <button className="News-close-button" 
+                        onClick={this.refreshSearch}>
+                        <CloseIcon/>
+                    </button>
+                </form>
+                {   
+                    //if this.state.displayedData.length !== this.state.allPosts
+                    [...this.state.displayedData].map((item, index) => {
                     return <NewsPost newsPostContent={this.props.newsContent}
                                 addComment={this.addComment}
                                 content={item}

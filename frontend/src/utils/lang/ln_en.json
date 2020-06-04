@@ -6,6 +6,7 @@
         "linksContent": ["www.facebook.com/ChiliPeppers", "www.instagram.com/chilipeppers", "www.youtube.com/channel/UCEuOwB9vSL1oPKGNdONB4ig", "www.twitter.com/chilipeppers"]
     }, 
     "newsSubpage": {
+        "subpageContent": ["Search post"],
         "postContent": [ "Show comments section", "Hide comments section", "Comment", "Comment here..." ]
     },
     "profileSubpage": {

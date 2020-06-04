@@ -15,16 +15,28 @@ def hello_world():
     return 'Hello world!'
 
 @app.route('/news')
-def show_blog():
+def get_news():
     return data
 
-@app.route('/test')
-def testing():
-    #jtopy = json.dumps(data) 
-    #dict_json = json.loads(jtopy) 
-    #print(dict_json["posts"])
-    data_set = (data['posts'])'
-    return data_set
+@app.route('/login', methods = ['GET', 'POST'])
+def user_login():
+    login = request.args["login"]   
+    password = request.args["password"]
+    if request.method == "POST":
+        print(f'{login} {password}')
+        if login != None and password != None:
+            return f'User {login} logged'
+
+@app.route('/register', methods = ['GET', 'POST'])
+def user_register():
+    name = request.args["name"]   
+    surname = request.args["surname"]   
+    mail = request.args["mail"]   
+    password = request.args["password"]
+    if request.method == "POST":
+        print(f'{name} {surname} {mail} {password}')
+        if name != None and surname != None and mail != None and password != None:
+            return f'User {name} {surname} registered'
 
 @app.route('/comment', methods = ['GET', 'POST'])
 def add_comment():
@@ -32,7 +44,10 @@ def add_comment():
     comment = request.args.get("comment")
     if request.method == "POST":
         print(f'{post_id} {comment}')
-        return f'REQUEST: {post_id} {comment}'
+        if post_id != None and comment != None:
+            return f'Comment added to post {post_id}'
+        else:
+            return 'Error occured'
 
 @app.route('/rev/<float:revNo>')
 def revision(revNo):

@@ -58,6 +58,14 @@ body {
     overflow: hidden;
 }
 
+.Media-dropdown:hover {
+    cursor: default;
+}
+
+.Media-dropdown-item:hover {
+    cursor: pointer;
+}
+
 .Media-dropdown .Navbar-content-item {
     font-size: 18px;  
     border: none;

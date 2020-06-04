@@ -7,7 +7,6 @@
                 "chad", 
                 "events"
             ],
-            "hearts": 420,
             "content": "HAPPY BIRTHDAY CHAD!!!",
             "photo": "./pic3.jpeg",
             "comments": [
@@ -39,7 +38,6 @@
                 "online",
                 "stream"
             ],
-            "hearts": 117,
             "content": "TONIGHT: Tune in to the live stream from Rock in Rio at 8:15pm PDT! www.livexlive.com/live-events/festival/rock-in-rio",
             "photo": "./pic16.jpg",
             "comments": [

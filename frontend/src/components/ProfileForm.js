@@ -2,14 +2,31 @@ import React from 'react'
 
 
 export default class ProfileForm extends React.Component {
-
     passwordFill = e => {
         var passwordHash = require('password-hash')
         var hashedPassword = passwordHash.generate(e.target.value)
-        console.log(e.target.value)
-        console.log(hashedPassword)
+        //console.log(e.target.value)
+        //console.log(hashedPassword)
         var hashedPass = 'sha1$5a99ff95$1$20d76e4bc1294898979564cea2ec8db8a1a6b22f'
-        console.log(passwordHash.verify('chuj', hashedPassword));
+        //console.log(passwordHash.verify('chuj', hashedPassword));
+    }
+
+    handleLogin = e => {
+        e.preventDefault()
+        this.props.loginUser({
+            login: document.getElementById('Profile-input-login').value,
+            password: document.getElementById('Profile-input-password').value
+        })
+    }
+
+    handleRegister = e => {
+        e.preventDefault()
+        this.props.registerUser({
+            name: document.getElementById('Profile-signup-name').value,
+            surname: document.getElementById('Profile-signup-surname').value,
+            mail: document.getElementById('Profile-signup-mail').value,
+            password: document.getElementById('Profile-signup-password').value
+        })
     }
 
     render() {
@@ -22,12 +39,15 @@ export default class ProfileForm extends React.Component {
                 <div className="Profile-login-container">
                     <h1 className="Profile-form-header">{headerLog1}</h1>
                     <h1 className="Profile-form-header">{headerLog2}</h1>
-                    <form className="Profile-login-form">
+                    <form className="Profile-login-form"
+                        onSubmit={this.handleLogin}>
                         <input className="Profile-login-input" 
+                            id="Profile-input-login"
                             type="text" 
                             placeholder={inputLog1}></input>
                         <br />
                         <input className="Profile-login-input" 
+                            id="Profile-input-password"
                             onChange={this.passwordFill}
                             type="password" 
                             placeholder={inputLog2}></input>
@@ -39,17 +59,22 @@ export default class ProfileForm extends React.Component {
                 <div className="Profile-signup-container">
                     <h1 className="Profile-form-header">{headerSign1}</h1>
                     <h1 className="Profile-form-header">{headerSign2}</h1>
-                    <form className="Profile-login-form">
+                    <form className="Profile-login-form"
+                        onSubmit={this.handleRegister}>
                         <input className="Profile-signup-input-short" 
+                            id="Profile-signup-name"
                             type="text" 
                             placeholder={inputSign1}></input>
                         <input className="Profile-signup-input-short" 
+                            id="Profile-signup-surname"
                             type="text" 
                             placeholder={inputSign2}></input>
                         <input className="Profile-signup-input" 
+                            id="Profile-signup-mail"
                             type="text" 
                             placeholder={inputSign3}></input><br />
                         <input className="Profile-signup-input" 
+                            id="Profile-signup-password"
                             onChange={this.passwordFill}
                             type="password" 
                             placeholder={inputSign4}></input>

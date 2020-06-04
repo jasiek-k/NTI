@@ -23,24 +23,9 @@ export default class PageDisplay extends React.Component {
     pageContent = ln_en   
     
     componentDidMount() {
-        //this.getPosts()
         this.initLangSwitch()
     }
 
-    
-    /*
-    sendResponse = () => {
-        axios.post('http://127.0.0.1:5000/query', {
-            firstName: 'Finn',
-            lastName: 'Williams'
-          })
-          .then((response) => {
-            console.log(response);
-          }, (error) => {
-            console.log(error);
-          });
-    }
-    */
     langSwitchHandling = e => {
         let lang = e.target.innerText
         this.setState({

@@ -22,7 +22,9 @@ export default class Navbar extends React.Component {
                         <li className="Navbar-content-item" key={index}>{item}</li>
                         <div className="Media-dropdown-content">
                             {mediaLinks.map(function(mediaItem, mediaIndex) {
-                                    return <a key={mediaIndex} onClick={() => {
+                                    return <a key={mediaIndex} 
+                                            className="Media-dropdown-item"
+                                            onClick={() => {
                                         global.window && (global.window.location.href = `https://${linksContent[index]}`);
                                         return null;
                                     }}>
