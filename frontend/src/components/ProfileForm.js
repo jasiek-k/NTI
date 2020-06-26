@@ -56,6 +56,7 @@ export default class ProfileForm extends React.Component {
                             type="submit">{buttonLog}</button>
                     </form> 
                 </div>
+                <div class="Forms-seperator"></div>
                 <div className="Profile-signup-container">
                     <h1 className="Profile-form-header">{headerSign1}</h1>
                     <h1 className="Profile-form-header">{headerSign2}</h1>

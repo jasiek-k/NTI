@@ -13,20 +13,36 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 export default class PageDisplay extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            currentLang: "English",
-        }
-    }
+  constructor(props) {
+    super(props)
+      this.state = {
+        currentLang: "English",
+        windowWidth: 0, 
+        windowHeight: 0
+      }
+      this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
+  }
 
-    pageContent = ln_en   
+  pageContent = ln_en   
     
-    componentDidMount() {
-        this.initLangSwitch()
-    }
+  componentDidMount() {
+    this.initLangSwitch()
+    this.updateWindowDimensions()
+    window.addEventListener('resize', this.updateWindowDimensions)
+  }
+      
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions)
+  }
+      
+  updateWindowDimensions() {
+    this.setState({ 
+        windowWidth: window.innerWidth, 
+        windowHeight: window.innerHeight 
+    })
+  }
 
-    langSwitchHandling = e => {
+  langSwitchHandling = e => {
         let lang = e.target.innerText
         this.setState({
             currentLang: lang
@@ -65,7 +81,7 @@ export default class PageDisplay extends React.Component {
         return ( 
             <Router>
                 <div className="Page-content">
-                    <Navbar navbarContent={this.pageContent}/>
+                    
                     <LangSwitch langSwitchHandling={this.langSwitchHandling}/>
                     <Switch>
                         <Route  path="/" exact component={Home}/>
@@ -88,3 +104,5 @@ export default class PageDisplay extends React.Component {
         );
     }
 }
+
+//<Navbar navbarContent={this.pageContent}/>

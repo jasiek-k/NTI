@@ -1,5 +1,5 @@
 import React from 'react'
-import { BandCaption } from "./../utils/icons"
+import { BandCaption, BandMobileCaption } from "./../utils/icons"
 import anthonyPic from './../utils/img/anthony.png'
 import chadPic from './../utils/img/chad.png'
 import fleaPic from './../utils/img/flea.png'
@@ -55,7 +55,8 @@ export default class HomeSlider extends React.Component {
                     }
                 </div>
                 <div className="Slider-caption">
-                    <BandCaption />
+                    <BandCaption className="BandMobileCaption"/>
+                    <BandMobileCaption/>
                     <p className="Slider-names-container">
                         <span className="Slider-name"
                             onClick={() => this.photosTransition(1)}>Anthony</span>
