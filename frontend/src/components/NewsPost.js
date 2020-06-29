@@ -7,7 +7,7 @@ export default class NewsPost extends React.Component {
     ifCommentsDisplayed = false
     postId = 0
 
-    displayComments = e => {
+    displayComments = () => {
         this.ifCommentsDisplayed = this.ifCommentsDisplayed ? false : true
         this.forceUpdate()
     }

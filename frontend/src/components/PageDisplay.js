@@ -10,7 +10,7 @@ import History from './../subpages/history'
 import News from './../subpages/news'
 import Profile from './../subpages/profile'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
+import MobileNavbar from './MobileNavbar'
 
 export default class PageDisplay extends React.Component {
   constructor(props) {
@@ -26,7 +26,6 @@ export default class PageDisplay extends React.Component {
   pageContent = ln_en   
     
   componentDidMount() {
-    this.initLangSwitch()
     this.updateWindowDimensions()
     window.addEventListener('resize', this.updateWindowDimensions)
   }
@@ -43,66 +42,54 @@ export default class PageDisplay extends React.Component {
   }
 
   langSwitchHandling = e => {
-        let lang = e.target.innerText
-        this.setState({
-            currentLang: lang
-        });
-        if (lang === "Polski") {
-            this.pageContent = ln_pl
-        } else if (lang === "English") {
-            this.pageContent = ln_en
-        }
-        this.setLangColor(e)
+    let lang = e.target.innerText
+    this.setState({
+      currentLang: lang
+    })
+    if (lang === "Polski") {
+      this.pageContent = ln_pl
+    } else if (lang === "English") {
+      this.pageContent = ln_en
     }
+  }
 
-    setLangColor = e => {
-        const itemsArray = document.getElementsByClassName("LangSwitch-item")
-        if (itemsArray.length > 0) {
-            for (let i = 0; i < itemsArray.length; i++) {
-                itemsArray[i].style.color = "#ffffff"
-                itemsArray[i].classList.remove("selected")
+  render() {
+    return ( 
+      <Router>
+        <div className="Page-content">
+        {
+          this.state.windowWidth < 600 ? (
+            <MobileNavbar navbarContent={this.pageContent} langSwitchHandling={this.langSwitchHandling}/>
+          ) : (
+            <React.Fragment>
+              <Navbar navbarContent={this.pageContent}/>
+              <LangSwitch passLangSwitch={this.langSwitchHandling}/>
+            </React.Fragment>
+          )
+        }            
+        <Switch>
+          <Route  path="/" exact component={Home}/>
+          <Route  path="/news"
+            render={(props) => <News newsContent={this.pageContent.newsSubpage}/>}/>
+          <Route  path="/history"
+            render={(props) => <History historyContent={this.pageContent.historySubpage}
+            currentLang={this.state.currentLang}/>}/>
+          <Route  path="/profile"
+            render={(props) => <Profile profileContent={this.pageContent}/>}/>
+            {
+              this.pageContent.navbar.linksContent.map((item, index) => {
+                return <Route key={index} 
+                  path={`/${this.pageContent.navbar.mediaLinks[index]}`} 
+                  component={() => { 
+                    global.window && (global.window.location.href = `https://${item}`) 
+                    return null
+                  }
+                }/>
+              })
             }
-        }
-        e.target.style.color = "#C51130"
-        e.target.classList.add("selected")
-    }
-
-    initLangSwitch = () => {
-        const itemsArray = document.getElementsByClassName("LangSwitch-item")
-        let enLangIndex = 0
-        for (let i = 0; i < itemsArray.length; i++) {
-            if (itemsArray[i].innerText === "English") enLangIndex = i
-        }
-        itemsArray[enLangIndex].style.color = "#C51130"
-        itemsArray[enLangIndex].classList.add("selected")  
-    }
-    
-    render() {
-        return ( 
-            <Router>
-                <div className="Page-content">
-                    
-                    <LangSwitch langSwitchHandling={this.langSwitchHandling}/>
-                    <Switch>
-                        <Route  path="/" exact component={Home}/>
-                        <Route  path="/news"
-                                render={(props) => <News newsContent={this.pageContent.newsSubpage}/>}/>
-                        <Route  path="/history"
-                                render={(props) => <History historyContent={this.pageContent.historySubpage}
-                                                        currentLang={this.state.currentLang}/>}/>
-                        <Route  path="/profile"
-                                render={(props) => <Profile profileContent={this.pageContent}/>}/>
-                        {this.pageContent.navbar.linksContent.map((item, index) => {
-                            return <Route key={index} path={`/${this.pageContent.navbar.mediaLinks[index]}`} component={() => {
-                                global.window && (global.window.location.href = `https://${item}`); 
-                                return null
-                            }}/>
-                        })}
-                    </Switch>
-                </div>
-            </Router>
-        );
-    }
+        </Switch>
+        </div>
+      </Router>
+    )
+  }
 }
-
-//<Navbar navbarContent={this.pageContent}/>

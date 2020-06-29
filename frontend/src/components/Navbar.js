@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import { NavbarLogo } from './../utils/icons'
-import './../styles/pageTheme.css';
+import './../styles/pageTheme.css'
 import { Link } from 'react-router-dom'
 
 export default class Navbar extends React.Component {
@@ -25,8 +25,8 @@ export default class Navbar extends React.Component {
                                     return <a key={mediaIndex} 
                                             className="Media-dropdown-item"
                                             onClick={() => {
-                                        global.window && (global.window.location.href = `https://${linksContent[index]}`);
-                                        return null;
+                                        global.window && (global.window.location.href = `https://${linksContent[index]}`)
+                                        return null
                                     }}>
                                         {mediaItem}
                                     </a>
@@ -36,6 +36,6 @@ export default class Navbar extends React.Component {
                     }, this)}
                 </ul>
             </div>
-        ); 
+        ) 
     }    
 }
