@@ -68,14 +68,17 @@ export default class PageDisplay extends React.Component {
           )
         }            
         <Switch>
-          <Route  path="/" exact component={Home}/>
+          <Route  path="/" exact 
+            render={(props) => <Home displayData={this.state.windowWidth}/>}/>
           <Route  path="/news"
-            render={(props) => <News newsContent={this.pageContent.newsSubpage}/>}/>
+            render={(props) => <News displayData={this.state.windowWidth}
+              newsContent={this.pageContent.newsSubpage}/>}/>
           <Route  path="/history"
             render={(props) => <History historyContent={this.pageContent.historySubpage}
             currentLang={this.state.currentLang}/>}/>
           <Route  path="/profile"
-            render={(props) => <Profile profileContent={this.pageContent}/>}/>
+            render={(props) => <Profile displayData={this.state.windowWidth}
+              profileContent={this.pageContent}/>}/>
             {
               this.pageContent.navbar.linksContent.map((item, index) => {
                 return <Route key={index} 

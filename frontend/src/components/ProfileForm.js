@@ -33,7 +33,8 @@ export default class ProfileForm extends React.Component {
         const { loginSection, signupSection } = this.props.formContent.profileSubpage
         const [ headerLog1, headerLog2, inputLog1, inputLog2, buttonLog ] = loginSection
         const [ headerSign1, headerSign2, inputSign1, inputSign2, inputSign3, inputSign4, buttonSign ] = signupSection
-
+        const formWidth = parseInt(this.props.displayData) 
+        console.log(formWidth)
         return (
             <div className="Profile-form-container">
                 <div className="Profile-login-container">
@@ -41,46 +42,54 @@ export default class ProfileForm extends React.Component {
                     <h1 className="Profile-form-header">{headerLog2}</h1>
                     <form className="Profile-login-form"
                         onSubmit={this.handleLogin}>
-                        <input className="Profile-login-input" 
+                        <input style={{width: formWidth - 30}} 
+                            className="Profile-login-input" 
                             id="Profile-input-login"
                             type="text" 
                             placeholder={inputLog1}></input>
                         <br />
-                        <input className="Profile-login-input" 
+                        <input style={{width: formWidth - 30}} 
+                            className="Profile-login-input" 
                             id="Profile-input-password"
                             onChange={this.passwordFill}
                             type="password" 
                             placeholder={inputLog2}></input>
                         <br />
-                        <button className="Profile-login-button" 
+                        <button style={{width: formWidth - 30}} 
+                            className="Profile-login-button" 
                             type="submit">{buttonLog}</button>
                     </form> 
                 </div>
-                <div class="Forms-seperator"></div>
+                <div className="Forms-seperator"></div>
                 <div className="Profile-signup-container">
                     <h1 className="Profile-form-header">{headerSign1}</h1>
                     <h1 className="Profile-form-header">{headerSign2}</h1>
                     <form className="Profile-login-form"
                         onSubmit={this.handleRegister}>
-                        <input className="Profile-signup-input-short" 
+                        <input style={{width: (formWidth - 67) / 2}} 
+                            className="Profile-signup-input-short" 
                             id="Profile-signup-name"
                             type="text" 
                             placeholder={inputSign1}></input>
-                        <input className="Profile-signup-input-short" 
+                        <input style={{width: (formWidth - 67) / 2}} 
+                            className="Profile-signup-input-short" 
                             id="Profile-signup-surname"
                             type="text" 
                             placeholder={inputSign2}></input>
-                        <input className="Profile-signup-input" 
+                        <input style={{width: formWidth - 44}} 
+                            className="Profile-signup-input" 
                             id="Profile-signup-mail"
                             type="text" 
                             placeholder={inputSign3}></input><br />
-                        <input className="Profile-signup-input" 
+                        <input style={{width: formWidth - 44}} 
+                            className="Profile-signup-input" 
                             id="Profile-signup-password"
                             onChange={this.passwordFill}
                             type="password" 
                             placeholder={inputSign4}></input>
                         <br />
-                        <button className="Profile-signup-button" 
+                        <button style={{width: formWidth - 28}} 
+                            className="Profile-signup-button" 
                             type="submit">{buttonSign}</button>
                     </form> 
                 </div>

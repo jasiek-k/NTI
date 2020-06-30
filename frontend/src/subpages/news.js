@@ -102,13 +102,20 @@ export default class News extends React.Component {
                     </button>
                 </form>
                 {   
-                    //if this.state.displayedData.length !== this.state.allPosts
-                    [...this.state.displayedData].map((item, index) => {
-                    return <NewsPost newsPostContent={this.props.newsContent}
-                                addComment={this.addComment}
-                                content={item}
-                                key={index}/>
-                })}
+                    this.state.displayedData.length > 0 ? (
+                        [...this.state.displayedData].map((item, index) => {
+                            return <NewsPost newsPostContent={this.props.newsContent}
+                                        addComment={this.addComment}
+                                        content={item}
+                                        key={index}/>
+                        })
+                    ) : (
+                        <p className="News-search-error">
+                            Currently there are no results to show. Press the close button in order to refresh searching or try again later.
+                        </p>
+                    ) 
+                    
+                }
             </div>
         )
     }

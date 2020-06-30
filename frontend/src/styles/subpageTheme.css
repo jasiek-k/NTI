@@ -819,6 +819,16 @@
     .News-search-input[type="text"] {
         background-color: #000;
     }
+
+    .News-search-error {
+        color: #C51130;
+        font-size: 20px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        margin-top: 50px;
+    }
     /*  NEWS SECTION END  */
 
     /*  PROFILE SECTION START  */
@@ -855,10 +865,93 @@
     .Profile-form-container {
         background-color: #ffffff;
         width: 100%;
-        margin-top: 182px;
+        margin-top: 112px;
+        margin-bottom: 56px;
         margin-left: auto;
-        margin-right: auto;
-        
+        margin-right: auto;   
+    }
+
+    .Profile-form-header {
+        font-size: 25px;
+        font-weight: bold;
+        margin: 0;
+        !width: 342px;
+        text-align: left;
+    }
+    
+    .Profile-form-header:first-of-type {
+        padding-top: 14px;
+    }
+
+    .Profile-login-container {
+        margin: 0px 14px 0px 14px;
+        padding-bottom: 21px;
+        border-bottom: 0.5px solid #000;
+    }
+
+    .Profile-signup-container {
+        margin: 0px 14px 0px 14px;
+        padding-bottom: 21px;
+    }
+
+    .Profile-login-form {
+        margin-top: 21px;
+    }
+
+    .Profile-login-input {
+        margin: 0;
+        padding: 0;
+        height: 40px;
+        margin-bottom: 7px;
+        box-sizing: border-box;
+        border: 1px solid #000000;
+    }
+
+    .Profile-login-button, .Profile-signup-button {
+        width: 100%;
+        background-color: #C51130;
+        border-radius: 0;
+        border: none;
+        height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Gotham';
+        margin: 21px 0px 0px 0px;
+        padding: 0;
+    }
+
+    .Profile-signup-input, .Profile-signup-input-short {
+        margin: 0;
+        padding: 0;
+        border: 1px solid #000;
+        height: 40px;
+    }
+
+    .Profile-signup-input-short {
+        float: left;
+    }
+
+    .Profile-signup-input {
+        margin-top: 7px;
+    }
+
+    .Profile-signup-input-short:first-of-type {
+        margin-right: 7px;
+    }
+
+    input::placeholder {
+        font-size: 16px;
+        color: #858585;
+        font-family: 'Gotham';
+        font-weight: normal;
+    }
+
+    input[type=text], input[type=password] {
+        padding-left: 14px;
+        font-size: 16px;
+        color: #858585;
+        font-family: 'Gotham';
+        font-weight: normal;
     }
 
     /*  PROFILE SECTION END  */
@@ -917,6 +1010,141 @@
         height: 100%;
     }
     /*  HOME SECTION END  */
+
+    /*  HISTORY SECTION START  */
+    .History-subpage {
+        margin-top: 21px;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .History-background-pic {
+        position: relative;
+        width: 100%;
+        bottom: -50px;
+    }
+
+    .HistoryCaptionEn , .HistoryCaptionPl {
+        right: 14px; 
+        position: relative;
+        margin-left: auto;
+        float: right;
+        width: 80%;  
+        height: 90px;
+    }
+
+    .HistoryCaptionPl path {
+        float: right;
+        position: relative;
+        right: -100px;
+    }
+
+    .History-intro-section {
+        margin: 91px 14px 56px 14px;
+        text-align: justify;
+        color: #ffffff;
+        z-index: 30;
+    }
+
+    .History-photo-container {
+        width: 100%;
+        text-align: right;
+    }
+
+    .History-section-header {   
+        font-size: 25px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #C51130;
+        font-weight: bold;
+        margin: 0px 0px 0px 14px;
+    }
+
+    .Album-container:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .Album-container {
+        margin: 0px 14px 49px 14px;
+    }
+
+    .Album-container:first-of-type {
+        margin-top: 7px;
+    }
+
+    .Album-info {
+        float: left;
+        text-align: justify;
+        font-size: 16px;
+    }
+
+    .Album-title {
+        font-size: 25px;
+        color: #C51130;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .Album-date {
+        font-size: 25px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: white;
+        margin: 0;
+    }
+
+    .Album-cover {
+        width: 100%;
+        float: left;
+        margin-bottom: 14px;
+    }
+    
+    .Album-story {
+        color: #ffffff;
+        margin: 0;
+        margin-top: 7px;
+        font-size: 16px;
+    }
+
+    .History-names-container {
+        text-align: left;
+        color: #ffffff;
+        font-size: 25px;
+        margin: 0px auto 7px 14px;
+    }
+
+    .Member-photo {
+        width: 100%;
+        float: left;
+        margin-bottom: 14px;
+    } 
+
+    .Member-container:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .Member-container {
+        margin: 0px 14px 56px 14px;
+    }
+
+    .Member-name {
+        font-size: 25px;
+        color: #C51130;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .Member-bio {
+        font-size: 16px;
+        color: #ffffff;
+        margin: 7px 0px 0px 0px;
+        text-align: justify;
+    }
+
+    /*  HISTORY SECTION END  */
 
 
 }

@@ -1,6 +1,5 @@
-import React from 'react';
-import './../styles/pageTheme.css';
-
+import React from 'react'
+import './../styles/pageTheme.css'
 
 export default class LangSwitch extends React.Component {
     componentDidMount() {
@@ -41,6 +40,6 @@ export default class LangSwitch extends React.Component {
                 <p className="LangSwitch-item" onClick={this.chooseLang}>Polski</p>
                 <p className="LangSwitch-item" onClick={this.chooseLang}>English</p>
             </div>
-        );
+        )
     }
 }

@@ -15,8 +15,7 @@ export default class MobileNavbar extends React.Component {
   }
 
   displayMedia = () => {
-    this.ifMediaDisplayed = this.ifMediaDisplayed ? false : true
-    this.forceUpdate()
+    
   }
 
   passLangSwitch = e => {
@@ -45,14 +44,18 @@ export default class MobileNavbar extends React.Component {
                 navbarContent.map(function(item, index) {
                   if (item !== "MEDIA") {
                     return <Link key={index} to={navbarLinks[index]}>
-                      <li  className="Navbar-content-item">
+                      <li className="Navbar-content-item"
+                        onClick={this.displayMenu}>
                         {item}
                       </li>
                     </Link>
                   } else return <div key={index * index} 
                     className="Media-dropdown">
                       <li className="Navbar-content-item" 
-                        onClick={this.displayMedia} 
+                        onClick={() => {
+                          this.ifMediaDisplayed = this.ifMediaDisplayed ? false : true
+                          this.forceUpdate()
+                        }} 
                         key={index}>
                           {item}
                         </li>
@@ -67,6 +70,7 @@ export default class MobileNavbar extends React.Component {
                                   className="Media-dropdown-item"
                                   onClick={() => {
                                   global.window && (global.window.location.href = `https://${linksContent[index]}`)
+                                  this.displayMenu
                                   return null
                                 }}>
                                   {mediaItem}

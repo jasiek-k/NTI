@@ -77,8 +77,9 @@ export default class Profile extends React.Component {
             <div className="Profile-subpage">
                 <div className="Background-image">
                     <img className="Profile-background-pic" src={joshPic}></img>
-                </div>   
+                </div>  
                 <ProfileForm formContent={this.props.profileContent}
+                    displayData={this.props.displayData}
                     loginUser={this.loginUser}
                     registerUser={this.registerUser}/> 
             </div>
