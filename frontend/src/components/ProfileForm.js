@@ -66,12 +66,12 @@ export default class ProfileForm extends React.Component {
                     <h1 className="Profile-form-header">{headerSign2}</h1>
                     <form className="Profile-login-form"
                         onSubmit={this.handleRegister}>
-                        <input style={{width: (formWidth - 67) / 2}} 
+                        <input style={{width: (formWidth - 68) / 2}} 
                             className="Profile-signup-input-short" 
                             id="Profile-signup-name"
                             type="text" 
                             placeholder={inputSign1}></input>
-                        <input style={{width: (formWidth - 67) / 2}} 
+                        <input style={{width: (formWidth - 68) / 2}} 
                             className="Profile-signup-input-short" 
                             id="Profile-signup-surname"
                             type="text" 

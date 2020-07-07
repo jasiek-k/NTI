@@ -113,8 +113,7 @@ export default class News extends React.Component {
                         <p className="News-search-error">
                             Currently there are no results to show. Press the close button in order to refresh searching or try again later.
                         </p>
-                    ) 
-                    
+                    )    
                 }
             </div>
         )

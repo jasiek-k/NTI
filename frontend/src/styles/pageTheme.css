@@ -1,7 +1,7 @@
 body {
     margin: 0;
     background-color: #000000;
-    font-family: 'Gotham';
+    font-family: 'gotham book';
     height: 100%;
 }
 
@@ -44,7 +44,7 @@ body {
 
     .Navbar-content-item {
         font-size: 18px;
-        font-weight: bold;
+        font-family: 'gotham bold';
         display: inline-block;
         padding-top: 49px;
         padding-bottom: 49px;
@@ -82,7 +82,7 @@ body {
         float: none;
         font-size: 18px;
         color: #ffffff;
-        font-weight: bold;
+        font-family: 'gotham bold';
         padding-top: 10.5px;
         padding-bottom: 10.5px;
         padding-right: 35px;
@@ -207,6 +207,7 @@ body {
         padding: 10px 21px 10px 0px;
         font-size: 20px;
         color: #fff;
+        font-family: 'gotham bold';
     }
 
     a {

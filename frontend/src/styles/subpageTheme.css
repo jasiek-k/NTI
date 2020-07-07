@@ -25,7 +25,7 @@
     .Post-date {
         color: #858585;
         font-size: 10px;
-        font-weight: normal;
+        font-family: 'gotham book';
         display: inline-block;
         vertical-align: top;
         margin: 0px;
@@ -36,7 +36,7 @@
     .Post-tags-container {
         color: #858585;
         font-size: 14px;
-        font-weight: normal;
+        font-family: 'gotham book';
         display: block;
         height: 17px;
         width: 300px;
@@ -106,7 +106,7 @@
 
     .Comment-author {
         font-size: 16px;
-        font-weight: medium;
+        font-family: 'gotham bold';
         padding-right: 14px;
     }
 
@@ -316,7 +316,7 @@
 
     .Profile-form-header {
         font-size: 30px;
-        font-weight: bold;
+        font-family: 'gotham bold';
         margin: 0;
         width: 342px;
     }
@@ -377,16 +377,14 @@
     input::placeholder {
         font-size: 16px;
         color: #858585;
-        font-family: 'Gotham';
-        font-weight: normal;
+        font-family: 'gotham book';
     }
 
     input[type=text], input[type=password] {
         padding-left: 14px;
         font-size: 16px;
         color: #858585;
-        font-family: 'Gotham';
-        font-weight: normal;
+        font-family: 'gotham book';
     }
 
     /*========================= HISTORY SUBPAGE =========================*/
@@ -435,7 +433,7 @@
         font-size: 42px;
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: #C51130;
-        font-weight: bold;
+        font-family: 'gotham bold';
         margin: 0px;
     }
 
@@ -469,7 +467,7 @@
         font-size: 35px;
         color: #C51130;
         margin: 0;
-        font-weight: bold;
+        font-family: 'gotham bold';
     }
 
     .Album-date {
@@ -508,7 +506,7 @@
     .Member-name {
         font-size: 35px;
         color: #C51130;
-        font-weight: bold;
+        font-family: 'gotham bold';
         margin: 0;
     }
 
@@ -619,7 +617,7 @@
     .Post-date {
         color: #858585;
         font-size: 10px;
-        font-weight: normal;
+        font-family: 'gotham book';
         display: inline-block;
         vertical-align: top;
         margin: 0px;
@@ -630,7 +628,7 @@
     .Post-tags-container {
         color: #858585;
         font-size: 14px;
-        font-weight: normal;
+        font-family: 'gotham book';
         display: block;
         height: 17px;
         width: 300px;
@@ -699,7 +697,7 @@
 
     .Comment-author {
         font-size: 16px;
-        font-weight: medium;
+        font-family: 'gotham bold';
         padding-right: 14px;
     }
 
@@ -873,9 +871,8 @@
 
     .Profile-form-header {
         font-size: 25px;
-        font-weight: bold;
+        font-family: 'gotham bold';
         margin: 0;
-        !width: 342px;
         text-align: left;
     }
     
@@ -914,8 +911,7 @@
         border: none;
         height: 40px;
         font-size: 16px;
-        font-weight: bold;
-        font-family: 'Gotham';
+        font-family: 'gotham book';
         margin: 21px 0px 0px 0px;
         padding: 0;
     }
@@ -942,16 +938,14 @@
     input::placeholder {
         font-size: 16px;
         color: #858585;
-        font-family: 'Gotham';
-        font-weight: normal;
+        font-family: 'gotham book';
     }
 
     input[type=text], input[type=password] {
         padding-left: 14px;
         font-size: 16px;
         color: #858585;
-        font-family: 'Gotham';
-        font-weight: normal;
+        font-family: 'gotham bold';
     }
 
     /*  PROFILE SECTION END  */
@@ -1056,7 +1050,7 @@
         font-size: 25px;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: #C51130;
-        font-weight: bold;
+        font-family: 'gotham bold';
         margin: 0px 0px 0px 14px;
     }
 
@@ -1084,7 +1078,7 @@
         font-size: 25px;
         color: #C51130;
         margin: 0;
-        font-weight: bold;
+        font-family: 'gotham bold';
     }
 
     .Album-date {
@@ -1133,7 +1127,7 @@
     .Member-name {
         font-size: 25px;
         color: #C51130;
-        font-weight: bold;
+        font-family: 'gotham bold';
         margin: 0;
     }
 

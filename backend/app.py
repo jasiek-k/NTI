@@ -24,20 +24,56 @@ db.init_app(app)
 @app.route('/')
 def main():
     return 'Hello Wordl!'
+"""
+@app.route('/news', methods=['POST', 'GET'])
+def get_news():
+    if request.method == 'GET':
+        posts = PostsModel.query.all()
+        results = [
+            {
+                "id": post.post_id,
+                "date": post.date,
+                "content": post.content,
+                "photo": post.photo,
+            } for post in posts]
+        return {"count": len(results), "posts": results}
+    elif request.method == 'POST':
+        if request.is_json:
+            data = request.get_json()
+            new_comment = CommentsModel(
+                content=data['content'], 
+                user_id=data['user_id'], 
+                post_id=data['post_id'])
+            db.session.add(new_comment)
+            db.session.commit()
+            return {"message": f"user {new_comment.content} has been added successfully.", 
+                "status": 1}
+        else:
+            return {"error": "The request payload is not in JSON format", "status": -1}
+"""
+
+@app.route('/user/<name>', methods=['GET'])
+def get_user(name):
+    user = UsersModel.query.filter_by(name = name).all()
+    return user
+
 
 @app.route('/register', methods=['POST', 'GET'])
 def handle_users():
-    print(request)
+    #print(request)
     if request.method == 'POST':
         if request.is_json:
             data = request.get_json()
-            new_user = UsersModel(name=data['name'], surname=data['surname'], email=data['email'], password=data['password'])
+            new_user = UsersModel(
+                name=data['name'], 
+                surname=data['surname'], 
+                email=data['email'], 
+                password=data['password'])
             db.session.add(new_user)
             db.session.commit()
             return {"message": f"user {new_user.name} has been added successfully.", "status": 1}
         else:
-            return {"error": "The request payload is not in JSON format"}
-
+            return {"error": "The request payload is not in JSON format", "status": -1}
     elif request.method == 'GET':
         users = UsersModel.query.all()
         results = [
@@ -48,7 +84,7 @@ def handle_users():
                 "email": user.email,
                 "password": user.password
             } for user in users]
-
+            
         return {"count": len(results), "users": results}
 
 if __name__ == '__main__':
