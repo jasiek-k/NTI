@@ -24,7 +24,7 @@ export default class ProfileForm extends React.Component {
         this.props.registerUser({
             name: document.getElementById('Profile-signup-name').value,
             surname: document.getElementById('Profile-signup-surname').value,
-            mail: document.getElementById('Profile-signup-mail').value,
+            email: document.getElementById('Profile-signup-mail').value,
             password: document.getElementById('Profile-signup-password').value
         })
     }

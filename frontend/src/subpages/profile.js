@@ -52,21 +52,20 @@ export default class Profile extends React.Component {
     }
 
     handleUserRegister = data => {
-        console.log(data)
+        console.log(JSON.stringify(data))
         axios.post(
             'http://127.0.0.1:5000/register', 
-            null, {
-                params: data
-            },
+            data,
             {
-                "Access-Control-Allow-Origin": "*",
-                "Content-Type": "text/html; charset=utf-8",
-                "Accept": "application/json",
-                "Access-Control-Request-Method": "POST"
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                }
             }
         )
         .then((response) => {
-            alert(response.data)
+            console.log(response)
         }, (error) => {
             console.log(error)
         })

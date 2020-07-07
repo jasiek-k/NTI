@@ -1,83 +1,55 @@
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from flask_cors import CORS
+from models import *
 import json
 
-"""
-with open('./data.json') as file:
-    data = json.load(file)
-"""
+
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postdb@localhost/nti'
+POSTGRES = {
+    'user': 'postgres',
+    'pw': 'postdb',
+    'db': 'nti',
+    'host': 'localhost',
+    'port': '5433',
+}
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://%(user)s:\
+%(pw)s@%(host)s:%(port)s/%(db)s' % POSTGRES
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+app.config['DEBUG'] = True
+db.init_app(app)
 
-class User(db.Model):
-    __tablename__ = "users"
-    user_id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(80), unique = True)
-    email = db.Column(db.String(100), unique = True)
-
-    def __init__(self, username, email):
-        self.username = username
-        self.email = email
-
-    def __repr__(self):
-        return '<User %r>' % self.username
-
-
-#examples = Example.query.all()
-#for ex in examples:
-#    print(ex.data)
-db.create_all()
-db.session.commit()
-users = User.query.all()
-print(users)
-"""
 @app.route('/')
-def hello_world():
-    return 'Hello world!'
+def main():
+    return 'Hello Wordl!'
 
-@app.route('/news')
-def get_news():
-    return data
-
-@app.route('/login', methods = ['GET', 'POST'])
-def user_login():
-    login = request.args["login"]   
-    password = request.args["password"]
-    if request.method == "POST":
-        print(f'{login} {password}')
-        if login != None and password != None:
-            return f'User {login} logged'
-
-@app.route('/register', methods = ['GET', 'POST'])
-def user_register():
-    name = request.args["name"]   
-    surname = request.args["surname"]   
-    mail = request.args["mail"]   
-    password = request.args["password"]
-    if request.method == "POST":
-        print(f'{name} {surname} {mail} {password}')
-        if name != None and surname != None and mail != None and password != None:
-            return f'User {name} {surname} registered'
-
-@app.route('/comment', methods = ['GET', 'POST'])
-def add_comment():
-    post_id = request.args.get("post_id")   
-    comment = request.args.get("comment")
-    if request.method == "POST":
-        print(f'{post_id} {comment}')
-        if post_id != None and comment != None:
-            return f'Comment added to post {post_id}'
+@app.route('/register', methods=['POST', 'GET'])
+def handle_users():
+    print(request)
+    if request.method == 'POST':
+        if request.is_json:
+            data = request.get_json()
+            new_user = UsersModel(name=data['name'], surname=data['surname'], email=data['email'], password=data['password'])
+            db.session.add(new_user)
+            db.session.commit()
+            return {"message": f"user {new_user.name} has been added successfully.", "status": 1}
         else:
-            return 'Error occured'
+            return {"error": "The request payload is not in JSON format"}
 
-@app.route('/rev/<float:revNo>')
-def revision(revNo):
-    return 'Revision number %f' % revNo
-"""
+    elif request.method == 'GET':
+        users = UsersModel.query.all()
+        results = [
+            {
+                "id": user.user_id,
+                "name": user.name,
+                "surname": user.surname,
+                "email": user.email,
+                "password": user.password
+            } for user in users]
+
+        return {"count": len(results), "users": results}
+
 if __name__ == '__main__':
-    #app.run(debug = True)
     app.run(debug= True, host='127.0.0.1', port=5000)
