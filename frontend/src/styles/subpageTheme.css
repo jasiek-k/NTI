@@ -241,6 +241,11 @@
         color: #ffffff;
         font-size: 35px;
         margin: 0;
+        font-family: 'gotham bold';
+    }
+
+    .Slider-name:hover {
+        cursor: pointer;
     }
 
     /*========================= PROFILE SUBPAGE =========================*/
@@ -281,7 +286,6 @@
         margin-top: 182px;
         margin-left: auto;
         margin-right: auto;
-        
     }
 
     .Profile-login-container, .Profile-signup-container {
@@ -327,16 +331,7 @@
         text-align: right;
     }
 
-    .Profile-login-input {
-        width: 342px;
-        padding: 0;
-        height: 40px;
-        margin-bottom: 7px;
-        box-sizing: border-box;
-        border: 1px solid #000000;
-    }
-
-    .Profile-signup-input {
+    .Profile-login-input, .Profile-signup-input {
         width: 342px;
         padding: 0;
         height: 40px;
@@ -388,7 +383,6 @@
     }
 
     /*========================= HISTORY SUBPAGE =========================*/
-
     .History-subpage {
         margin-top: 77px;
         margin-left: auto;
@@ -430,7 +424,7 @@
     }
 
     .History-section-header {   
-        font-size: 42px;
+        font-size: 35px;
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: #C51130;
         font-family: 'gotham bold';
@@ -523,10 +517,15 @@
         font-size: 35px;
         margin-top: 0px;
         margin-bottom: 21px;
+        font-family: 'gotham bold';
     }
 
     .History-name:hover {
         cursor: pointer;
+    }
+
+    .History-name {
+        font-family: 'gotham bold';
     }
 
     .History-members-section {
@@ -587,17 +586,18 @@
     }
 }
 
-@media (max-width: 599px) {
+@media (min-width: 600px) and (max-width: 899px) {
     body{
         width: 100%;
     }
+
     /*  NEWS SECTION START  */
     .Post-container {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
         background-color: #ffffff;
-        margin-bottom: 21px;
+        margin-bottom: 28px;
     }
 
     .Post-header {
@@ -655,7 +655,6 @@
     .Post-paragraph {
         font-size: 16px;
         padding: 21px 14px 14px 14px;
-        !width: 380px;
         margin: 0;
     }
 
@@ -733,7 +732,387 @@
 
     .Comment-form {
         padding-top: 14px;
-        padding-bottom: 14px;
+        padding-bottom: 0;
+        width: 100%;
+    }
+
+    .Comment-input {
+        box-sizing: border-box;
+        margin: 0;
+        height: 80px;
+        resize: none;
+        border-style: none;
+        padding-left: 14px;
+        padding-right: 14px;
+        display: block;
+        font-size: 16px;
+        resize: none;
+        font-family: "Gotham";
+        width: 99%;
+    }
+
+    .Comment-button {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border: none;
+        color: #ffffff;
+        text-decoration: none;
+        display: inline-block;
+        font-family: "Gotham";
+        font-size: 16px;
+        width: 572px;
+        background-color: #858585;
+        margin: 14px 14px 14px 14px;
+    }
+
+    .News-subpage {
+        margin-top: 63px;
+    }
+
+    .News-close-button .CloseIcon, .SearchIcon {
+        margin: 0;
+        padding: 0;
+        fill: #858585;
+        width: 24px;
+    }
+
+    .News-search-button, .News-close-button {
+        border: none;
+        background-color: transparent;
+        padding: 17px 16px 15px 16px;
+    }
+
+    .News-close-button {
+        float: right;
+    }
+
+    .News-search-button {
+        float: left;
+    }
+
+    .News-search-post {
+        border: 0.5px solid #858585;
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+        margin-bottom: 21px;
+    }
+
+    .News-search-input {
+        background-color: transparent;
+        font-family: 'Gotham';
+        color: #858585;
+        background-color: #000;
+        border: none;
+        width: 480px;
+        font-size: 16px;
+        padding: 20px 0px 20px 0px;
+        margin: 0;  
+    }
+
+    .News-search-input[type="text"] {
+        background-color: #000;
+    }
+
+    .News-search-error {
+        color: #C51130;
+        font-size: 20px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        margin-top: 50px;
+    }
+    /*  NEWS SECTION END  */
+
+    /*  HISTORY SECTION START  */
+    .History-subpage {
+        margin-top: 21px;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .History-background-pic {
+        position: relative;
+        width: 100%;
+        bottom: -50px;
+    }
+
+    .HistoryCaptionEn , .HistoryCaptionPl {
+        right: 14px; 
+        position: relative;
+        margin-left: auto;
+        float: right;
+        height: 90px;
+    }
+
+    .HistoryCaptionPl path {
+        float: right;
+        position: relative;
+        right: -100px;
+    }
+
+    .History-intro-section {
+        margin: 91px 14px 56px 14px;
+        text-align: justify;
+        color: #ffffff;
+        z-index: 30;
+    }
+
+    .History-photo-container {
+        width: 100%;
+        text-align: right;
+    }
+
+    .History-section-header {   
+        font-size: 30px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #C51130;
+        font-family: 'gotham bold';
+        margin: 0px 0px 0px 14px;
+    }
+
+    .Album-container:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .Album-container {
+        margin: 0px 14px 49px 14px;
+    }
+
+    .Album-container:first-of-type {
+        margin-top: 7px;
+    }
+
+    .Album-info {
+        float: left;
+        /*text-align: justify;*/
+        font-size: 16px;
+        margin-left: 14px;
+        width: 50%;
+        !min-width: 308px;
+        !max-width: 557px;
+    }
+
+    .Album-title {
+        font-size: 30px;
+        color: #C51130;
+        margin: 0;
+        font-family: 'gotham bold';
+    }
+
+    .Album-date {
+        font-size: 30px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: white;
+        margin: 0;
+    }
+
+    .Album-cover {
+        width: 40%;
+        !min-width: 250px;
+        !max-width: 300px;
+        float: left;
+        margin-bottom: 14px;
+    }
+    
+    .Album-story {
+        color: #ffffff;
+        margin: 0;
+        margin-top: 7px;
+        font-size: 16px;
+    }
+
+    .History-names-container {
+        text-align: left;
+        color: #ffffff;
+        font-size: 30px;
+        margin: 0px auto 7px 14px;
+        font-family: 'gotham bold';
+    }
+
+    .Member-photo {
+        width: 100%;
+        float: left;
+        margin-bottom: 14px;
+    } 
+
+    .Member-container:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .Member-container {
+        margin: 0px 14px 56px 14px;
+    }
+
+    .Member-name {
+        font-size: 30px;
+        color: #C51130;
+        font-family: 'gotham bold';
+        margin: 0;
+    }
+
+    .Member-bio {
+        font-size: 16px;
+        color: #ffffff;
+        margin: 7px 0px 0px 0px;
+        text-align: justify;
+    }
+    /*  HISTORY SECTION END  */
+}
+
+@media (max-width: 599px) {
+    body{
+        width: 100%;
+    }
+
+    /*  NEWS SECTION START  */
+    .Post-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #ffffff;
+        margin-bottom: 21px;
+    }
+
+    .Post-header {
+        padding: 14px 14px 0px 14px;
+        height: 40px;
+        margin: 0; 
+    }
+
+    .PostLogo {
+        fill: #000000;
+        width: 40px;
+        height: 40px;
+        padding: 0px;
+        float: left;
+    }
+
+    .Post-date {
+        color: #858585;
+        font-size: 10px;
+        font-family: 'gotham book';
+        display: inline-block;
+        vertical-align: top;
+        margin: 0px;
+        padding-left: 14px;
+        height: 12px;
+    }
+
+    .Post-tags-container {
+        color: #858585;
+        font-size: 14px;
+        font-family: 'gotham book';
+        display: block;
+        height: 17px;
+        width: 300px;
+        padding-top: 5px;
+        position: relative;
+        left: 14px;
+        margin: 0;
+    }
+
+    .Post-tags-container span {
+        display: inline;
+        margin: 0; 
+        padding-left: 7px;
+    }
+
+    .Post-tag:first-of-type {
+        padding-left: 0px;
+    }
+
+    .Post-content {
+        padding: 0;
+    }
+
+    .Post-paragraph {
+        font-size: 16px;
+        padding: 21px 14px 14px 14px;
+        margin: 0;
+    }
+
+    .Post-photo {
+        width: 100%;
+        margin: 0;
+    }
+
+    .Post-photo img {
+        margin: 0;
+    }
+
+    .Divider-line {
+        margin: 0;
+        border-width: 0.5px;
+        width: 98%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .Comments-list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .Post-comment {
+        padding: 14px 0px 14px 0px;
+    }
+
+    .PersonIcon {
+        padding: 0px 19px 0px 19px;
+        margin-bottom: -14px;
+    }
+
+    .Comment-header {
+        display: inline-block;
+    }
+
+    .Comment-author {
+        font-size: 16px;
+        font-family: 'gotham bold';
+        padding-right: 14px;
+    }
+
+    .Comment-date {
+        font-size: 10px;
+        color: #858585;
+        vertical-align: text-top;
+    }
+
+    .Comment-content {
+        margin: 0;
+        display: block;
+        padding: 3px 14px 0px 62px;
+    }
+
+    .Comments-display-button {
+        padding: 7px 0px 14px 0px;
+        border: none;
+        background-color: #ffffff;
+        text-decoration: none;
+        display: inline-block;
+        width: 100%;
+        font-family: "Gotham";
+        font-size: 12px;
+    }
+
+    .Comments-display-caption {
+        font-size: 12px;
+        color: #858585;
+        text-align: center;
+        margin: 0 auto 0 auto;
+    }
+
+    .Comment-form {
+        padding-top: 14px;
+        padding-bottom: 0;
         width: 100%;
     }
 
@@ -768,7 +1147,6 @@
         margin-bottom: 14px;
     }
 
-    /*****************HERE*******************/
     .News-subpage {
         margin-top: 63px;
     }
@@ -1024,7 +1402,6 @@
         position: relative;
         margin-left: auto;
         float: right;
-        width: 80%;  
         height: 90px;
     }
 
@@ -1105,6 +1482,7 @@
         text-align: left;
         color: #ffffff;
         font-size: 25px;
+        font-family: 'gotham bold';
         margin: 0px auto 7px 14px;
     }
 
@@ -1137,8 +1515,5 @@
         margin: 7px 0px 0px 0px;
         text-align: justify;
     }
-
     /*  HISTORY SECTION END  */
-
-
 }

@@ -21,6 +21,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG'] = True
 db.init_app(app)
 
+
+with open('data.json') as file:
+    data = json.load(file)
+
 @app.route('/')
 def main():
     return 'Hello Wordl!'
@@ -52,11 +56,43 @@ def get_news():
             return {"error": "The request payload is not in JSON format", "status": -1}
 """
 
+@app.route('/news')
+def get_news():
+    return data
+
 @app.route('/user/<name>', methods=['GET'])
 def get_user(name):
-    user = UsersModel.query.filter_by(name = name).all()
+    users = UsersModel.query.filter_by(name = name).all()
+    results = [
+            {
+                "id": user.user_id,
+                "name": user.name,
+                "surname": user.surname,
+                "email": user.email,
+                "password": user.password
+            } for user in users]
     return user
 
+@app.route('/login', methods=['POST'])
+def handle_login():
+    if request.method == 'POST':
+        if request.is_json:
+            data = request.get_json()
+            user = UsersModel.query.filter_by(email = data['email']).first()
+            if hasattr(user, 'user_id') == False:
+                return {"error": "There is no account associated with this email", "status": -1}
+            elif data['password'] != user.password:
+                return {"error": "Wrong password", "status": -1}
+            else:
+                result = {
+                    "id": user.user_id,
+                    "name": user.name,
+                    "surname": user.surname,
+                    "email": user.email,
+                } 
+                return { "user": result, "status": 1}
+        else:
+            return {"error": "The request payload is not in JSON format", "status": -1}
 
 @app.route('/register', methods=['POST', 'GET'])
 def handle_users():

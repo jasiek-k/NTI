@@ -9,6 +9,7 @@ import Home from './../subpages/home'
 import History from './../subpages/history'
 import News from './../subpages/news'
 import Profile from './../subpages/profile'
+import UserProfile from './UserProfile'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MobileNavbar from './MobileNavbar'
 
@@ -18,7 +19,8 @@ export default class PageDisplay extends React.Component {
       this.state = {
         currentLang: "English",
         windowWidth: 0, 
-        windowHeight: 0
+        windowHeight: 0,
+        user: {}
       }
       this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
@@ -41,6 +43,12 @@ export default class PageDisplay extends React.Component {
     })
   }
 
+  passUserData = data => {
+    this.setState({
+      user: data 
+    })
+  } 
+
   langSwitchHandling = e => {
     let lang = e.target.innerText
     this.setState({
@@ -58,7 +66,7 @@ export default class PageDisplay extends React.Component {
       <Router>
         <div className="Page-content">
         {
-          this.state.windowWidth < 600 ? (
+          this.state.windowWidth < 900 ? (
             <MobileNavbar navbarContent={this.pageContent} langSwitchHandling={this.langSwitchHandling}/>
           ) : (
             <React.Fragment>
@@ -68,17 +76,28 @@ export default class PageDisplay extends React.Component {
           )
         }            
         <Switch>
-          <Route  path="/" exact 
+          <Route path="/" exact 
             render={(props) => <Home displayData={this.state.windowWidth}/>}/>
-          <Route  path="/news"
+          <Route path="/news"
             render={(props) => <News displayData={this.state.windowWidth}
               newsContent={this.pageContent.newsSubpage}/>}/>
-          <Route  path="/history"
+          <Route path="/history"
             render={(props) => <History historyContent={this.pageContent.historySubpage}
             currentLang={this.state.currentLang}/>}/>
-          <Route  path="/profile"
-            render={(props) => <Profile displayData={this.state.windowWidth}
-              profileContent={this.pageContent}/>}/>
+          {
+            Object.keys(this.state.user).length === 0 ? (
+              <Route path="/profile"
+                render={(props) => <Profile displayData={this.state.windowWidth}
+                passUserData={this.passUserData}
+                profileContent={this.pageContent}/>}/>
+            ) : (
+              <Route path="/profile"
+                render={(props) => <UserProfile /*displayData={this.state.windowWidth}
+                passUserData={this.passUserData}
+                profileContent={this.pageContent}/>}*/
+                userData={this.state.user}/>}/>
+            )
+          }
             {
               this.pageContent.navbar.linksContent.map((item, index) => {
                 return <Route key={index} 

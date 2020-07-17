@@ -11,7 +11,7 @@ class UsersModel(db.Model):
     surname = db.Column(db.String(80), nullable = False)
     email = db.Column(db.String(100), unique = True)
     password = db.Column(db.String(50), nullable = False)
-    comments = db.relationship('Comment', backref='users', lazy = 'joined')
+    comments = db.relationship('CommentsModel', backref='users', lazy = 'joined')
 
     def __init__(self, name, surname, email, password):
         self.name = name
@@ -22,7 +22,7 @@ class UsersModel(db.Model):
     def __repr__(self):
         return '<User %r>' % self.name
 
-"""
+
 class PostsModel(db.Model):
     __tablename__ = 'posts'
 
@@ -30,8 +30,8 @@ class PostsModel(db.Model):
     date = db.Column(db.DateTime, default = datetime.now)
     content = db.Column(db.String(500), nullable = True)
     photo = db.Column(db.String(1000000), nullable = True)
-    comments = db.relationship('Comment', backref='posts', lazy = 'joined')
-    tags = db.relationship('Tag', backref = 'posts', lazy = 'joined')
+    comments = db.relationship('CommentsModel', backref='posts', lazy = 'joined')
+    tags = db.relationship('TagsModel', backref = 'posts', lazy = 'joined')
 
     def __init__(self, date, content, photo):
         self.date = date
@@ -64,5 +64,3 @@ class TagsModel(db.Model):
     def __init__(self, post_id, tag):
         self.post_id = post_id
         self.tag = tag 
-
-"""
