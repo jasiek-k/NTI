@@ -1,6 +1,5 @@
 import React from 'react'
 import joshPic from './../utils/img/josh_background.png'
-import './../styles/subpageTheme.css'
 import ProfileForm from './../components/ProfileForm'
 import UserProfile from './../components/UserProfile'
 import axios from 'axios'
@@ -14,9 +13,7 @@ export default class Profile extends React.Component {
         }
     }  
     
-    hashData = () => {
-        
-    }
+    hashData = () => {}
 
     loginUser = creds => {
         //console.log(creds)

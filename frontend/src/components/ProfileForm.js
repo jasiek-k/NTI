@@ -35,7 +35,7 @@ export default class ProfileForm extends React.Component {
         const [ headerLog1, headerLog2, inputLog1, inputLog2, buttonLog ] = loginSection
         const [ headerSign1, headerSign2, inputSign1, inputSign2, inputSign3, inputSign4, buttonSign ] = signupSection
         let formWidth = new Array(5)
-        if (parseInt(this.props.displayData) < 599) {
+        if (parseInt(this.props.displayData) < 600) {
             formWidth.fill(this.props.displayData)
             formWidth[0] -= 30
             formWidth[1] -= 30
@@ -47,7 +47,9 @@ export default class ProfileForm extends React.Component {
             formWidth[1] = 171
             formWidth[2] = 167.5
         } else {
-
+            formWidth[0] = 502
+            formWidth[1] = 502
+            formWidth[2] = 247.5
         }
 
         return (

@@ -26,6 +26,7 @@ export default class NewsPost extends React.Component {
         let imagesDir = ""
         let postPic = ""
         const { postContent } = this.props.newsPostContent 
+        console.log(this.props.content)
         var {comments, content, date, id, photo, tags} = this.props.content
         const [ showCaption, hideCaption, buttonCaption, placeholderCaption ] = postContent
         this.postId = id
@@ -35,14 +36,21 @@ export default class NewsPost extends React.Component {
             postPic = imagesDir(photo)
         }  
 
+        /*
+        LINE 43:
+        <p className="Post-tags-container">{tags.map((item, index) => {
+                        return <span className="Post-tag" key={index}>{`#${item}`}</span>
+                    })}</p>
+        LINE 67:
+        comments != undefined || comments.length > 0
+        */
+
         return (
             <div className="Post-container">
                 <div className="Post-header">
                     <PostLogo />
                     <p className="Post-date">{date}</p>
-                    <p className="Post-tags-container">{tags.map((item, index) => {
-                        return <span className="Post-tag" key={index}>{`#${item}`}</span>
-                    })}</p>
+                    
                 </div>
                 <div className="Post-content">
                     <p className="Post-paragraph">{content}</p>
@@ -57,7 +65,8 @@ export default class NewsPost extends React.Component {
                 <div className="Comments-section">
                     {this.ifCommentsDisplayed ? (
                         <ul className="Comments-list">
-                            {comments.map((item, index) => {
+                            {
+                                comments != undefined ? (comments.map((item, index) => {
                                 const [author, date, content] = item
                                 return <React.Fragment key={index}>
                                     <li className="Post-comment" >
@@ -70,7 +79,8 @@ export default class NewsPost extends React.Component {
                                     </li>
                                     <hr className="Divider-line"/>
                                 </React.Fragment>
-                            })}
+                                }) ) : (<React.Fragment></React.Fragment>)
+                            }
                             <form className="Comment-form" onSubmit={this.handleCommentSubmit}>
                                 <textarea id="Comment-input"
                                         type="text" 
@@ -89,6 +99,6 @@ export default class NewsPost extends React.Component {
                     </p>
                 </button>
             </div>
-        );
+        )
     }
 }

@@ -50,16 +50,16 @@ def get_news():
                 post_id=data['post_id'])
             db.session.add(new_comment)
             db.session.commit()
-            return {"message": f"user {new_comment.content} has been added successfully.", 
+            return {"message": f"User {new_comment.content} has been added successfully.", 
                 "status": 1}
         else:
-            return {"error": "The request payload is not in JSON format", "status": -1}
+            return {"error": "The request payload is not in JSON format.", "status": -1}
 """
-
+"""
 @app.route('/news')
 def get_news():
     return data
-
+"""
 @app.route('/user/<name>', methods=['GET'])
 def get_user(name):
     users = UsersModel.query.filter_by(name = name).all()
@@ -80,7 +80,7 @@ def handle_login():
             data = request.get_json()
             user = UsersModel.query.filter_by(email = data['email']).first()
             if hasattr(user, 'user_id') == False:
-                return {"error": "There is no account associated with this email", "status": -1}
+                return {"error": "There is no account associated with this email.", "status": -1}
             elif data['password'] != user.password:
                 return {"error": "Wrong password", "status": -1}
             else:
@@ -92,7 +92,7 @@ def handle_login():
                 } 
                 return { "user": result, "status": 1}
         else:
-            return {"error": "The request payload is not in JSON format", "status": -1}
+            return {"error": "The request payload is not in JSON format.", "status": -1}
 
 @app.route('/register', methods=['POST', 'GET'])
 def handle_users():
@@ -104,12 +104,13 @@ def handle_users():
                 name=data['name'], 
                 surname=data['surname'], 
                 email=data['email'], 
-                password=data['password'])
+                password=data['password']
+            )
             db.session.add(new_user)
             db.session.commit()
-            return {"message": f"user {new_user.name} has been added successfully.", "status": 1}
+            return {"message": f"User {new_user.name} has been added successfully.", "status": 1}
         else:
-            return {"error": "The request payload is not in JSON format", "status": -1}
+            return {"error": "The request payload is not in JSON format.", "status": -1}
     elif request.method == 'GET':
         users = UsersModel.query.all()
         results = [
@@ -122,6 +123,33 @@ def handle_users():
             } for user in users]
             
         return {"count": len(results), "users": results}
+
+@app.route('/news', methods=['POST', 'GET'])
+def handle_news():
+    if request.method == 'POST':
+        if request.is_json:
+            data = request.get_json()
+            new_post = PostsModel(
+                content=data['content'], 
+                photo=data['photo']
+            )
+            db.session.add(new_post)
+            db.session.commit()
+            return {"message": "Post has been added successfully.", "status": 1}
+        else:
+            return {"error": "The request payload is not in JSON format.", "status": -1}
+    elif request.method == 'GET':
+        posts = PostsModel.query.all()
+        tags = TagsModel.query.all()
+
+        results = [
+            {
+                "id": item.post_id,
+                "content": item.content,
+                "date": item.date,
+                "photo": item.photo
+            } for item in posts]
+        return {"count": len(results), "posts": results}
 
 if __name__ == '__main__':
     app.run(debug= True, host='127.0.0.1', port=5000)

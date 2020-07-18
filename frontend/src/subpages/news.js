@@ -20,7 +20,14 @@ export default class News extends React.Component {
 
     getPosts = () => {
         axios
-            .get("http://127.0.0.1:5000/news")
+            .get('http://127.0.0.1:5000/news',
+            {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                }
+            })
             .then(res => {
                 this.setState({
                     displayedData: res.data.posts,

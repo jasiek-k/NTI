@@ -1,4 +1,67 @@
 @media (min-width: 900px) {
+    /*  HOME SECTION START  */
+    .Home-subpage {
+        width: 100%;
+    }
+
+    .Slider-container {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 1050px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .Slider-caption {
+        margin-left: 330px; 
+        display: inline-block;
+        margin-bottom: 120px;
+        z-index: 10;
+    }
+
+    .BandCaption {
+        width: 700px;
+    }
+
+    .BandMobileCaption {
+        display: none;
+    }
+
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .Photos-container {
+        z-index: -2;
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+    }
+
+    .Photo {
+        width: 450px;
+        margin: 0;
+    }
+
+    .Slider-names-container {
+        text-align: left;
+        color: #ffffff;
+        font-size: 35px;
+        margin: 0;
+        font-family: 'gotham bold';
+    }
+
+    .Slider-name:hover {
+        cursor: pointer;
+    }
+    /*  HOME SECTION END  */
+
+    /*  NEWS SECTION START  */
     .Post-container {
         width: 600px;
         margin-left: auto;
@@ -172,7 +235,6 @@
         border: none;
         color: #ffffff;
         text-decoration: none;
-        display: inline-block;
         font-family: "Gotham";
         font-size: 16px;
         background-color: #858585;
@@ -186,203 +248,9 @@
     .News-subpage {
         margin-top: 141px;
     }
+    /*  NEWS SECTION END  */
 
-    /*========================= HOME SUBPAGE =========================*/
-    .Home-subpage {
-        width: 100%;
-    }
-
-    .Slider-container {
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 1050px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .Slider-caption {
-        margin-left: 330px; 
-        display: inline-block;
-        margin-bottom: 120px;
-        z-index: 10;
-    }
-
-    .BandCaption {
-        width: 700px;
-    }
-
-    .BandMobileCaption {
-        display: none;
-    }
-
-    .content {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .Photos-container {
-        z-index: -2;
-        display: inline-block;
-        position: absolute;
-        bottom: 0;
-        margin: 0;
-    }
-
-    .Photo {
-        width: 450px;
-        margin: 0;
-    }
-
-    .Slider-names-container {
-        text-align: left;
-        color: #ffffff;
-        font-size: 35px;
-        margin: 0;
-        font-family: 'gotham bold';
-    }
-
-    .Slider-name:hover {
-        cursor: pointer;
-    }
-
-    /*========================= PROFILE SUBPAGE =========================*/
-
-    .Profile-background-pic {
-        height: 100%;
-    }
-
-    .Profile-subpage {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .Background-image {
-        z-index: -10;
-        position: fixed; 
-        top: -50%; 
-        left: -50%; 
-        width: 200%; 
-        height: 200%;
-    }
-
-    .Background-image img {
-        position: absolute; 
-        top: 0; 
-        left: 0; 
-        right: 0; 
-        bottom: 0; 
-        margin: auto; 
-        min-width: 50%;
-        min-height: 50%;
-    }
-
-    .Profile-form-container {
-        background-color: #ffffff;
-        width: 880px;
-        margin-top: 182px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .Profile-login-container, .Profile-signup-container {
-        text-align: left;
-        height: 100%;
-    }
-
-    .Profile-signup-container {
-        padding: 49px 49px 50px 49px;
-        margin-left: 50%;
-        height: 100%;
-    }
-
-    .Profile-login-container {
-        padding: 49px 49px 61px 49px;
-        float: left;
-        width: 342px;
-        border-right: 1px solid #000;
-    }
-
-    .Profile-login-container:after {
-        content: "";
-        background-color: #000;
-        position: absolute;
-        width: 5px;
-        height: 100px;
-        top: 10px;
-        left: 50%;
-        display: block;
-        z-index: 100;
-    }
-
-    .Profile-form-header {
-        font-size: 30px;
-        font-family: 'gotham bold';
-        margin: 0;
-        width: 342px;
-    }
-
-    .Profile-login-form {
-        padding-top: 35px;
-        width: 342px;
-        text-align: right;
-    }
-
-    .Profile-login-input, .Profile-signup-input {
-        width: 342px;
-        padding: 0;
-        height: 40px;
-        margin-bottom: 7px;
-        box-sizing: border-box;
-        border: 1px solid #000000;
-    }
-
-    .Profile-signup-input-short {
-        width: 167.5px;
-        padding: 0;
-        height: 40px;
-        margin-bottom: 7px;
-        box-sizing: border-box;
-        border: 1px solid #000000;
-    }
-
-    .Profile-signup-input-short:first-of-type {
-        margin-right: 7px;
-    }
-
-    .Profile-login-button, .Profile-signup-button {
-        width: 171px;
-        height: 40px;
-        background-color: #C51130;
-        margin-top: 21px;
-        color: #ffffff;
-        font-family: 'Gotham';
-        font-size: 16px;
-        border: none;
-        text-decoration: none;
-    }
-
-    .Profile-login-button:hover, .Profile-signup-button:hover {
-        cursor: pointer;
-    }
-
-    input::placeholder {
-        font-size: 16px;
-        color: #858585;
-        font-family: 'gotham book';
-    }
-
-    input[type=text], input[type=password] {
-        padding-left: 14px;
-        font-size: 16px;
-        color: #858585;
-        font-family: 'gotham book';
-    }
-
-    /*========================= HISTORY SUBPAGE =========================*/
+    /*  HISTORY SECTION START  */
     .History-subpage {
         margin-top: 77px;
         margin-left: auto;
@@ -584,6 +452,141 @@
         width: 600px;
         margin-bottom: 28px;
     }
+    /*  HISTORY SECTION END  */
+
+    /*  PROFILE SECTION START  */
+    .Profile-background-pic {
+        height: 100%;
+    }
+
+    .Profile-subpage {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .Background-image {
+        z-index: -10;
+        position: fixed; 
+        top: -50%; 
+        left: -50%; 
+        width: 200%; 
+        height: 200%;
+    }
+
+    .Background-image img {
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        bottom: 0; 
+        margin: auto; 
+        min-width: 50%;
+        min-height: 50%;
+    }
+
+    .Profile-form-container {
+        background-color: #ffffff;
+        width: 880px;
+        margin-top: 182px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .Profile-login-container, .Profile-signup-container {
+        text-align: left;
+        height: 100%;
+    }
+
+    .Profile-signup-container {
+        padding: 49px 49px 50px 49px;
+        margin-left: 50%;
+        height: 100%;
+    }
+
+    .Profile-login-container {
+        padding: 49px 49px 61px 49px;
+        float: left;
+        width: 342px;
+        border-right: 1px solid #000;
+    }
+
+    .Profile-login-container:after {
+        content: "";
+        background-color: #000;
+        position: absolute;
+        width: 5px;
+        height: 100px;
+        top: 10px;
+        left: 50%;
+        display: block;
+        z-index: 100;
+    }
+
+    .Profile-form-header {
+        font-size: 30px;
+        font-family: 'gotham bold';
+        margin: 0;
+        width: 342px;
+    }
+
+    .Profile-login-form {
+        padding-top: 35px;
+        width: 342px;
+        text-align: right;
+    }
+
+    .Profile-login-input, .Profile-signup-input {
+        width: 342px;
+        padding: 0;
+        height: 40px;
+        margin-bottom: 7px;
+        box-sizing: border-box;
+        border: 1px solid #000000;
+    }
+
+    .Profile-signup-input-short {
+        width: 167.5px;
+        padding: 0;
+        height: 40px;
+        margin-bottom: 7px;
+        box-sizing: border-box;
+        border: 1px solid #000000;
+    }
+
+    .Profile-signup-input-short:first-of-type {
+        margin-right: 7px;
+    }
+
+    .Profile-login-button, .Profile-signup-button {
+        width: 171px;
+        height: 40px;
+        background-color: #C51130;
+        margin-top: 21px;
+        color: #ffffff;
+        font-family: 'Gotham';
+        font-size: 16px;
+        border: none;
+        text-decoration: none;
+    }
+
+    .Profile-login-button:hover, .Profile-signup-button:hover {
+        cursor: pointer;
+    }
+
+    input::placeholder {
+        font-size: 16px;
+        color: #858585;
+        font-family: 'gotham book';
+    }
+
+    input[type=text], input[type=password] {
+        padding-left: 14px;
+        font-size: 16px;
+        color: #858585;
+        font-family: 'gotham book';
+    }
+    /*  PROFILE SECTION END  */
 }
 
 @media (min-width: 600px) and (max-width: 899px) {
@@ -889,12 +892,9 @@
 
     .Album-info {
         float: left;
-        /*text-align: justify;*/
         font-size: 16px;
         margin-left: 14px;
         width: 50%;
-        !min-width: 308px;
-        !max-width: 557px;
     }
 
     .Album-title {
@@ -913,8 +913,6 @@
 
     .Album-cover {
         width: 40%;
-        !min-width: 250px;
-        !max-width: 300px;
         float: left;
         margin-bottom: 14px;
     }
@@ -964,12 +962,184 @@
         text-align: justify;
     }
     /*  HISTORY SECTION END  */
+
+    /*  PROFILE SECTION START  */
+    .Profile-background-pic {
+        height: 100%;
+    }
+
+    .Profile-subpage {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .Background-image {
+        z-index: -10;
+        position: fixed; 
+        top: -50%; 
+        left: -50%; 
+        width: 200%; 
+        height: 200%;
+    }
+
+    .Profile-form-container {
+        background-color: #ffffff;
+        width: 600px;
+        margin: 112px auto 112px auto;
+        display: block;
+    }
+
+    .Profile-login-container, .Profile-signup-container {
+        text-align: left;
+        width: 100%;
+    }
+
+    .Profile-signup-container {
+        display: block;
+        padding: 49px 49px 63px 49px;
+        width: 502px;
+    }
+
+    .Profile-login-container {
+        padding: 49px 49px 63px 49px;
+        display: block;
+        width: 502px;
+        border-bottom: 1px solid #000;
+    }
+
+    .Profile-login-container:after {
+        content: "";
+        background-color: #000;
+        position: absolute;
+        width: 5px;
+        height: 100px;
+        top: 10px;
+        display: block;
+        z-index: 100;
+    }
+
+    .Profile-form-header {
+        font-size: 30px;
+        font-family: 'gotham bold';
+        margin: 0;
+        width: 502px;
+    }
+
+    .Profile-login-form {
+        padding-top: 35px;
+        width: 502px;
+        text-align: right;
+    }
+
+    .Profile-login-input, .Profile-signup-input {
+        width: 502px;
+        padding: 0;
+        height: 40px;
+        margin-bottom: 7px;
+        box-sizing: border-box;
+        border: 1px solid #000000;
+    }
+
+    .Profile-signup-input-short {
+        width: 167.5px;
+        padding: 0;
+        height: 40px;
+        margin-bottom: 7px;
+        box-sizing: border-box;
+        border: 1px solid #000000;
+    }
+
+    .Profile-signup-input-short:first-of-type {
+        margin-right: 7px;
+    }
+
+    .Profile-login-button, .Profile-signup-button {
+        width: 171px;
+        height: 40px;
+        background-color: #C51130;
+        margin-top: 21px;
+        color: #ffffff;
+        font-family: 'Gotham';
+        font-size: 16px;
+        border: none;
+        text-decoration: none;
+    }
+
+    .Profile-login-button:hover, .Profile-signup-button:hover {
+        cursor: pointer;
+    }
+
+    input::placeholder {
+        font-size: 16px;
+        color: #858585;
+        font-family: 'gotham book';
+    }
+
+    input[type=text], input[type=password] {
+        padding-left: 14px;
+        font-size: 16px;
+        color: #858585;
+        font-family: 'gotham book';
+    }
+    /*  PROFILE SECTION END  */
 }
 
 @media (max-width: 599px) {
     body{
         width: 100%;
     }
+
+    /*  HOME SECTION START  */
+    .Home-subpage {
+        width: 100%;
+    }
+
+    .Slider-container {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .Photo {
+        z-index: -10;
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+    }
+
+    .BandMobileCaption {
+        display: none;
+        width: 60%;
+        margin-left: 21px;
+        margin-bottom: 21px;
+    }
+
+    .BandCaption {
+        display: none;
+    }
+
+    .Slider-names-container {
+        display: none;
+        text-align: left;
+        !position: absolute;
+        !top: 100px;
+        !bottom: 44px;
+        color: #ffffff;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .content {
+        width: 100%;
+        height: 100%;
+    }
+    /*  HOME SECTION END  */
 
     /*  NEWS SECTION START  */
     .Post-container {
@@ -1137,7 +1307,6 @@
         border: none;
         color: #ffffff;
         text-decoration: none;
-        display: inline-block;
         font-family: "Gotham";
         font-size: 16px;
         width: 100%;
@@ -1206,182 +1375,6 @@
         margin-top: 50px;
     }
     /*  NEWS SECTION END  */
-
-    /*  PROFILE SECTION START  */
-    .Profile-background-pic {
-        height: 100%;
-    }
-
-    .Profile-subpage {
-        text-align: center;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .Background-image {
-        z-index: -10;
-        position: fixed; 
-        top: -50%; 
-        left: -50%; 
-        width: 200%; 
-        height: 200%;
-    }
-
-    .Background-image img {
-        position: absolute; 
-        top: 0; 
-        left: 0; 
-        right: 0; 
-        bottom: 0; 
-        margin: auto; 
-        min-width: 50%;
-        min-height: 50%;
-    }
-
-    .Profile-form-container {
-        background-color: #ffffff;
-        width: 100%;
-        margin-top: 112px;
-        margin-bottom: 56px;
-        margin-left: auto;
-        margin-right: auto;   
-    }
-
-    .Profile-form-header {
-        font-size: 25px;
-        font-family: 'gotham bold';
-        margin: 0;
-        text-align: left;
-    }
-    
-    .Profile-form-header:first-of-type {
-        padding-top: 14px;
-    }
-
-    .Profile-login-container {
-        margin: 0px 14px 0px 14px;
-        padding-bottom: 21px;
-        border-bottom: 0.5px solid #000;
-    }
-
-    .Profile-signup-container {
-        margin: 0px 14px 0px 14px;
-        padding-bottom: 21px;
-    }
-
-    .Profile-login-form {
-        margin-top: 21px;
-    }
-
-    .Profile-login-input {
-        margin: 0;
-        padding: 0;
-        height: 40px;
-        margin-bottom: 7px;
-        box-sizing: border-box;
-        border: 1px solid #000000;
-    }
-
-    .Profile-login-button, .Profile-signup-button {
-        width: 100%;
-        background-color: #C51130;
-        border-radius: 0;
-        border: none;
-        height: 40px;
-        font-size: 16px;
-        font-family: 'gotham book';
-        margin: 21px 0px 0px 0px;
-        padding: 0;
-    }
-
-    .Profile-signup-input, .Profile-signup-input-short {
-        margin: 0;
-        padding: 0;
-        border: 1px solid #000;
-        height: 40px;
-    }
-
-    .Profile-signup-input-short {
-        float: left;
-    }
-
-    .Profile-signup-input {
-        margin-top: 7px;
-    }
-
-    .Profile-signup-input-short:first-of-type {
-        margin-right: 7px;
-    }
-
-    input::placeholder {
-        font-size: 16px;
-        color: #858585;
-        font-family: 'gotham book';
-    }
-
-    input[type=text], input[type=password] {
-        padding-left: 14px;
-        font-size: 16px;
-        color: #858585;
-        font-family: 'gotham bold';
-    }
-
-    /*  PROFILE SECTION END  */
-
-    /*  HOME SECTION START  */
-    .Home-subpage {
-        width: 100%;
-    }
-
-    .Slider-container {
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .Photo {
-        z-index: -10;
-        position: fixed; 
-        top: 0; 
-        left: 0; 
-        !max-width: 100%;
-        !height: 100%;
-    }
-
-    .BandMobileCaption {
-        display: none;
-        width: 60%;
-        margin-left: 21px;
-        margin-bottom: 21px;
-        !position: absolute;
-        !bottom: 0;
-    }
-
-    .BandCaption {
-        display: none;
-    }
-
-    .Slider-names-container {
-        display: none;
-        text-align: left;
-        !position: absolute;
-        !top: 100px;
-        !bottom: 44px;
-        color: #ffffff;
-        font-size: 16px;
-        margin: 0;
-    }
-
-    .content {
-        width: 100%;
-        height: 100%;
-    }
-    /*  HOME SECTION END  */
 
     /*  HISTORY SECTION START  */
     .History-subpage {
@@ -1516,4 +1509,124 @@
         text-align: justify;
     }
     /*  HISTORY SECTION END  */
+
+    /*  PROFILE SECTION START  */
+    .Profile-background-pic {
+        height: 100%;
+    }
+
+    .Profile-subpage {
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .Background-image {
+        z-index: -10;
+        position: fixed; 
+        top: -50%; 
+        left: -50%; 
+        width: 200%; 
+        height: 200%;
+    }
+
+    .Background-image img {
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        bottom: 0; 
+        margin: auto; 
+        min-width: 50%;
+        min-height: 50%;
+    }
+
+    .Profile-form-container {
+        background-color: #ffffff;
+        width: 100%;
+        margin-top: 112px;
+        margin-bottom: 56px;
+        margin-left: auto;
+        margin-right: auto;   
+    }
+
+    .Profile-form-header {
+        font-size: 25px;
+        font-family: 'gotham bold';
+        margin: 0;
+        text-align: left;
+    }
+    
+    .Profile-form-header:first-of-type {
+        padding-top: 14px;
+    }
+
+    .Profile-login-container {
+        margin: 0px 14px 0px 14px;
+        padding-bottom: 21px;
+        border-bottom: 0.5px solid #000;
+    }
+
+    .Profile-signup-container {
+        margin: 0px 14px 0px 14px;
+        padding-bottom: 21px;
+    }
+
+    .Profile-login-form {
+        margin-top: 21px;
+    }
+
+    .Profile-login-input {
+        margin: 0;
+        padding: 0;
+        height: 40px;
+        margin-bottom: 7px;
+        box-sizing: border-box;
+        border: 1px solid #000000;
+    }
+
+    .Profile-login-button, .Profile-signup-button {
+        width: 100%;
+        background-color: #C51130;
+        border-radius: 0;
+        border: none;
+        height: 40px;
+        font-size: 16px;
+        font-family: 'gotham book';
+        margin: 21px 0px 0px 0px;
+        padding: 0;
+    }
+
+    .Profile-signup-input, .Profile-signup-input-short {
+        margin: 0;
+        padding: 0;
+        border: 1px solid #000;
+        height: 40px;
+    }
+
+    .Profile-signup-input-short {
+        float: left;
+    }
+
+    .Profile-signup-input {
+        margin-top: 7px;
+    }
+
+    .Profile-signup-input-short:first-of-type {
+        margin-right: 7px;
+    }
+
+    input::placeholder {
+        font-size: 16px;
+        color: #858585;
+        font-family: 'gotham book';
+    }
+
+    input[type=text], input[type=password] {
+        padding-left: 14px;
+        font-size: 16px;
+        color: #858585;
+        font-family: 'gotham bold';
+    }
+    /*  PROFILE SECTION END  */
 }

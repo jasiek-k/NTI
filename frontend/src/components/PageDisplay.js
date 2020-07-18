@@ -1,17 +1,20 @@
 import React from 'react'
-import Navbar from './Navbar'
-import LangSwitch from './LangSwitch'
-import './../styles/pageTheme.css'
+
 import ln_en from './../utils/lang/ln_en.json'
 import ln_pl from './../utils/lang/ln_pl.json'
-//import data from './../utils/data.json'
+
 import Home from './../subpages/home'
 import History from './../subpages/history'
 import News from './../subpages/news'
 import Profile from './../subpages/profile'
-import UserProfile from './UserProfile'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
+import LangSwitch from './LangSwitch'
+import Navbar from './Navbar'
 import MobileNavbar from './MobileNavbar'
+import UserProfile from './UserProfile'
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 
 export default class PageDisplay extends React.Component {
   constructor(props) {
@@ -67,11 +70,14 @@ export default class PageDisplay extends React.Component {
         <div className="Page-content">
         {
           this.state.windowWidth < 900 ? (
-            <MobileNavbar navbarContent={this.pageContent} langSwitchHandling={this.langSwitchHandling}/>
+            <MobileNavbar navbarContent={this.pageContent} 
+              currentLang={this.state.currentLang}
+              langSwitchHandling={this.langSwitchHandling}/>
           ) : (
             <React.Fragment>
               <Navbar navbarContent={this.pageContent}/>
-              <LangSwitch passLangSwitch={this.langSwitchHandling}/>
+              <LangSwitch currentLang={this.state.currentLang}
+                passLangSwitch={this.langSwitchHandling}/>
             </React.Fragment>
           )
         }            

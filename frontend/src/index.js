@@ -1,10 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as serviceWorker from './serviceWorker'
+
 import PageDisplay from './components/PageDisplay'
+
 import './styles/pageTheme.css' 
+import './styles/subpageTheme.css'
 import './utils/fonts/stylesheet.css'
-import {createStore} from 'redux'
+
+import { createStore } from 'redux'
+
 
 const getWidth = () => {
   return {

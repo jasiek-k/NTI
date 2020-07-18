@@ -33,8 +33,7 @@ class PostsModel(db.Model):
     comments = db.relationship('CommentsModel', backref='posts', lazy = 'joined')
     tags = db.relationship('TagsModel', backref = 'posts', lazy = 'joined')
 
-    def __init__(self, date, content, photo):
-        self.date = date
+    def __init__(self, content, photo):
         self.content = content
         self.photo = photo
 

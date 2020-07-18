@@ -14,10 +14,6 @@ export default class MobileNavbar extends React.Component {
     this.forceUpdate()
   }
 
-  displayMedia = () => {
-    
-  }
-
   passLangSwitch = e => {
     this.props.langSwitchHandling(e)
   }
@@ -87,7 +83,9 @@ export default class MobileNavbar extends React.Component {
                   </div>
                 }, this)}
               </ul>
-              <LangSwitch passLangSwitch={this.passLangSwitch}/>
+              <LangSwitch 
+                currentLang={this.props.currentLang}
+                passLangSwitch={this.passLangSwitch}/>
             </div>
           ) : (
             <div onClick={this.displayMenu}>
