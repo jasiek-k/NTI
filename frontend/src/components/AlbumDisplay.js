@@ -16,9 +16,13 @@ export default class AlbumPresentation extends React.Component {
           src={albumPhoto}
           alt=""></img>
         <div className="Album-info">
-          <p className="Album-title">{albumTitle}</p>
-          <p className="Album-date">{albumDate}</p>
-          <p className="Album-story">{albumStory}</p>
+          {
+            [
+              { class: "Album-title", item: albumTitle },
+              { class: "Album-date", item: albumDate },
+              { class: "Album-story", item: albumStory },
+            ].map(item => <p className={item.class}>{item.item}</p>)
+          }
           </div>
       </div>
     )

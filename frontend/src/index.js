@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as serviceWorker from './serviceWorker'
-
 import PageDisplay from './components/PageDisplay'
 
 import './styles/pageTheme.css' 
@@ -10,7 +9,7 @@ import './utils/fonts/stylesheet.css'
 
 import { createStore } from 'redux'
 
-
+/*
 const getWidth = () => {
   return {
     type: 'GET_WIDTH'
@@ -28,9 +27,9 @@ let store = createStore(counter)
 store.subscribe(() => console.log(store.getState()))
 
 store.dispatch(getWidth())
-
+*/
 ReactDOM.render(
-  <PageDisplay />, 
+  <PageDisplay/>, 
   document.getElementById('root'))
 
 serviceWorker.unregister()
