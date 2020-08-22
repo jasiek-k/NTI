@@ -4,8 +4,23 @@ import { PostLogo, PersonIcon } from './../utils/icons'
 
 
 export default class NewsPost extends React.Component {  
+    constructor(props) {
+        super(props)
+        this.state = {
+            authorized: false
+        }
+    }
+
     ifCommentsDisplayed = false
     postId = 0
+
+    componentDidMount = () => {
+        if (localStorage.getItem('userLogged')) {
+            this.setState({
+                authorized: true
+            })
+        }
+    }
 
     displayComments = () => {
         this.ifCommentsDisplayed = this.ifCommentsDisplayed ? false : true
@@ -81,14 +96,18 @@ export default class NewsPost extends React.Component {
                                 </React.Fragment>
                                 }) ) : (<React.Fragment></React.Fragment>)
                             }
-                            <form className="Comment-form" onSubmit={this.handleCommentSubmit}>
-                                <textarea id="Comment-input"
-                                        type="text" 
-                                        placeholder={placeholderCaption}
-                                        className="Comment-input"/>
-                                <button type="submit"
-                                        className="Comment-button">{buttonCaption}</button>
-                            </form>
+                            {
+                                this.state.authorized ? (
+                                    <form className="Comment-form" onSubmit={this.handleCommentSubmit}>
+                                        <textarea id="Comment-input"
+                                            type="text" 
+                                            placeholder={placeholderCaption}
+                                            className="Comment-input"/>
+                                        <button type="submit"
+                                                className="Comment-button">{buttonCaption}</button>
+                                    </form>
+                                ) : (<React.Fragment></React.Fragment>)
+                            }
                             <hr className="Divider-line"/>
                         </ul>
                     ) : (<React.Fragment></React.Fragment>)}

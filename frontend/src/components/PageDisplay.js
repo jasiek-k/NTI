@@ -31,6 +31,7 @@ export default class PageDisplay extends React.Component {
   pageContent = ln_en   
     
   componentDidMount() {
+    this.checkUser()
     this.updateWindowDimensions()
     window.addEventListener('resize', this.updateWindowDimensions)
   }
@@ -51,6 +52,19 @@ export default class PageDisplay extends React.Component {
       user: data 
     })
   } 
+
+  checkUser = () => {
+    if (localStorage.getItem('userLogged')) {
+      this.setState({ 
+        user: {
+          email: localStorage.getItem('userMail'), 
+          id: localStorage.getItem('userId'),
+          name: localStorage.getItem('userName'),
+          surname: localStorage.getItem('userSurname'),
+        } 
+      })
+    }
+  }
 
   langSwitchHandling = e => {
     let lang = e.target.innerText
@@ -91,7 +105,7 @@ export default class PageDisplay extends React.Component {
             render={(props) => <History historyContent={this.pageContent.historySubpage}
             currentLang={this.state.currentLang}/>}/>
           {
-            Object.keys(this.state.user).length === 0 ? (
+            Object.keys(this.state.user).length === 0 && this.state.user.constructor === Object ? (
               <Route path="/profile"
                 render={(props) => <Profile displayData={this.state.windowWidth}
                 passUserData={this.passUserData}

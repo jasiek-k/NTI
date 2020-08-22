@@ -4,6 +4,11 @@ import ProfileForm from './../components/ProfileForm'
 import UserProfile from './../components/UserProfile'
 import axios from 'axios'
 
+const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+};
 
 export default class Profile extends React.Component {      
     constructor(props) {
@@ -13,62 +18,57 @@ export default class Profile extends React.Component {
         }
     }  
     
-    hashData = () => {}
-
     loginUser = creds => {
-        //console.log(creds)
-        this.handleUserLogin(creds)
-        //console.log(this.state)
+        console.log(creds)
+        axios.post(
+            'http://127.0.0.1:5000/login', 
+            creds,
+            {
+                headers: headers
+            }
+        )
+        .then(response => {
+            console.log(response)
+
+            if (response.data.status === 123) {
+                this.setState({
+                    user: response.data.user
+                })
+                localStorage.setItem('userLogged', true);
+                localStorage.setItem('userId', response.data.user.id);
+                localStorage.setItem('userName', response.data.user.name);
+                localStorage.setItem('userSurname', response.data.user.surname);
+                localStorage.setItem('userMail', response.data.user.email);
+                
+                console.log(localStorage);
+                console.log(this.state.user)
+                this.passUserData(response.data.user)
+            }
+            
+        }, error => {
+            window.alert(`Coś poszło nie tak! Spróbuj ponownie później.`)
+            console.log(error)
+        })
     }
 
     passUserData = data => {
         this.props.passUserData(data)
     }
 
-    handleUserLogin = creds => {
-        console.log(creds)
-        axios.post(
-            'http://127.0.0.1:5000/login', 
-            creds,
-            {
-                headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                }
-            }
-        )
-        .then(response => {
-            this.setState({
-                user: response.data.user
-            })
-            console.log(response)
-            this.passUserData(response.data.user)
-        }, error => {
-            console.log(error)
-        })
-    }
-
     registerUser = data => {
-        this.handleUserRegister(data)
-    }
-
-    handleUserRegister = data => {
         console.log(JSON.stringify(data))
         axios.post(
             'http://127.0.0.1:5000/register', 
             data,
             {
-                headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                }
+                headers: headers
             }
         )
         .then((response) => {
-            console.log(response)
+            window.alert(`Rejestracja przebiegła pomyślnie! Teraz zaloguj się, aby skorzystać ze swojego konta`)
+            window.location.reload(false)
         }, (error) => {
+            window.alert(`Coś poszło nie tak! Spróbuj ponownie później.`)
             console.log(error)
         })
     }

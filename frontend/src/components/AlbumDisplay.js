@@ -1,9 +1,8 @@
 import React from 'react'
 
 
-export default class AlbumPresentation extends React.Component {
-  render() {
-    let [ albumPhoto, albumTitle, albumDate, albumStory ] = this.props.albumContent
+const AlbumPresentation = props => {
+    let [ albumPhoto, albumTitle, albumDate, albumStory ] = props.albumContent
 
     if (albumPhoto !== "null") {
       let imagesDir = require.context("./../utils/img", false)
@@ -21,10 +20,13 @@ export default class AlbumPresentation extends React.Component {
               { class: "Album-title", item: albumTitle },
               { class: "Album-date", item: albumDate },
               { class: "Album-story", item: albumStory },
-            ].map(item => <p className={item.class}>{item.item}</p>)
+            ].map((item, index) => <p 
+              className={item.class}
+              key={index}>{item.item}</p>)
           }
           </div>
       </div>
     )
-  }
 }
+
+export default AlbumPresentation

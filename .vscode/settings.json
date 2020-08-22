@@ -2,5 +2,8 @@
     "python.linting.pylintArgs": [
         "--load-plugins",
         "pylint-flask"
-    ]
+    ],
+    "python.pythonPath": "C:\\Users\\Jasiek2\\.virtualenvs\\backend-2PBhB78I\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }

@@ -2,26 +2,31 @@ import React from 'react'
 import './../styles/subpageTheme.css'
 
 
-export default class MemberDisplay extends React.Component {
+const MemberDisplay = props => {
+  let [memberPhoto, memberName, memberBio] = props.memberContent
 
-    render() {
-        let [memberPhoto, memberName, memberBio] = this.props.memberContent
+  if (memberPhoto !== null) {
+    let imagesDir = require.context("./../utils/img", false)
+    memberPhoto = imagesDir(memberPhoto)
+  } 
 
-        if (memberPhoto !== null) {
-            let imagesDir = require.context("./../utils/img", false)
-            memberPhoto = imagesDir(memberPhoto)
-        } 
-
-        return (
-            <div className="Member-container">
-                <img className="Member-photo" 
-                    src={memberPhoto}
-                    alt=""></img>
-                <div className="Member-info">
-                    <p className="Member-name">{memberName}</p>
-                    <p className="Member-bio">{memberBio}</p>
-                </div>
-            </div>
-        )
-    }
+  return (
+    <div className="Member-container">
+      <img className="Member-photo" 
+        src={memberPhoto}
+        alt=""></img>
+      <div className="Member-info">
+      {
+        [
+          { class: "Member-name", item: memberName },
+          { class: "Member-bio", item: memberBio }
+        ].map((item, index) => <p 
+          className={item.class}
+          key={index}>{item.item}</p>)
+      }
+      </div>
+    </div>
+  )
 }
+
+export default MemberDisplay

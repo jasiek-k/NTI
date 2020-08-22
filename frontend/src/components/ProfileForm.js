@@ -2,16 +2,6 @@ import React from 'react'
 
 
 export default class ProfileForm extends React.Component {
-  passwordFill = pass => {
-    var passwordHash = require('password-hash')
-    var hashedPassword = passwordHash.generate(pass)
-    console.log(pass)
-    console.log(hashedPassword)
-    console.log(passwordHash.generate('test123'))
-    var hashedPass = 'sha1$5a99ff95$1$20d76e4bc1294898979564cea2ec8db8a1a6b22f'
-    //console.log(passwordHash.verify('chuj', hashedPassword));
-  }
-
   handleLogin = e => {
     e.preventDefault()
     this.props.loginUser({

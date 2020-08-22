@@ -90,7 +90,7 @@ def handle_login():
                     "surname": user.surname,
                     "email": user.email,
                 } 
-                return { "user": result, "status": 1}
+                return { "user": result, "status": 123}
         else:
             return {"error": "The request payload is not in JSON format.", "status": -1}
 
@@ -108,7 +108,7 @@ def handle_users():
             )
             db.session.add(new_user)
             db.session.commit()
-            return {"message": f"User {new_user.name} has been added successfully.", "status": 1}
+            return {"message": f"User {new_user.name} has been added successfully.", "status": 234}
         else:
             return {"error": "The request payload is not in JSON format.", "status": -1}
     elif request.method == 'GET':
@@ -123,6 +123,31 @@ def handle_users():
             } for user in users]
             
         return {"count": len(results), "users": results}
+
+@app.route('/comments', methods=['POST', 'GET'])
+def handle_comments():
+    if request.method == 'POST':
+        if request.is_json:
+            data = request.get_json()
+            new_comment = CommentsModel(
+                content=data['content'], 
+                user_id=data['user_id'],
+                post_id=data['post_id']
+            )
+            db.session.add(new_comment)
+            db.session.commit()
+            return {"message": f"Comment has been added successfully to post {data.post_id}.", "status": 1}
+        else:
+            return {"error": "The request payload is not in JSON format.", "status": -1}
+    elif request.method == 'GET':
+        results = [
+            {
+                "user_id": item.user_id,
+                "post_id": item.post_id,
+                "content": item.content
+            } for item in comments]
+        return {"count": len(results), "comments": results}
+
 
 @app.route('/news', methods=['POST', 'GET'])
 def handle_news():
@@ -139,17 +164,46 @@ def handle_news():
         else:
             return {"error": "The request payload is not in JSON format.", "status": -1}
     elif request.method == 'GET':
-        posts = PostsModel.query.all()
-        tags = TagsModel.query.all()
-
+        """results = db.session.query(PostsModel, CommentsModel).outerjoin(CommentsModel, PostsModel.comments.comment_id == CommentsModel.comment_id).all()
+        for item in results:
+            print('post content: {} comment content: {}'.format(item[0].content, item[1].content))
+        """
+        #posts = PostsModel.query.all()
+        comments = CommentsModel.query.all()
+        posts = PostsModel.query.all().join(CommentsModel).filter(PostsModel.post_id == CommentsModel.post_id)
+        print(posts)
+        """
+        #comments = CommentsModel.query.filter(item)
+        for item in posts:
+            comment = CommentsModel.query.filter_by(comment_id == item.)
+            for comment in comments:
+                if comment.post_id == item.post_id:
+                    comments.append({
+                        "id": comment.comment_id,
+                        "date": comment.date,
+                        "content": comment.content,
+                        "user_id": comment.user_id
+                    })
+            result.append({
+                "id": item.post_id,
+                "content": item.content,
+                "date": item.date,
+                "photo": item.photo,
+                "comments": comments,
+            })
+        """
+        """    
         results = [
             {
                 "id": item.post_id,
                 "content": item.content,
                 "date": item.date,
-                "photo": item.photo
+                "photo": item.photo,
+                #"comments": CommentsModel.query.filter_by(post_id = item.post_id)
             } for item in posts]
+        """
         return {"count": len(results), "posts": results}
 
+
 if __name__ == '__main__':
-    app.run(debug= True, host='127.0.0.1', port=5000)
+    app.run(debug=True, host='127.0.0.1', port=5000)

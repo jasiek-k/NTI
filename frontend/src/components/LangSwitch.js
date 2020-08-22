@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 
-export default class LangSwitch extends React.Component {
-  componentDidMount() {
-    this.initLangSwitch()
+const LangSwitch = props => {
+  useEffect(() => {
+    initLangSwitch()
+  })
+
+  let chooseLang = e => {
+    props.passLangSwitch(e)
+    setLangColor(e)
   }
 
-  chooseLang = e => {
-    this.props.passLangSwitch(e)
-    this.setLangColor(e)
-  }
-
-  initLangSwitch = () => {
-    let currentLang = this.props.currentLang
+  let initLangSwitch = () => {
+    let currentLang = props.currentLang
     const itemsArray = document.getElementsByClassName("LangSwitch-item")
     let langIndex = 0
     for (let i in itemsArray) {
@@ -22,7 +22,7 @@ export default class LangSwitch extends React.Component {
     itemsArray[langIndex].classList.add("selected")  
   }
 
-  setLangColor = e => {
+  let setLangColor = e => {
     const itemsArray = document.getElementsByClassName("LangSwitch-item")
     if (itemsArray.length > 0) {
       for (let i = 0; i < itemsArray.length; i++) {
@@ -34,13 +34,16 @@ export default class LangSwitch extends React.Component {
       e.target.classList.add("selected")
   }
 
-  render() {
     return(
       <div className="LangSwitch-container">
         <p className="LangSwitch-caption">Languages</p>
-        <p className="LangSwitch-item" onClick={this.chooseLang}>Polski</p>
-        <p className="LangSwitch-item" onClick={this.chooseLang}>English</p>
+        {
+          ['Polski', 'English'].map((item, index) => <p className="LangSwitch-item" 
+            onClick={chooseLang}
+            key={index}>{item}</p>)
+        }
       </div>
     )
-  }
 }
+
+export default LangSwitch
