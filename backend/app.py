@@ -204,6 +204,13 @@ def handle_news():
         """
         return {"count": len(results), "posts": results}
 
+@app.route('/comment/<id>', methods=['POST', 'GET'])
+def comments(id):
+    if request.method == 'GET':
+        comments = CommentsModel.query.filter(comment_id == id)
+        print(comments)
+    else:
+      return true
 
 if __name__ == '__main__':
     app.run(debug=True, host='127.0.0.1', port=5000)
