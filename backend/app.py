@@ -29,7 +29,7 @@ with open('data.json') as file:
 @app.route('/')
 def main():
     return 'Hello Wordl!'
-
+'''
 @app.route('/news', methods=['POST', 'GET'])
 def get_news():
     if request.method == 'GET':
@@ -43,7 +43,7 @@ def get_news():
             comments = CommentsModel.query.join(UsersModel.user_id==CommentsModel.user_id).filter(CommentsModel.post_id==i)
             comm.append(jsonify(comments))
         return { result: comm }
-
+'''
 #select users.name, users.surname, comments.content from users inner join comments on users.user_id=comments.user_id;
         #return jsonify(posts)
 """
@@ -75,11 +75,11 @@ def get_news():
 """
 
 
-"""
+
 @app.route('/news')
 def get_news():
     return data
-"""
+
 @app.route('/user/<name>', methods=['GET'])
 def get_user(name):
     users = UsersModel.query.filter_by(name = name).all()

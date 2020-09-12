@@ -1,0 +1,143 @@
+@media (max-width: 599px) {
+  .Mobile-navbar-container {
+    z-index: 20;
+    height: 63px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    margin: 0;
+    background-color: #000000;
+  }
+
+  .Media-dropdown-item {
+    color: #fff;
+    display: block;
+    padding: 10px 21px 10px 0px;
+    font-size: 20px;
+  }
+
+  .Menu-divider {
+    color: #fff;
+    float: right;
+    width: 90%;
+    margin: 0px 21px 0px 0px;
+    border-width: 0.5px;
+  }
+
+  .Mobile-navbar-container .CloseIcon,
+  .Mobile-navbar-container .MenuIcon {
+    z-index: 15;
+    fill: #fff;
+    width: 40px;
+    float: right;
+    position: fixed;
+    top: 13px;
+    right: 21px;
+  }
+
+  .Dropdown-content {
+    margin: 0;
+    margin-top: -5px;
+    background-color: #000000;
+  }
+
+  .Mobile-navbar-container .NavbarLogo {
+    width: 35px;
+    fill: #fff;
+    padding-left: 21px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    display: inline-block;
+  }
+
+  .Navbar-content {
+    text-align: right;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .Navbar-content-item {
+    padding: 10px 21px 10px 0px;
+    font-size: 20px;
+    color: #fff;
+    font-family: "gotham bold";
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .Mobile-navbar-container {
+    z-index: 20;
+    height: 63px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    margin: 0;
+    background-color: #000000;
+  }
+
+  .Mobile-navbar-container .CloseIcon,
+  .Mobile-navbar-container .MenuIcon {
+    z-index: 15;
+    fill: #fff;
+    width: 40px;
+    float: right;
+    position: fixed;
+    top: 13px;
+    right: 21px;
+  }
+
+  .Navbar-content {
+    text-align: right;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .Navbar-content-item {
+    padding: 10px 21px 10px 0px;
+    font-size: 20px;
+    color: #fff;
+    font-family: "gotham bold";
+  }
+
+  .Menu-divider {
+    color: #fff;
+    float: right;
+    width: 90%;
+    margin: 0px 21px 0px 0px;
+    border-width: 0.5px;
+  }
+
+  .Media-dropdown-item {
+    color: #fff;
+    display: block;
+    padding: 10px 21px 10px 0px;
+    font-size: 20px;
+  }
+
+  .Dropdown-content {
+    margin: 0;
+    margin-top: -5px;
+    background-color: #000000;
+  }
+
+  .Mobile-navbar-container .NavbarLogo {
+    width: 35px;
+    fill: #fff;
+    padding-left: 21px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    display: inline-block;
+  }
+
+  .Navbar-content-item {
+    padding: 10px 21px 10px 0px;
+    font-size: 20px;
+    color: #fff;
+    font-family: "gotham bold";
+  }
+}
+
+@media (min-width: 900px) {
+}

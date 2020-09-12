@@ -1,0 +1,225 @@
+@media (max-width: 599px) {
+  .News-subpage {
+    margin-top: 63px;
+  }
+
+  .Must-log-alert {
+    color: #c51130;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-family: "gotham bold";
+  }
+
+  .News-close-button .CloseIcon,
+  .SearchIcon {
+    margin: 0;
+    padding: 0;
+    fill: #858585;
+    width: 24px;
+  }
+
+  .News-search-button,
+  .News-close-button {
+    border: none;
+    background-color: transparent;
+    padding: 17px 16px 15px 16px;
+  }
+
+  .News-close-button {
+    float: right;
+  }
+
+  .News-search-button {
+    float: left;
+  }
+
+  .News-search-post {
+    border: 0.5px solid #858585;
+    margin-left: 0;
+    margin-right: 0;
+    width: 99%;
+    margin-bottom: 21px;
+  }
+
+  .News-search-input {
+    background-color: transparent;
+    font-family: "Gotham";
+    color: #858585;
+    background-color: #000;
+    border: none;
+    width: 60%;
+    font-size: 16px;
+    padding: 20px 0px 20px 0px;
+    margin: 0;
+  }
+
+  .News-search-input[type="text"] {
+    background-color: #000;
+  }
+
+  .News-search-error {
+    color: #c51130;
+    font-size: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .News-subpage {
+    margin-top: 63px;
+  }
+
+  .News-close-button .CloseIcon,
+  .SearchIcon {
+    margin: 0;
+    padding: 0;
+    fill: #858585;
+    width: 24px;
+  }
+
+  .News-search-button,
+  .News-close-button {
+    border: none;
+    background-color: transparent;
+    padding: 17px 16px 15px 16px;
+  }
+
+  .News-close-button {
+    float: right;
+  }
+
+  .News-search-button {
+    float: left;
+  }
+
+  .News-search-post {
+    border: 0.5px solid #858585;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    margin-bottom: 21px;
+  }
+
+  .News-search-input {
+    background-color: transparent;
+    font-family: "Gotham";
+    color: #858585;
+    background-color: #000;
+    border: none;
+    width: 480px;
+    font-size: 16px;
+    padding: 20px 0px 20px 0px;
+    margin: 0;
+  }
+
+  .News-search-input[type="text"] {
+    background-color: #000;
+  }
+
+  .News-search-error {
+    color: #c51130;
+    font-size: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .Must-log-alert {
+    color: #c51130;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-family: "gotham bold";
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (min-width: 900px) {
+  .News-subpage {
+    margin-top: 141px;
+  }
+
+  .Must-log-alert {
+    color: #c51130;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-family: "gotham bold";
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+
+  .News-search-button,
+  .News-close-button {
+    border: none;
+    background-color: transparent;
+    padding: 17px 16px 15px 16px;
+    min-width: 56px;
+  }
+
+  .News-search-button:hover,
+  .News-close-button:hover {
+    cursor: pointer;
+  }
+
+  .News-close-button {
+    float: right;
+  }
+
+  .News-search-button {
+    float: left;
+  }
+
+  .News-search-input {
+    background-color: transparent;
+    font-family: "Gotham";
+    color: #858585;
+    background-color: #000;
+    border: none;
+    width: 480px;
+    font-size: 16px;
+    padding: 20px 0px 20px 0px;
+    margin: 0;
+  }
+
+  .News-search-input[type="text"] {
+    background-color: #000;
+  }
+
+  .News-search-post {
+    border: 0.5px solid #858585;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    margin-bottom: 28px;
+  }
+
+  .CloseIcon,
+  .SearchIcon {
+    margin: 0;
+    padding: 0;
+    fill: #858585;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: #000000;
+  font-family: "gotham book";
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}

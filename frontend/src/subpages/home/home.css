@@ -1,0 +1,15 @@
+.Home-subpage {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #000000;
+  font-family: "gotham book";
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}

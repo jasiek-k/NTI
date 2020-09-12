@@ -11,6 +11,7 @@
     "password-hash": "^1.2.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-intl": "^5.8.1",
     "react-popup": "^0.10.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",

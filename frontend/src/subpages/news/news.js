@@ -1,8 +1,8 @@
 import React from "react";
-import NewsPost from "./../components/NewsPost";
-import "./../styles/subpageTheme.css";
+import NewsPost from "./../../components/newsPost/NewsPost";
 import axios from "axios";
-import { CloseIcon, SearchIcon } from "./../utils/icons";
+import { CloseIcon, SearchIcon } from "./../../utils/icons";
+import "./news.css";
 
 export default class News extends React.Component {
   constructor(props) {
@@ -118,9 +118,13 @@ export default class News extends React.Component {
             <CloseIcon />
           </button>
         </form>
-        {
-            localStorage.getItem("userLogged") ? (<div>USER LOGGED</div>) : (<p className="Must-log-alert">ZALOGUJ SIĘ W SEKCJI PROFILU, ABY KORZYSTAĆ Z FUNKCJI NEWS'ÓW</p>)
-        }
+        {localStorage.getItem("userLogged") ? (
+          <div>USER LOGGED</div>
+        ) : (
+          <p className="Must-log-alert">
+            ZALOGUJ SIĘ W SEKCJI PROFILU, ABY KORZYSTAĆ Z FUNKCJI NEWS'ÓW
+          </p>
+        )}
         {this.state.displayedData.length > 0 ? (
           [...this.state.displayedData].map((item, index) => {
             return (

@@ -1,0 +1,200 @@
+@media (max-width: 599px) {
+  .History-subpage {
+    margin-top: 21px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .History-names-container {
+    text-align: left;
+    color: #ffffff;
+    font-size: 25px;
+    font-family: "gotham bold";
+    margin: 0px auto 7px 14px;
+  }
+
+  .History-background-pic {
+    position: relative;
+    width: 100%;
+    bottom: -50px;
+  }
+
+  .HistoryCaptionEn,
+  .HistoryCaptionPl {
+    right: 14px;
+    position: relative;
+    margin-left: auto;
+    float: right;
+    height: 90px;
+  }
+
+  .HistoryCaptionPl path {
+    float: right;
+    position: relative;
+    right: -100px;
+  }
+
+  .History-intro-section {
+    margin: 91px 14px 56px 14px;
+    text-align: justify;
+    color: #ffffff;
+    z-index: 30;
+  }
+
+  .History-photo-container {
+    width: 100%;
+    text-align: right;
+  }
+
+  .History-section-header {
+    font-size: 25px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #c51130;
+    font-family: "gotham bold";
+    margin: 0px 0px 0px 14px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .History-subpage {
+    margin-top: 21px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .History-background-pic {
+    position: relative;
+    width: 100%;
+    bottom: -50px;
+  }
+
+  .HistoryCaptionEn,
+  .HistoryCaptionPl {
+    right: 14px;
+    position: relative;
+    margin-left: auto;
+    float: right;
+    height: 90px;
+  }
+
+  .HistoryCaptionPl path {
+    float: right;
+    position: relative;
+    right: -100px;
+  }
+
+  .History-intro-section {
+    margin: 91px 14px 56px 14px;
+    text-align: justify;
+    color: #ffffff;
+    z-index: 30;
+  }
+
+  .History-photo-container {
+    width: 100%;
+    text-align: right;
+  }
+
+  .History-section-header {
+    font-size: 30px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #c51130;
+    font-family: "gotham bold";
+    margin: 0px 0px 0px 14px;
+  }
+
+  .History-names-container {
+    text-align: left;
+    color: #ffffff;
+    font-size: 30px;
+    margin: 0px auto 7px 14px;
+    font-family: "gotham bold";
+  }
+}
+
+@media (min-width: 900px) {
+  .History-subpage {
+    margin-top: 77px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 720px;
+  }
+
+  .History-members-section {
+    margin-top: 0px;
+    margin-bottom: 56px;
+  }
+
+  .History-background-pic {
+    position: relative;
+    width: 100%;
+    bottom: -70px;
+  }
+
+  .HistoryCaptionEn,
+  .HistoryCaptionPl {
+    right: 0;
+    position: relative;
+    margin-left: auto;
+  }
+
+  .HistoryCaptionEn {
+    width: 537px;
+  }
+
+  .HistoryCaptionPl {
+    width: 416px;
+  }
+
+  .History-intro-section {
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 56px;
+    text-align: justify;
+    color: #ffffff;
+  }
+
+  .History-section-header {
+    font-size: 35px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #c51130;
+    font-family: "gotham bold";
+    margin: 0px;
+  }
+
+  .History-photo-container {
+    width: 100%;
+    text-align: right;
+  }
+
+  .History-names-container {
+    text-align: left;
+    color: #ffffff;
+    font-size: 35px;
+    margin-top: 0px;
+    margin-bottom: 21px;
+    font-family: "gotham bold";
+  }
+
+  .History-name:hover {
+    cursor: pointer;
+  }
+
+  .History-name {
+    font-family: "gotham bold";
+  }
+}
+
+body {
+  margin: 0;
+  background-color: #000000;
+  font-family: "gotham book";
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}

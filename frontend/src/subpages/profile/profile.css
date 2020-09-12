@@ -1,0 +1,96 @@
+@media (max-width: 599px) {
+  .Profile-background-pic {
+    height: 100%;
+  }
+
+  .Profile-subpage {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .Background-image {
+    z-index: -10;
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+  }
+
+  .Background-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .Profile-background-pic {
+    height: 100%;
+  }
+
+  .Profile-subpage {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Background-image {
+    z-index: -10;
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+  }
+}
+
+@media (min-width: 900px) {
+  .Profile-background-pic {
+    height: 100%;
+  }
+
+  .Profile-subpage {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Background-image {
+    z-index: -10;
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+  }
+
+  .Background-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: #000000;
+  font-family: "gotham book";
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,17 +1,19 @@
 import React from "react";
 
-import ln_en from "./../utils/lang/ln_en.json";
-import ln_pl from "./../utils/lang/ln_pl.json";
+import ln_en from "../../utils/lang/ln_en.json";
+import ln_pl from "../../utils/lang/ln_pl.json";
 
-import Home from "./../subpages/home";
-import History from "./../subpages/history";
-import News from "./../subpages/news";
-import Profile from "./../subpages/profile";
+import Home from "../../subpages/home/home";
+import History from "../../subpages/history/history";
+import News from "../../subpages/news/news";
+import Profile from "../../subpages/profile/profile";
 
-import LangSwitch from "./LangSwitch";
-import Navbar from "./Navbar";
-import MobileNavbar from "./MobileNavbar";
-import UserProfile from "./UserProfile";
+import LangSwitch from "../langSwitch/LangSwitch";
+import Navbar from "./../navbar/Navbar";
+import MobileNavbar from "../mobileNavbar/MobileNavbar";
+import UserProfile from "../userProfile/UserProfile";
+
+import "./../../utils/fonts/stylesheet.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 

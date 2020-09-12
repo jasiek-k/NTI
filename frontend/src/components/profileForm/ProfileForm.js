@@ -1,4 +1,5 @@
 import React from "react";
+import "./ProfileForm.css";
 
 export default class ProfileForm extends React.Component {
   handleLogin = (e) => {

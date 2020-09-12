@@ -1,0 +1,98 @@
+@media (max-width: 599px) {
+  .Member-container {
+    margin: 0px 14px 56px 14px;
+  }
+
+  .Member-name {
+    font-size: 25px;
+    color: #c51130;
+    font-family: "gotham bold";
+    margin: 0;
+  }
+
+  .Member-bio {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 7px 0px 0px 0px;
+    text-align: justify;
+  }
+
+  .Member-photo {
+    width: 100%;
+    float: left;
+    margin-bottom: 14px;
+  }
+
+  .Member-container:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .Member-photo {
+    width: 100%;
+    float: left;
+    margin-bottom: 14px;
+  }
+
+  .Member-container {
+    margin: 0px 14px 56px 14px;
+  }
+
+  .Member-container:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .Member-name {
+    font-size: 30px;
+    color: #c51130;
+    font-family: "gotham bold";
+    margin: 0;
+  }
+
+  .Member-bio {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 7px 0px 0px 0px;
+    text-align: justify;
+  }
+}
+
+@media (min-width: 900px) {
+  .Member-container:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .Member-info {
+    margin-left: 28px;
+    float: left;
+    width: 442px;
+    text-align: left;
+  }
+
+  .Member-photo {
+    width: 250px;
+    height: 250px;
+    float: left;
+  }
+
+  .Member-name {
+    font-size: 35px;
+    color: #c51130;
+    font-family: "gotham bold";
+    margin: 0;
+  }
+
+  .Member-bio {
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 7px;
+    margin-bottom: 0px;
+  }
+}

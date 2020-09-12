@@ -1,6 +1,6 @@
 import React from "react";
-import "./../styles/subpageTheme.css";
-import { PostLogo, PersonIcon } from "./../utils/icons";
+import { PostLogo, PersonIcon } from "./../../utils/icons";
+import "./NewsPost.css";
 
 export default class NewsPost extends React.Component {
   constructor(props) {
@@ -51,7 +51,7 @@ export default class NewsPost extends React.Component {
     this.postId = id;
 
     if (photo !== "null") {
-      imagesDir = require.context("./../utils/img", false);
+      imagesDir = require.context("./../../utils/img", false);
       postPic = imagesDir(photo);
     }
 
@@ -61,7 +61,7 @@ export default class NewsPost extends React.Component {
                         return <span className="Post-tag" key={index}>{`#${item}`}</span>
                     })}</p>
         LINE 67:
-        comments != undefined || comments.length > 0
+        comments !== undefined || comments.length > 0
         */
 
     return (
@@ -82,7 +82,7 @@ export default class NewsPost extends React.Component {
         <div className="Comments-section">
           {this.ifCommentsDisplayed ? (
             <ul className="Comments-list">
-              {comments != undefined ? (
+              {comments !== undefined ? (
                 comments.map((item, index) => {
                   const [author, date, content] = item;
                   return (

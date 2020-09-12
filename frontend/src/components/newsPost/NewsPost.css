@@ -1,0 +1,535 @@
+@media (max-width: 599px) {
+  .Post-container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #ffffff;
+    margin-bottom: 21px;
+  }
+
+  .Post-header {
+    padding: 14px 14px 0px 14px;
+    height: 40px;
+    margin: 0;
+  }
+
+  .PostLogo {
+    fill: #000000;
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+    float: left;
+  }
+
+  .Post-date {
+    color: #858585;
+    font-size: 10px;
+    font-family: "gotham book";
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px;
+    padding-left: 14px;
+    height: 12px;
+  }
+
+  .Post-tags-container {
+    color: #858585;
+    font-size: 14px;
+    font-family: "gotham book";
+    display: block;
+    height: 17px;
+    width: 300px;
+    padding-top: 5px;
+    position: relative;
+    left: 14px;
+    margin: 0;
+  }
+
+  .Post-tags-container span {
+    display: inline;
+    margin: 0;
+    padding-left: 7px;
+  }
+
+  .Post-tag:first-of-type {
+    padding-left: 0px;
+  }
+
+  .Post-content {
+    padding: 0;
+  }
+
+  .Post-paragraph {
+    font-size: 16px;
+    padding: 21px 14px 14px 14px;
+    margin: 0;
+  }
+
+  .Post-photo {
+    width: 100%;
+    margin: 0;
+  }
+
+  .Post-photo img {
+    margin: 0;
+  }
+
+  .Divider-line {
+    margin: 0;
+    border-width: 0.5px;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Comments-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .Post-comment {
+    padding: 14px 0px 14px 0px;
+  }
+
+  .PersonIcon {
+    padding: 0px 19px 0px 19px;
+    margin-bottom: -14px;
+  }
+
+  .Comment-header {
+    display: inline-block;
+  }
+
+  .Comment-author {
+    font-size: 16px;
+    font-family: "gotham bold";
+    padding-right: 14px;
+  }
+
+  .Comment-date {
+    font-size: 10px;
+    color: #858585;
+    vertical-align: text-top;
+  }
+
+  .Comment-content {
+    margin: 0;
+    display: block;
+    padding: 3px 14px 0px 62px;
+  }
+
+  .Comments-display-button {
+    padding: 7px 0px 14px 0px;
+    border: none;
+    background-color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    font-family: "Gotham";
+    font-size: 12px;
+  }
+
+  .Comments-display-caption {
+    font-size: 12px;
+    color: #858585;
+    text-align: center;
+    margin: 0 auto 0 auto;
+  }
+
+  .Comment-form {
+    padding-top: 14px;
+    padding-bottom: 0;
+    width: 100%;
+  }
+
+  .Comment-input {
+    box-sizing: border-box;
+    margin: 0;
+    height: 80px;
+    resize: none;
+    border-style: none;
+    padding-left: 14px;
+    padding-right: 14px;
+    display: block;
+    font-size: 16px;
+    resize: none;
+    font-family: "Gotham";
+    width: 99%;
+  }
+
+  .Comment-button {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border: none;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Gotham";
+    font-size: 16px;
+    width: 100%;
+    background-color: #858585;
+    float: right;
+    margin-top: 14px;
+    margin-bottom: 14px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .Post-container {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    margin-bottom: 28px;
+  }
+
+  .Post-header {
+    padding: 14px 14px 0px 14px;
+    height: 40px;
+    margin: 0;
+  }
+
+  .PostLogo {
+    fill: #000000;
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+    float: left;
+  }
+
+  .Post-date {
+    color: #858585;
+    font-size: 10px;
+    font-family: "gotham book";
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px;
+    padding-left: 14px;
+    height: 12px;
+  }
+
+  .Post-tags-container {
+    color: #858585;
+    font-size: 14px;
+    font-family: "gotham book";
+    display: block;
+    height: 17px;
+    width: 300px;
+    padding-top: 5px;
+    position: relative;
+    left: 14px;
+    margin: 0;
+  }
+
+  .Post-tags-container span {
+    display: inline;
+    margin: 0;
+    padding-left: 7px;
+  }
+
+  .Post-tag:first-of-type {
+    padding-left: 0px;
+  }
+
+  .Post-content {
+    padding: 0;
+  }
+
+  .Post-paragraph {
+    font-size: 16px;
+    padding: 21px 14px 14px 14px;
+    margin: 0;
+  }
+
+  .Post-photo {
+    width: 100%;
+    margin: 0;
+  }
+
+  .Post-photo img {
+    margin: 0;
+  }
+
+  .Divider-line {
+    margin: 0;
+    border-width: 0.5px;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Comments-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .Post-comment {
+    padding: 14px 0px 14px 0px;
+  }
+
+  .PersonIcon {
+    padding: 0px 19px 0px 19px;
+    margin-bottom: -14px;
+  }
+
+  .Comment-header {
+    display: inline-block;
+  }
+
+  .Comment-author {
+    font-size: 16px;
+    font-family: "gotham bold";
+    padding-right: 14px;
+  }
+
+  .Comment-date {
+    font-size: 10px;
+    color: #858585;
+    vertical-align: text-top;
+  }
+
+  .Comment-content {
+    margin: 0;
+    display: block;
+    padding: 3px 14px 0px 62px;
+  }
+
+  .Comments-display-button {
+    padding: 7px 0px 14px 0px;
+    border: none;
+    background-color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    font-family: "Gotham";
+    font-size: 12px;
+  }
+
+  .Comments-display-caption {
+    font-size: 12px;
+    color: #858585;
+    text-align: center;
+    margin: 0 auto 0 auto;
+  }
+
+  .Comment-form {
+    padding-top: 14px;
+    padding-bottom: 0;
+    width: 100%;
+  }
+
+  .Comment-input {
+    box-sizing: border-box;
+    margin: 0;
+    height: 80px;
+    resize: none;
+    border-style: none;
+    padding-left: 14px;
+    padding-right: 14px;
+    display: block;
+    font-size: 16px;
+    resize: none;
+    font-family: "Gotham";
+    width: 99%;
+  }
+
+  .Comment-button {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border: none;
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "Gotham";
+    font-size: 16px;
+    width: 572px;
+    background-color: #858585;
+    margin: 14px 14px 14px 14px;
+  }
+}
+
+@media (min-width: 900px) {
+  .Post-container {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    margin-bottom: 28px;
+  }
+
+  .Post-header {
+    padding: 42px 56px 0px 56px;
+    width: 488px;
+    height: 40px;
+    margin: 0;
+  }
+
+  .PostLogo {
+    fill: #000000;
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+    float: left;
+  }
+
+  .Post-date {
+    color: #858585;
+    font-size: 10px;
+    font-family: "gotham book";
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px;
+    padding-left: 14px;
+    height: 12px;
+  }
+
+  .Post-tags-container {
+    color: #858585;
+    font-size: 14px;
+    font-family: "gotham book";
+    display: block;
+    height: 17px;
+    width: 300px;
+    padding-top: 5px;
+    position: relative;
+    left: 14px;
+    margin: 0;
+  }
+
+  .Post-tags-container span {
+    display: inline;
+    margin: 0;
+    padding-left: 7px;
+  }
+
+  .Post-tag:first-of-type {
+    padding-left: 0px;
+  }
+
+  .Post-content {
+    padding: 0;
+    width: 600px;
+  }
+
+  .Post-paragraph {
+    font-size: 16px;
+    padding: 21px 110px 14px 110px;
+    width: 380px;
+    margin: 0;
+  }
+
+  .Post-photo {
+    width: 600px;
+    margin: 0;
+  }
+
+  .Post-photo img {
+    margin: 0;
+  }
+
+  .Divider-line {
+    margin: 0;
+    border-width: 0.5px;
+    width: 586px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Comments-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .Post-comment {
+    padding: 14px 0px 14px 0px;
+  }
+
+  .PersonIcon {
+    padding: 0px 19px 0px 67px;
+    margin-bottom: -14px;
+  }
+
+  .Comment-header {
+    display: inline-block;
+  }
+
+  .Comment-author {
+    font-size: 16px;
+    font-family: "gotham bold";
+    padding-right: 14px;
+  }
+
+  .Comment-date {
+    font-size: 10px;
+    color: #858585;
+    vertical-align: text-top;
+  }
+
+  .Comment-content {
+    width: 380px;
+    margin: 0;
+    display: block;
+    padding: 2px 110px 0px 110px;
+  }
+
+  .Comments-display-button {
+    padding: 7px 0px 14px 0px;
+    border: none;
+    background-color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    font-family: "Gotham";
+    font-size: 12px;
+  }
+
+  .Comments-display-caption {
+    font-size: 12px;
+    color: #858585;
+    text-align: center;
+    margin: 0 auto 0 auto;
+  }
+
+  .Comments-display-button:hover {
+    cursor: pointer;
+  }
+
+  .Comment-form {
+    padding-left: 110px;
+    padding-right: 110px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .Comment-input {
+    box-sizing: border-box;
+    margin: 0;
+    min-height: 33px;
+    max-height: 99px;
+    resize: none;
+    width: 260px;
+    border-style: none;
+    display: inline-block;
+    font-size: 16px;
+    resize: none;
+    font-family: "Gotham";
+    padding: 0;
+  }
+
+  .Comment-button {
+    padding: 7px 14px 7px 14px;
+    border: none;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Gotham";
+    font-size: 16px;
+    background-color: #858585;
+    float: right;
+  }
+
+  .Comment-button:hover {
+    cursor: pointer;
+  }
+}

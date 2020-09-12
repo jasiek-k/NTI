@@ -1,0 +1,32 @@
+@media (max-width: 599px) {
+  .Page-content {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .Page-content {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 900px) {
+  .Page-content {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: #000000;
+  font-family: "gotham book";
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}

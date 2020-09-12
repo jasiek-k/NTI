@@ -1,0 +1,147 @@
+@media (max-width: 599px) {
+  .Album-cover {
+    width: 100%;
+    float: left;
+    margin-bottom: 14px;
+  }
+
+  .Album-container:first-of-type {
+    margin-top: 7px;
+  }
+
+  .Album-container:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .Album-date {
+    font-size: 25px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    margin: 0;
+  }
+
+  .Album-story {
+    color: #ffffff;
+    margin: 0;
+    margin-top: 7px;
+    font-size: 16px;
+  }
+
+  .Album-container {
+    margin: 0px 14px 49px 14px;
+  }
+
+  .Album-info {
+    float: left;
+    text-align: justify;
+    font-size: 16px;
+  }
+
+  .Album-title {
+    font-size: 25px;
+    color: #c51130;
+    margin: 0;
+    font-family: "gotham bold";
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .Album-container {
+    margin: 0px 14px 49px 14px;
+  }
+
+  .Album-container:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .Album-container:first-of-type {
+    margin-top: 7px;
+  }
+
+  .Album-info {
+    float: left;
+    font-size: 16px;
+    margin-left: 14px;
+    width: 50%;
+  }
+
+  .Album-title {
+    font-size: 30px;
+    color: #c51130;
+    margin: 0;
+    font-family: "gotham bold";
+  }
+
+  .Album-date {
+    font-size: 30px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    margin: 0;
+  }
+
+  .Album-cover {
+    width: 40%;
+    float: left;
+    margin-bottom: 14px;
+  }
+
+  .Album-story {
+    color: #ffffff;
+    margin: 0;
+    margin-top: 7px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 900px) {
+  .Album-container {
+    margin-bottom: 49px;
+  }
+
+  .Album-info {
+    float: left;
+    width: 442px;
+    margin-left: 28px;
+  }
+
+  .Album-cover {
+    width: 250px;
+    height: 250px;
+    float: left;
+  }
+
+  .Album-title {
+    font-size: 35px;
+    color: #c51130;
+    margin: 0;
+    font-family: "gotham bold";
+  }
+
+  .Album-date {
+    font-size: 35px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    margin: 0;
+  }
+
+  .Album-story {
+    color: #ffffff;
+    margin: 0;
+    margin-top: 7px;
+    font-size: 16px;
+  }
+
+  .Album-container:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .Album-container:first-of-type {
+    margin-top: 21px;
+  }
+}

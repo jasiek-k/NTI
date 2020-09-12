@@ -1,0 +1,99 @@
+@media (min-width: 900px) {
+  .Navbar-container {
+    width: 100%;
+    min-width: 800px;
+    background-color: #000000;
+    display: inline-block;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    height: 120px;
+  }
+
+  .NavbarLogo {
+    padding-left: 56px;
+    padding-top: 28px;
+    width: 70px;
+    height: 70px;
+    fill: #ffffff;
+    position: fixed;
+  }
+
+  .Navbar-content {
+    text-align: right;
+    margin-right: 84px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+  }
+
+  .Navbar-content-item {
+    font-size: 18px;
+    font-family: "gotham bold";
+    display: inline-block;
+    padding-top: 49px;
+    padding-bottom: 49px;
+    padding-left: 35px;
+    padding-right: 35px;
+    color: #ffffff;
+    float: left;
+  }
+
+  .Media-dropdown {
+    float: left;
+    overflow: hidden;
+  }
+
+  .Media-dropdown:hover {
+    cursor: default;
+  }
+
+  .Media-dropdown-item:hover {
+    cursor: pointer;
+  }
+
+  .Media-dropdown .Navbar-content-item {
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 49px 35px;
+    background-color: inherit;
+    font-family: "gotham bold";
+    margin: 0;
+  }
+
+  .Media-dropdown-content a {
+    float: none;
+    font-size: 18px;
+    color: #ffffff;
+    font-family: "gotham bold";
+    padding-top: 10.5px;
+    padding-bottom: 10.5px;
+    padding-right: 35px;
+    padding-left: 35px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .Media-dropdown-content a:last-of-type {
+    padding-bottom: 21px;
+  }
+
+  .Media-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 132px;
+    top: 82px;
+    z-index: 1;
+  }
+
+  .Media-dropdown:hover .Media-dropdown-content {
+    display: block;
+  }
+}
