@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 from models import *
+from flask import jsonify
 import json
 
 
@@ -28,19 +29,38 @@ with open('data.json') as file:
 @app.route('/')
 def main():
     return 'Hello Wordl!'
-"""
+
 @app.route('/news', methods=['POST', 'GET'])
 def get_news():
     if request.method == 'GET':
         posts = PostsModel.query.all()
+        #q = PostsModel.query.all().join("tags")
+        #list = db.session.query(posts, tags).filter(users.id == friendships.friend_id).filter(friendships.user_id == userID).paginate(page, 1, False)
+        list2 = PostsModel.query.all()
+        print(list2)
+        comm = []
+        for i in len(list2):
+            comments = CommentsModel.query.join(UsersModel.user_id==CommentsModel.user_id).filter(CommentsModel.post_id==i)
+            comm.append(jsonify(comments))
+        return { result: comm }
+
+#select users.name, users.surname, comments.content from users inner join comments on users.user_id=comments.user_id;
+        #return jsonify(posts)
+"""
+        return jsonify(username=g.user.username,
+                   email=g.user.email,
+                   id=g.user.id)
         results = [
             {
                 "id": post.post_id,
                 "date": post.date,
                 "content": post.content,
                 "photo": post.photo,
+                #"comments": post.comments,
             } for post in posts]
         return {"count": len(results), "posts": results}
+"""
+"""
     elif request.method == 'POST':
         if request.is_json:
             data = request.get_json()
@@ -52,9 +72,9 @@ def get_news():
             db.session.commit()
             return {"message": f"User {new_comment.content} has been added successfully.", 
                 "status": 1}
-        else:
-            return {"error": "The request payload is not in JSON format.", "status": -1}
 """
+
+
 """
 @app.route('/news')
 def get_news():
@@ -123,7 +143,7 @@ def handle_users():
             } for user in users]
             
         return {"count": len(results), "users": results}
-
+"""
 @app.route('/comments', methods=['POST', 'GET'])
 def handle_comments():
     if request.method == 'POST':
@@ -147,8 +167,8 @@ def handle_comments():
                 "content": item.content
             } for item in comments]
         return {"count": len(results), "comments": results}
-
-
+"""
+"""
 @app.route('/news', methods=['POST', 'GET'])
 def handle_news():
     if request.method == 'POST':
@@ -164,15 +184,12 @@ def handle_news():
         else:
             return {"error": "The request payload is not in JSON format.", "status": -1}
     elif request.method == 'GET':
-        """results = db.session.query(PostsModel, CommentsModel).outerjoin(CommentsModel, PostsModel.comments.comment_id == CommentsModel.comment_id).all()
-        for item in results:
-            print('post content: {} comment content: {}'.format(item[0].content, item[1].content))
-        """
-        #posts = PostsModel.query.all()
+        
+        posts = PostsModel.query.all()
         comments = CommentsModel.query.all()
         posts = PostsModel.query.all().join(CommentsModel).filter(PostsModel.post_id == CommentsModel.post_id)
         print(posts)
-        """
+        
         #comments = CommentsModel.query.filter(item)
         for item in posts:
             comment = CommentsModel.query.filter_by(comment_id == item.)
@@ -191,8 +208,8 @@ def handle_news():
                 "photo": item.photo,
                 "comments": comments,
             })
-        """
-        """    
+"""
+"""    
         results = [
             {
                 "id": item.post_id,
@@ -201,9 +218,10 @@ def handle_news():
                 "photo": item.photo,
                 #"comments": CommentsModel.query.filter_by(post_id = item.post_id)
             } for item in posts]
-        """
+"""
+"""
         return {"count": len(results), "posts": results}
-
+"""
 @app.route('/comment/<id>', methods=['POST', 'GET'])
 def comments(id):
     if request.method == 'GET':
