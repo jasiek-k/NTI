@@ -14,7 +14,9 @@ export default class NewsPost extends React.Component {
   postId = 0;
 
   componentDidMount = () => {
-    if (localStorage.getItem("userLogged")) {
+    const { userLogged } = JSON.parse(localStorage.getItem("userData"));
+    console.log(userLogged);
+    if (userLogged) {
       this.setState({
         authorized: true,
       });
@@ -28,10 +30,14 @@ export default class NewsPost extends React.Component {
 
   handleCommentSubmit = (e) => {
     e.preventDefault();
+
+    const { userId } = JSON.parse(localStorage.getItem("userData"));
     const commentData = {
+      user_id: userId,
       post_id: this.postId,
-      comment: `${document.getElementById("Comment-input").value}`,
+      content: `${document.getElementById("Comment-input").value}`,
     };
+
     this.props.addComment(commentData);
     document.getElementById("Comment-input").value = "";
   };
@@ -54,15 +60,6 @@ export default class NewsPost extends React.Component {
       imagesDir = require.context("./../../utils/img", false);
       postPic = imagesDir(photo);
     }
-
-    /*
-        LINE 43:
-        <p className="Post-tags-container">{tags.map((item, index) => {
-                        return <span className="Post-tag" key={index}>{`#${item}`}</span>
-                    })}</p>
-        LINE 67:
-        comments !== undefined || comments.length > 0
-        */
 
     return (
       <div className="Post-container">

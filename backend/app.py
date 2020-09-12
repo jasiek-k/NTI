@@ -26,9 +26,12 @@ db.init_app(app)
 with open('data.json') as file:
     data = json.load(file)
 
+
 @app.route('/')
 def main():
     return 'Hello Wordl!'
+
+
 '''
 @app.route('/news', methods=['POST', 'GET'])
 def get_news():
@@ -44,8 +47,8 @@ def get_news():
             comm.append(jsonify(comments))
         return { result: comm }
 '''
-#select users.name, users.surname, comments.content from users inner join comments on users.user_id=comments.user_id;
-        #return jsonify(posts)
+# select users.name, users.surname, comments.content from users inner join comments on users.user_id=comments.user_id;
+# return jsonify(posts)
 """
         return jsonify(username=g.user.username,
                    email=g.user.email,
@@ -74,31 +77,16 @@ def get_news():
                 "status": 1}
 """
 
-
-
 @app.route('/news')
 def get_news():
     return data
-
-@app.route('/user/<name>', methods=['GET'])
-def get_user(name):
-    users = UsersModel.query.filter_by(name = name).all()
-    results = [
-            {
-                "id": user.user_id,
-                "name": user.name,
-                "surname": user.surname,
-                "email": user.email,
-                "password": user.password
-            } for user in users]
-    return user
 
 @app.route('/login', methods=['POST'])
 def handle_login():
     if request.method == 'POST':
         if request.is_json:
             data = request.get_json()
-            user = UsersModel.query.filter_by(email = data['email']).first()
+            user = UsersModel.query.filter_by(email=data['email']).first()
             if hasattr(user, 'user_id') == False:
                 return {"error": "There is no account associated with this email.", "status": -1}
             elif data['password'] != user.password:
@@ -109,21 +97,21 @@ def handle_login():
                     "name": user.name,
                     "surname": user.surname,
                     "email": user.email,
-                } 
-                return { "user": result, "status": 123}
+                }
+                return {"user": result, "status": 123}
         else:
             return {"error": "The request payload is not in JSON format.", "status": -1}
 
+
 @app.route('/register', methods=['POST', 'GET'])
 def handle_users():
-    #print(request)
     if request.method == 'POST':
         if request.is_json:
             data = request.get_json()
             new_user = UsersModel(
-                name=data['name'], 
-                surname=data['surname'], 
-                email=data['email'], 
+                name=data['name'],
+                surname=data['surname'],
+                email=data['email'],
                 password=data['password']
             )
             db.session.add(new_user)
@@ -141,33 +129,9 @@ def handle_users():
                 "email": user.email,
                 "password": user.password
             } for user in users]
-            
+
         return {"count": len(results), "users": results}
-"""
-@app.route('/comments', methods=['POST', 'GET'])
-def handle_comments():
-    if request.method == 'POST':
-        if request.is_json:
-            data = request.get_json()
-            new_comment = CommentsModel(
-                content=data['content'], 
-                user_id=data['user_id'],
-                post_id=data['post_id']
-            )
-            db.session.add(new_comment)
-            db.session.commit()
-            return {"message": f"Comment has been added successfully to post {data.post_id}.", "status": 1}
-        else:
-            return {"error": "The request payload is not in JSON format.", "status": -1}
-    elif request.method == 'GET':
-        results = [
-            {
-                "user_id": item.user_id,
-                "post_id": item.post_id,
-                "content": item.content
-            } for item in comments]
-        return {"count": len(results), "comments": results}
-"""
+
 """
 @app.route('/news', methods=['POST', 'GET'])
 def handle_news():
@@ -222,13 +186,25 @@ def handle_news():
 """
         return {"count": len(results), "posts": results}
 """
-@app.route('/comment/<id>', methods=['POST', 'GET'])
-def comments(id):
-    if request.method == 'GET':
-        comments = CommentsModel.query.filter(comment_id == id)
-        print(comments)
+
+@app.route('/comments', methods=['POST'])
+def handle_comments():
+    if request.method == 'POST':
+        if request.is_json:
+            data = request.get_json()
+            new_comment = CommentsModel(
+                content=data['content'],
+                user_id=data['user_id'],
+                post_id=data['post_id']
+            )
+            db.session.add(new_comment)
+            db.session.commit()
+            return {"message": f"Comment has been added successfully to the post.", "status": 1}
+        else:
+            return {"error": "The request payload is not in JSON format.", "status": -1}
     else:
-      return true
+        return {"error": "En error occured, only POST method is allowed.", "status": -1}
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='127.0.0.1', port=5000)

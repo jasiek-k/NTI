@@ -55,7 +55,10 @@ export default class PageDisplay extends React.Component {
   };
 
   checkUser = () => {
-    if (localStorage.getItem("userLogged")) {
+    const test = JSON.parse(localStorage.getItem("dupa"));
+    console.log("test", test);
+    //const { userLogged } = JSON.parse(localStorage.getItem("userData"));
+    if (test) {
       this.setState({
         user: {
           email: localStorage.getItem("userMail"),

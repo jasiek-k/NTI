@@ -3,6 +3,7 @@ import NewsPost from "./../../components/newsPost/NewsPost";
 import axios from "axios";
 import { CloseIcon, SearchIcon } from "./../../utils/icons";
 import "./news.css";
+import { getAllPosts, addNewComment } from "./../../services/newsService";
 
 export default class News extends React.Component {
   constructor(props) {
@@ -10,29 +11,31 @@ export default class News extends React.Component {
     this.state = {
       displayedData: [],
       allPosts: [],
+      authorized: false,
     };
   }
 
   componentDidMount() {
+    const { userLogged } = JSON.parse(localStorage.getItem("userData"));
+
     this.getPosts();
+    if (userLogged) {
+      this.setState({
+        authorized: true,
+      });
+    }
   }
 
-  getPosts = () => {
-    axios
-      .get("http://127.0.0.1:5000/news", {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      })
-      .then((res) => {
-        this.setState({
-          displayedData: res.data.posts,
-          allPosts: res.data.posts,
-        });
-      })
-      .catch((err) => console.log(err));
+  getPosts = async () => {
+    try {
+      const response = await getAllPosts();
+      this.setState({
+        displayedData: response.data.posts,
+        allPosts: response.data.posts,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   addComment = (value) => {
@@ -40,28 +43,13 @@ export default class News extends React.Component {
     this.getPosts();
   };
 
-  sendResponse = (comment) => {
+  sendResponse = async (comment) => {
     console.log(comment);
-    axios
-      .post(
-        "http://127.0.0.1:5000/comment",
-        null,
-        { params: comment },
-        {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "text/html; charset=utf-8",
-          Accept: "application/json",
-          "Access-Control-Request-Method": "POST",
-        }
-      )
-      .then(
-        (response) => {
-          console.log(response);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    try {
+      await addNewComment(comment);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   searchPost = (e) => {
@@ -118,7 +106,7 @@ export default class News extends React.Component {
             <CloseIcon />
           </button>
         </form>
-        {localStorage.getItem("userLogged") ? (
+        {this.state.authorized ? (
           <div>USER LOGGED</div>
         ) : (
           <p className="Must-log-alert">
