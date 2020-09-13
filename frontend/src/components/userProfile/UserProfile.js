@@ -1,27 +1,32 @@
 import React from "react";
 import "./UserProfile.css";
 
-const profileFields = ["Email", "Id", "Name", "Surname"];
-
 export default class UserProfile extends React.Component {
   render() {
+    const {
+      header,
+      emailLang,
+      nameLang,
+      surnameLang,
+      logOutButton,
+    } = this.props.profileContent.profileSubpage.userProfile;
+    const profileFields = [emailLang, nameLang, surnameLang];
+    const { email, name, surname } = this.props.userData;
+    const data = [email, name, surname];
     console.log(this.props.userData);
+
     return (
       <div className="User-container-wrapper">
         <div className="User-container">
-          <h1 className="User-header">Your Profile</h1>
+          <h1 className="User-header">{header}</h1>
           <div>
-            {Object.keys(this.props.userData).map((item, index) => {
-              if (item !== "id") {
-                return (
-                  <span className="User-item" key={index}>
-                    <p className="User-item-title">{profileFields[index]}</p>
-                    <p className="User-item-content">
-                      {this.props.userData[item]}
-                    </p>
-                  </span>
-                );
-              }
+            {data.map((item, index) => {
+              return (
+                <span className="User-item" key={index}>
+                  <p className="User-item-title">{profileFields[index]}</p>
+                  <p className="User-item-content">{item}</p>
+                </span>
+              );
             })}
           </div>
           <button
@@ -31,7 +36,7 @@ export default class UserProfile extends React.Component {
               window.location.reload(false);
             }}
           >
-            LOG OUT
+            {logOutButton}
           </button>
         </div>
       </div>

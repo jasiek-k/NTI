@@ -13,27 +13,28 @@ export default class Profile extends React.Component {
     };
   }
 
+  componentDidMount() {
+    localStorage.getItem("userData");
+  }
+
   loginUser = async (creds) => {
     try {
       const response = await handleLogin(creds);
-
-      if (response.data.status === 123) {
-        console.log("test1");
-
-        const data = {
-          userLogged: true,
-          userId: response.data.user.id,
-          userName: response.data.user.name,
-          userSurname: response.data.user.surname,
-          userMail: response.data.user.email,
-        };
-        console.log("test2");
-        this.setState({
-          user: response.data.user,
-        });
-        localStorage.setItem("userData", JSON.stringify(data));
-        this.passUserData(response.data.user);
+      const data = {
+        userLogged: true,
+        userId: response.data.user.id,
+        userName: response.data.user.name,
+        userSurname: response.data.user.surname,
+        userMail: response.data.user.email,
+      };
+      this.setState({
+        user: response.data.user,
+      });
+      localStorage.setItem("userData", JSON.stringify(data));
+      if (response.data.status === 1413912) {
+        localStorage.setItem("superUser", 1413912);
       }
+      this.passUserData(response.data.user);
     } catch (error) {
       window.alert(`Coś poszło nie tak! Spróbuj ponownie później.`);
     }
@@ -59,7 +60,10 @@ export default class Profile extends React.Component {
     return (
       <div className="Profile-subpage">
         {Object.keys(this.state.user).length !== 0 ? (
-          <UserProfile userData={this.state.user} />
+          <UserProfile
+            profileContent={this.props.profileContent}
+            userData={this.props.userData}
+          />
         ) : (
           <React.Fragment>
             <div className="Background-image">

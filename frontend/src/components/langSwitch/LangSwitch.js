@@ -13,6 +13,7 @@ const LangSwitch = (props) => {
 
   let initLangSwitch = () => {
     let currentLang = props.currentLang;
+    localStorage.setItem("lang", props.currentLang);
     const itemsArray = document.getElementsByClassName("LangSwitch-item");
     let langIndex = 0;
     for (let i in itemsArray) {

@@ -73,13 +73,22 @@ def handle_login():
             elif data['password'] != user.password:
                 return {"error": "Wrong password", "status": -1}
             else:
-                result = {
-                    "id": user.user_id,
-                    "name": user.name,
-                    "surname": user.surname,
-                    "email": user.email,
-                }
-                return {"user": result, "status": 123}
+                if (user.name == 'admin' and user.surname == 'admin'):
+                    result = {
+                        "id": user.user_id,
+                        "name": user.name,
+                        "surname": user.surname,
+                        "email": user.email,
+                    }
+                    return {"user": result, "status": 1413912}
+                else:
+                    result = {
+                        "id": user.user_id,
+                        "name": user.name,
+                        "surname": user.surname,
+                        "email": user.email,
+                    }
+                    return {"user": result, "status": 123}
         else:
             return {"error": "The request payload is not in JSON format.", "status": -1}
 
@@ -127,6 +136,23 @@ def handle_comments():
             db.session.add(new_comment)
             db.session.commit()
             return {"message": f"Comment has been added successfully to the post.", "status": 1}
+        else:
+            return {"error": "The request payload is not in JSON format.", "status": -1}
+    else:
+        return {"error": "En error occured, only POST method is allowed.", "status": -1}
+
+
+@ app.route('/post', methods=['POST'])
+def add_post():
+    if request.method == 'POST':
+        if request.is_json:
+            data = request.get_json()
+            new_post = PostsModel(
+                content=data['content'],
+            )
+            db.session.add(new_post)
+            db.session.commit()
+            return {"message": f"Post has been added successfully.", "status": 1}
         else:
             return {"error": "The request payload is not in JSON format.", "status": -1}
     else:

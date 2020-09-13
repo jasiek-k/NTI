@@ -212,6 +212,10 @@
   }
 }
 
+.News-posts-section {
+  padding-bottom: 50px;
+}
+
 body {
   margin: 0;
   background-color: #000000;

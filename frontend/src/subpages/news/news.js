@@ -4,6 +4,7 @@ import { CloseIcon, SearchIcon } from "./../../utils/icons";
 import "./news.css";
 import { getAllPosts, addNewComment } from "./../../services/newsService";
 import { checkIfLogged } from "./../../helpers.js";
+import AddPost from "./../../components/addPost/AddPost";
 
 export default class News extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ export default class News extends React.Component {
       displayedData: [],
       allPosts: [],
       authorized: false,
+      superUser: false,
     };
   }
 
@@ -21,6 +23,9 @@ export default class News extends React.Component {
 
     this.setState({
       authorized: ifLogged,
+    });
+    this.setState({
+      superUser: this.checkUser(),
     });
   }
 
@@ -34,6 +39,13 @@ export default class News extends React.Component {
     } catch (err) {
       window.alert(`Coś poszło nie tak! Spróbuj ponownie później.`);
     }
+  };
+
+  checkUser = () => {
+    const isAdmin = parseInt(localStorage.getItem("superUser"));
+    if (isAdmin && isAdmin === 1413912) {
+      return true;
+    } else return false;
   };
 
   addComment = async (value) => {
@@ -109,21 +121,22 @@ export default class News extends React.Component {
         {this.state.authorized ? (
           <React.Fragment></React.Fragment>
         ) : (
-          <p className="Must-log-alert">
-            ZALOGUJ SIĘ W SEKCJI PROFILU, ABY KORZYSTAĆ Z FUNKCJI NEWS'ÓW
-          </p>
+          <p className="Must-log-alert">{this.props.newsContent.logAlert}</p>
         )}
+        {this.state.superUser ? <AddPost /> : <React.Fragment></React.Fragment>}
         {this.state.displayedData.length > 0 ? (
-          [...this.state.displayedData].map((item, index) => {
-            return (
-              <NewsPost
-                newsPostContent={this.props.newsContent}
-                addComment={this.addComment}
-                content={item}
-                key={index}
-              />
-            );
-          })
+          <div className="News-posts-section">
+            {[...this.state.displayedData].map((item, index) => {
+              return (
+                <NewsPost
+                  newsPostContent={this.props.newsContent}
+                  addComment={this.addComment}
+                  content={item}
+                  key={index}
+                />
+              );
+            })}
+          </div>
         ) : (
           <p className="News-search-error">
             Currently there are no results to show. Press the close button in

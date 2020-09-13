@@ -1,0 +1,33 @@
+@media (max-width: 599px) {
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+}
+
+@media (min-width: 900px) {
+  .Add-post-header {
+    color: #fff;
+  }
+
+  .Container {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+
+  .Post-input {
+    box-sizing: border-box;
+    margin: 0;
+    height: 80px;
+    resize: none;
+    border-style: none;
+    padding-left: 14px;
+    padding-right: 14px;
+    display: block;
+    font-size: 16px;
+    resize: none;
+    font-family: "Gotham";
+    width: 100%;
+  }
+}

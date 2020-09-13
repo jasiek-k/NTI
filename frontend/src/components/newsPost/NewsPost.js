@@ -29,16 +29,17 @@ export default class NewsPost extends React.Component {
 
   handleCommentSubmit = (e) => {
     e.preventDefault();
+    if (document.getElementById("Comment-input").value.length > 0) {
+      const { userId } = JSON.parse(localStorage.getItem("userData"));
+      const commentData = {
+        user_id: userId,
+        post_id: this.postId,
+        content: `${document.getElementById("Comment-input").value}`,
+      };
 
-    const { userId } = JSON.parse(localStorage.getItem("userData"));
-    const commentData = {
-      user_id: userId,
-      post_id: this.postId,
-      content: `${document.getElementById("Comment-input").value}`,
-    };
-
-    this.props.addComment(commentData);
-    document.getElementById("Comment-input").value = "";
+      this.props.addComment(commentData);
+      document.getElementById("Comment-input").value = "";
+    }
   };
 
   render() {
@@ -46,7 +47,7 @@ export default class NewsPost extends React.Component {
     let postPic = "";
     const { postContent } = this.props.newsPostContent;
     console.log(this.props.content);
-    var { comments, content, date, id, photo, tags } = this.props.content;
+    let { comments, content, date, id, photo, tags } = this.props.content;
     const [
       showCaption,
       hideCaption,

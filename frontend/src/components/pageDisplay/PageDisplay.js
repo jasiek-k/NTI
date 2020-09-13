@@ -35,6 +35,7 @@ export default class PageDisplay extends React.Component {
   componentDidMount() {
     this.checkUser();
     this.updateWindowDimensions();
+    this.initLang();
     window.addEventListener("resize", this.updateWindowDimensions);
   }
 
@@ -57,21 +58,47 @@ export default class PageDisplay extends React.Component {
 
   checkUser = () => {
     const userStatus = checkIfLogged();
-    console.log(userStatus);
+    const user = JSON.parse(localStorage.getItem("userData"));
+    console.log(user);
     if (userStatus) {
+      const { userName, userMail, userSurname } = user;
+
       this.setState({
         user: {
-          email: localStorage.getItem("userMail"),
-          id: localStorage.getItem("userId"),
-          name: localStorage.getItem("userName"),
-          surname: localStorage.getItem("userSurname"),
+          email: userMail,
+          name: userName,
+          surname: userSurname,
         },
+      });
+    }
+  };
+
+  initLang = () => {
+    const lang = localStorage.getItem("lang");
+    console.log(lang);
+
+    if (lang) {
+      //const parsedData = JSON.parse(lang);
+      //console.log(parsedData);
+      this.setState({
+        currentLang: lang,
+      });
+      if (lang === "Polski") {
+        this.pageContent = ln_pl;
+      } else if (lang === "English") {
+        this.pageContent = ln_en;
+      }
+    } else {
+      this.pageContent = ln_en;
+      this.setState({
+        currentLang: "English",
       });
     }
   };
 
   langSwitchHandling = (e) => {
     let lang = e.target.innerText;
+    localStorage.setItem("lang", JSON.stringify({ value: lang }));
     this.setState({
       currentLang: lang,
     });
@@ -131,6 +158,7 @@ export default class PageDisplay extends React.Component {
                 path="/profile"
                 render={(props) => (
                   <Profile
+                    userData={this.state.user}
                     displayData={this.state.windowWidth}
                     passUserData={this.passUserData}
                     profileContent={this.pageContent}
@@ -141,10 +169,9 @@ export default class PageDisplay extends React.Component {
               <Route
                 path="/profile"
                 render={(props) => (
-                  <UserProfile /*displayData={this.state.windowWidth}
-                passUserData={this.passUserData}
-                profileContent={this.pageContent}/>}*/
+                  <UserProfile
                     userData={this.state.user}
+                    profileContent={this.pageContent}
                   />
                 )}
               />
