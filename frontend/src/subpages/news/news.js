@@ -1,9 +1,9 @@
 import React from "react";
 import NewsPost from "./../../components/newsPost/NewsPost";
-import axios from "axios";
 import { CloseIcon, SearchIcon } from "./../../utils/icons";
 import "./news.css";
 import { getAllPosts, addNewComment } from "./../../services/newsService";
+import { checkIfLogged } from "./../../helpers.js";
 
 export default class News extends React.Component {
   constructor(props) {
@@ -15,15 +15,13 @@ export default class News extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const { userLogged } = JSON.parse(localStorage.getItem("userData"));
+  async componentDidMount() {
+    await this.getPosts();
+    const ifLogged = checkIfLogged();
 
-    this.getPosts();
-    if (userLogged) {
-      this.setState({
-        authorized: true,
-      });
-    }
+    this.setState({
+      authorized: ifLogged,
+    });
   }
 
   getPosts = async () => {
@@ -34,13 +32,15 @@ export default class News extends React.Component {
         allPosts: response.data.posts,
       });
     } catch (err) {
-      console.log(err);
+      window.alert(`Coś poszło nie tak! Spróbuj ponownie później.`);
     }
   };
 
-  addComment = (value) => {
-    this.sendResponse(value);
-    this.getPosts();
+  addComment = async (value) => {
+    try {
+      this.sendResponse(value);
+      await this.getPosts();
+    } catch (error) {}
   };
 
   sendResponse = async (comment) => {
@@ -107,7 +107,7 @@ export default class News extends React.Component {
           </button>
         </form>
         {this.state.authorized ? (
-          <div>USER LOGGED</div>
+          <React.Fragment></React.Fragment>
         ) : (
           <p className="Must-log-alert">
             ZALOGUJ SIĘ W SEKCJI PROFILU, ABY KORZYSTAĆ Z FUNKCJI NEWS'ÓW

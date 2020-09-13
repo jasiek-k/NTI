@@ -1,6 +1,7 @@
 import React from "react";
 import { PostLogo, PersonIcon } from "./../../utils/icons";
 import "./NewsPost.css";
+import { checkIfLogged } from "./../../helpers.js";
 
 export default class NewsPost extends React.Component {
   constructor(props) {
@@ -14,13 +15,11 @@ export default class NewsPost extends React.Component {
   postId = 0;
 
   componentDidMount = () => {
-    const { userLogged } = JSON.parse(localStorage.getItem("userData"));
-    console.log(userLogged);
-    if (userLogged) {
-      this.setState({
-        authorized: true,
-      });
-    }
+    const ifLogged = checkIfLogged();
+
+    this.setState({
+      authorized: ifLogged,
+    });
   };
 
   displayComments = () => {
@@ -79,15 +78,15 @@ export default class NewsPost extends React.Component {
         <div className="Comments-section">
           {this.ifCommentsDisplayed ? (
             <ul className="Comments-list">
-              {comments !== undefined ? (
+              {comments && comments.length > 0 ? (
                 comments.map((item, index) => {
-                  const [author, date, content] = item;
+                  const { content, date, user_name } = item;
                   return (
                     <React.Fragment key={index}>
                       <li className="Post-comment">
                         <PersonIcon className="Comment-icon" />
                         <div className="Comment-header">
-                          <span className="Comment-author">{author}</span>
+                          <span className="Comment-author">{user_name}</span>
                           <span className="Comment-date">{date}</span>
                         </div>
                         <p className="Comment-content">{content}</p>

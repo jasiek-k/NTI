@@ -18,6 +18,8 @@ export default class Profile extends React.Component {
       const response = await handleLogin(creds);
 
       if (response.data.status === 123) {
+        console.log("test1");
+
         const data = {
           userLogged: true,
           userId: response.data.user.id,
@@ -25,7 +27,7 @@ export default class Profile extends React.Component {
           userSurname: response.data.user.surname,
           userMail: response.data.user.email,
         };
-
+        console.log("test2");
         this.setState({
           user: response.data.user,
         });

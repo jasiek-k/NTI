@@ -5,7 +5,7 @@ from flask_cors import CORS
 from models import *
 from flask import jsonify
 import json
-
+from sqlalchemy.orm import joinedload
 
 app = Flask(__name__)
 CORS(app)
@@ -32,54 +32,35 @@ def main():
     return 'Hello Wordl!'
 
 
-'''
-@app.route('/news', methods=['POST', 'GET'])
+@app.route('/news', methods=['GET'])
 def get_news():
     if request.method == 'GET':
+        posts_list = []
         posts = PostsModel.query.all()
-        #q = PostsModel.query.all().join("tags")
-        #list = db.session.query(posts, tags).filter(users.id == friendships.friend_id).filter(friendships.user_id == userID).paginate(page, 1, False)
-        list2 = PostsModel.query.all()
-        print(list2)
-        comm = []
-        for i in len(list2):
-            comments = CommentsModel.query.join(UsersModel.user_id==CommentsModel.user_id).filter(CommentsModel.post_id==i)
-            comm.append(jsonify(comments))
-        return { result: comm }
-'''
-# select users.name, users.surname, comments.content from users inner join comments on users.user_id=comments.user_id;
-# return jsonify(posts)
-"""
-        return jsonify(username=g.user.username,
-                   email=g.user.email,
-                   id=g.user.id)
-        results = [
-            {
-                "id": post.post_id,
-                "date": post.date,
-                "content": post.content,
-                "photo": post.photo,
-                #"comments": post.comments,
-            } for post in posts]
-        return {"count": len(results), "posts": results}
-"""
-"""
-    elif request.method == 'POST':
-        if request.is_json:
-            data = request.get_json()
-            new_comment = CommentsModel(
-                content=data['content'], 
-                user_id=data['user_id'], 
-                post_id=data['post_id'])
-            db.session.add(new_comment)
-            db.session.commit()
-            return {"message": f"User {new_comment.content} has been added successfully.", 
-                "status": 1}
-"""
 
-@app.route('/news')
-def get_news():
-    return data
+        for item in posts:
+            comments = CommentsModel.query.filter(
+                CommentsModel.post_id == item.post_id).all()
+            post_comments = []
+            for comment in comments:
+                post_user = UsersModel.query.filter(
+                    UsersModel.user_id == comment.user_id).first()
+                post_comments.append({
+                    "content": comment.content,
+                    "date": comment.date,
+                    "user_name": f'{post_user.name} {post_user.surname}',
+                })
+            posts_list.append({
+                "id": item.post_id,
+                "content": item.content,
+                "date": item.date,
+                "photo": item.photo,
+                "comments": post_comments,
+            })
+        return {"posts": posts_list}
+    else:
+        return {"error": "En error occured, only POST method is allowed.", "status": -1}
+
 
 @app.route('/login', methods=['POST'])
 def handle_login():
@@ -103,7 +84,7 @@ def handle_login():
             return {"error": "The request payload is not in JSON format.", "status": -1}
 
 
-@app.route('/register', methods=['POST', 'GET'])
+@ app.route('/register', methods=['POST', 'GET'])
 def handle_users():
     if request.method == 'POST':
         if request.is_json:
@@ -132,62 +113,8 @@ def handle_users():
 
         return {"count": len(results), "users": results}
 
-"""
-@app.route('/news', methods=['POST', 'GET'])
-def handle_news():
-    if request.method == 'POST':
-        if request.is_json:
-            data = request.get_json()
-            new_post = PostsModel(
-                content=data['content'], 
-                photo=data['photo']
-            )
-            db.session.add(new_post)
-            db.session.commit()
-            return {"message": "Post has been added successfully.", "status": 1}
-        else:
-            return {"error": "The request payload is not in JSON format.", "status": -1}
-    elif request.method == 'GET':
-        
-        posts = PostsModel.query.all()
-        comments = CommentsModel.query.all()
-        posts = PostsModel.query.all().join(CommentsModel).filter(PostsModel.post_id == CommentsModel.post_id)
-        print(posts)
-        
-        #comments = CommentsModel.query.filter(item)
-        for item in posts:
-            comment = CommentsModel.query.filter_by(comment_id == item.)
-            for comment in comments:
-                if comment.post_id == item.post_id:
-                    comments.append({
-                        "id": comment.comment_id,
-                        "date": comment.date,
-                        "content": comment.content,
-                        "user_id": comment.user_id
-                    })
-            result.append({
-                "id": item.post_id,
-                "content": item.content,
-                "date": item.date,
-                "photo": item.photo,
-                "comments": comments,
-            })
-"""
-"""    
-        results = [
-            {
-                "id": item.post_id,
-                "content": item.content,
-                "date": item.date,
-                "photo": item.photo,
-                #"comments": CommentsModel.query.filter_by(post_id = item.post_id)
-            } for item in posts]
-"""
-"""
-        return {"count": len(results), "posts": results}
-"""
 
-@app.route('/comments', methods=['POST'])
+@ app.route('/comments', methods=['POST'])
 def handle_comments():
     if request.method == 'POST':
         if request.is_json:

@@ -13,6 +13,7 @@ import Navbar from "./../navbar/Navbar";
 import MobileNavbar from "../mobileNavbar/MobileNavbar";
 import UserProfile from "../userProfile/UserProfile";
 
+import { checkIfLogged } from "./../../helpers";
 import "./../../utils/fonts/stylesheet.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -55,10 +56,9 @@ export default class PageDisplay extends React.Component {
   };
 
   checkUser = () => {
-    const test = JSON.parse(localStorage.getItem("dupa"));
-    console.log("test", test);
-    //const { userLogged } = JSON.parse(localStorage.getItem("userData"));
-    if (test) {
+    const userStatus = checkIfLogged();
+    console.log(userStatus);
+    if (userStatus) {
       this.setState({
         user: {
           email: localStorage.getItem("userMail"),
