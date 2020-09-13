@@ -19,7 +19,7 @@ const AddPost = () => {
 
   return (
     <div className="Container">
-      <h1 className="Add-post-header">TEST</h1>
+      <h1 className="Add-post-header">Add new post</h1>
       <form>
         <textarea className="Post-input" id="Post-input" type="text"></textarea>
         <div className="Button-wrapper">
