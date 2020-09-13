@@ -56,7 +56,7 @@ export default class NewsPost extends React.Component {
     ] = postContent;
     this.postId = id;
 
-    if (photo !== "null") {
+    if (JSON.parse(photo)) {
       imagesDir = require.context("./../../utils/img", false);
       postPic = imagesDir(photo);
     }

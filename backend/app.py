@@ -149,6 +149,7 @@ def add_post():
             data = request.get_json()
             new_post = PostsModel(
                 content=data['content'],
+                photo=data['photo'],
             )
             db.session.add(new_post)
             db.session.commit()
