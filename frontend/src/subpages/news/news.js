@@ -17,8 +17,8 @@ export default class News extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    await this.getPosts();
+  componentDidMount() {
+    this.getPosts();
     const ifLogged = checkIfLogged();
 
     this.setState({

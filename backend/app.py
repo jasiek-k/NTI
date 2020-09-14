@@ -6,6 +6,7 @@ from models import *
 from flask import jsonify
 import json
 from sqlalchemy.orm import joinedload
+from sqlalchemy import desc
 
 app = Flask(__name__)
 CORS(app)
@@ -21,10 +22,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://%(user)s:\
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG'] = True
 db.init_app(app)
-
-
-with open('data.json') as file:
-    data = json.load(file)
 
 
 @app.route('/')

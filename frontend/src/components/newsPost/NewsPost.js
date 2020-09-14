@@ -47,12 +47,13 @@ export default class NewsPost extends React.Component {
     let postPic = "";
     const { postContent } = this.props.newsPostContent;
     console.log(this.props.content);
-    let { comments, content, date, id, photo, tags } = this.props.content;
+    let { comments, content, date, id, photo } = this.props.content;
     const [
       showCaption,
       hideCaption,
       buttonCaption,
       placeholderCaption,
+      noComments,
     ] = postContent;
     this.postId = id;
 
@@ -97,7 +98,7 @@ export default class NewsPost extends React.Component {
                   );
                 })
               ) : (
-                <React.Fragment></React.Fragment>
+                <p className="Must-log-alert">{noComments}</p>
               )}
               {this.state.authorized ? (
                 <form
